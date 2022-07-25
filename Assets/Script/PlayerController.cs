@@ -4,45 +4,56 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    //Componenti
     Rigidbody rb;
     Camera mainCamera;
-    [SerializeField] Vector3 offset;    //Offset tra MainCamera e Player
-    [SerializeField] float movSpeed;
+    [SerializeField] GameObject sprite;
+
+    //Movimento
+    float movSpeed = 35f;
     float ZMovement;
     float XMovement;
-    float XMouse;
-    float YMouse;
+    Vector3 movDirection;
 
-    // Start is called before the first frame update
+    //Rotazione
+    float inputAngle;
+    float turnSmoothAngle = 0.1f;
+    float turnSmoothVelocity;
+    float angle;
+
     void Start()
     {
 
         rb = gameObject.GetComponent<Rigidbody>();
-        movSpeed = 35f;
-
         mainCamera = Camera.main;
-        offset = mainCamera.transform.position - transform.position;
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        //Input Movimento
         ZMovement = Input.GetAxisRaw("Vertical");
         XMovement = Input.GetAxisRaw("Horizontal");
 
-        mainCamera.transform.position = transform.position + offset;
-        XMouse = Input.GetAxisRaw("Mouse X");
-        YMouse = Input.GetAxisRaw("Mouse Y");
-        
+        //Angolo rotazione
+        inputAngle = Mathf.Atan2(XMovement, ZMovement) * Mathf.Rad2Deg + mainCamera.transform.eulerAngles.y;    //input totale della rotazione del personaggio e della cam
+        angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, inputAngle, ref turnSmoothVelocity, turnSmoothAngle); //Angolo della rotazione
+        movDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;   //Direzione in cui deve muoversi il giocatore considerando l'angolo
+
+        //Billboarding
+        sprite.transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
+
     }
 
     private void FixedUpdate()
     {
 
-        rb.AddForce(new Vector3(XMovement, 0f, ZMovement) * movSpeed);
-
+        //Movimento e Rotazione
+        rb.MoveRotation(Quaternion.Euler(0f, angle, 0f));   //Ruota secondo l'angolo fluido e cambia l'asse di movimento
+        if (XMovement!=0 || ZMovement!=0)
+        {
+            rb.AddForce(movDirection.normalized * movSpeed);
+        }
+        
     }
 }
