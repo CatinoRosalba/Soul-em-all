@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
 
-        if (collision.gameObject.CompareTag("Projectile"))
+        if (other.gameObject.CompareTag("Projectile"))
         {
 
             Destroy(gameObject);
