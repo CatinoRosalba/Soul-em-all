@@ -37,7 +37,7 @@ public class PlayerShooting : MonoBehaviour
             debugTransform.position = raycasthit.point;     //Rende visibile con un elemento il punto in cui è possibile sparare
 
         }
-        aimDir = raycasthit.point - (bulletSpawnPoint.transform.position).normalized;   //Direzione di rotazione della mira
+        aimDir = (raycasthit.point - bulletSpawnPoint.transform.position).normalized;   //Direzione di rotazione della mira
 
         //Fuoco primario
         if (Input.GetKeyDown(KeyCode.Mouse0))

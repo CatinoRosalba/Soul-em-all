@@ -43,8 +43,6 @@ public class PlayerController : MonoBehaviour
         //Billboarding
         sprite.transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
 
-
-
     }
 
     private void FixedUpdate()
