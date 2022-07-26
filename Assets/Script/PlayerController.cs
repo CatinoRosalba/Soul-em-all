@@ -37,8 +37,7 @@ public class PlayerController : MonoBehaviour
 
         //Angolo rotazione
         inputAngle = Mathf.Atan2(XMovement, ZMovement) * Mathf.Rad2Deg + mainCamera.transform.eulerAngles.y;    //input totale della rotazione del personaggio e della cam
-        angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, inputAngle, ref turnSmoothVelocity, turnSmoothAngle); //Angolo della rotazione
-        movDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;   //Direzione in cui deve muoversi il giocatore considerando l'angolo
+        movDirection = Quaternion.Euler(0f, inputAngle, 0f) * Vector3.forward;   //Direzione in cui deve muoversi il giocatore considerando l'angolo
 
         //Billboarding
         sprite.transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
