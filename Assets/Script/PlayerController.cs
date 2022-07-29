@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     Camera mainCamera;
     [SerializeField] GameObject sprite;
+    //Animator anim;
 
     //Movimento
     float movSpeed = 35f;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
 
         rb = gameObject.GetComponent<Rigidbody>();
+        //anim = gameObject.GetComponent<Animator>();
         mainCamera = Camera.main;
 
     }
@@ -47,13 +49,17 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         //Movimento e Rotazione
         rb.MoveRotation(Quaternion.Euler(0f, angle, 0f));   //Ruota secondo l'angolo fluido e cambia l'asse di movimento
         if (XMovement!=0 || ZMovement!=0)
         {
             rb.AddForce(movDirection.normalized * movSpeed);
+            //setAnimationState(true);
         }
-        
     }
+
+    /*void setAnimationState(bool isWalking)
+    {
+        anim.SetBool("isWalking", isWalking);
+    }*/
 }
