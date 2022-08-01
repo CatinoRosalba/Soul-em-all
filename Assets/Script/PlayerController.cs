@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //Movimento e Rotazione
-        rb.MoveRotation(Quaternion.Euler(0f, angle, 0f));   //Ruota secondo l'angolo fluido e cambia l'asse di movimento
+        rb.MoveRotation(Quaternion.Euler(0f, mainCamera.transform.eulerAngles.y, 0f));   //Ruota secondo l'angolo fluido e cambia l'asse di movimento
         if (XMovement!=0 || ZMovement!=0)
         {
             rb.AddForce(movDirection.normalized * movSpeed);
