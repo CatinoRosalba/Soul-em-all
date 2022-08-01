@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     Camera mainCamera;
     [SerializeField] GameObject sprite;
-    //Animator anim;
+    Animator anim;
 
     //Movimento
     float movSpeed = 35f;
@@ -18,15 +18,15 @@ public class PlayerController : MonoBehaviour
 
     //Rotazione
     float inputAngle;
-    float turnSmoothAngle = 0.1f;
-    float turnSmoothVelocity;
-    float angle;
+    //float turnSmoothAngle = 0.1f;
+    //float turnSmoothVelocity;
+    //float angle;
 
     void Start()
     {
 
         rb = gameObject.GetComponent<Rigidbody>();
-        //anim = gameObject.GetComponent<Animator>();
+        anim = sprite.GetComponent<Animator>();
         mainCamera = Camera.main;
 
     }
@@ -39,11 +39,21 @@ public class PlayerController : MonoBehaviour
 
         //Angolo rotazione
         inputAngle = Mathf.Atan2(XMovement, ZMovement) * Mathf.Rad2Deg + mainCamera.transform.eulerAngles.y;    //input totale della rotazione del personaggio e della cam
-        angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, inputAngle, ref turnSmoothVelocity, turnSmoothAngle); //Angolo della rotazione
+        //angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, inputAngle, ref turnSmoothVelocity, turnSmoothAngle); //Angolo della rotazione
         movDirection = Quaternion.Euler(0f, inputAngle, 0f) * Vector3.forward;   //Direzione in cui deve muoversi il giocatore considerando l'angolo
 
         //Billboarding
         sprite.transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
+
+        //Animazione camminata
+        if (rb.velocity != new Vector3(0f, 0f, 0f))
+        {
+            setAnimationState(true);
+        }
+        else
+        {
+            setAnimationState(false);
+        }
 
     }
 
@@ -54,12 +64,11 @@ public class PlayerController : MonoBehaviour
         if (XMovement!=0 || ZMovement!=0)
         {
             rb.AddForce(movDirection.normalized * movSpeed);
-            //setAnimationState(true);
         }
     }
 
-    /*void setAnimationState(bool isWalking)
+    void setAnimationState(bool isWalking)
     {
         anim.SetBool("isWalking", isWalking);
-    }*/
+    }
 }
