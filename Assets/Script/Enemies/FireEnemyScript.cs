@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class FireEnemyScript : MonoBehaviour
 {
 
     float health;
+    [SerializeField] GameObject fireAmmo;
 
     private void Start()
     {
-
         health = 3;
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +25,7 @@ public class EnemyScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(fireAmmo, gameObject.transform.position, Quaternion.identity);
         }
 
     }
