@@ -55,6 +55,13 @@ public class PlayerShooting : MonoBehaviour
     //Sparo
     private void Fire(GameObject ammo)
     {
-        Instantiate(ammo, bulletSpawnPoint.transform.position, Quaternion.LookRotation(aimDir, Vector3.up));
+        if(ammo.name == "Fireball")
+        {
+            Instantiate(ammo, bulletSpawnPoint.transform.position, Quaternion.LookRotation(aimDir, Vector3.up));
+        }
+        if(ammo.name == "WaterSprayDrop")
+        {
+            Instantiate(ammo, bulletSpawnPoint.transform.position, Quaternion.LookRotation(aimDir, Vector3.up));
+        }
     }
 }

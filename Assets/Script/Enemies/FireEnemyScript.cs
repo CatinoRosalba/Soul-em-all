@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FireEnemyScript : MonoBehaviour
 {
-
     float health;
     [SerializeField] GameObject fireAmmo;
 
@@ -15,7 +14,6 @@ public class FireEnemyScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         //Danno
         if (other.gameObject.CompareTag("Projectile"))
         {
@@ -27,7 +25,5 @@ public class FireEnemyScript : MonoBehaviour
             Destroy(gameObject);
             Instantiate(fireAmmo, gameObject.transform.position, Quaternion.identity);
         }
-
     }
-
 }

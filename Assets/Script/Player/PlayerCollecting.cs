@@ -7,6 +7,7 @@ public class PlayerCollecting : MonoBehaviour
     //Altri Script
     [SerializeField] PlayerShooting playerShooting;
     [SerializeField] GameObject fireball;
+    [SerializeField] GameObject waterspray;
 
     //Controlli
     bool canPickup;
@@ -25,13 +26,16 @@ public class PlayerCollecting : MonoBehaviour
     {
         if(canPickup == true)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            Debug.Log("a"); //Se raccogli e ripremi il tasto con cui hai raccolto vicino ad un'altra gemma, non entra in questo if
+            if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)
             {
                 pickup1 = true;
+                //cambia hud
             }
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true)
             {
                 pickup2 = true;
+                //cambia hud
             }
         }
     }
@@ -52,16 +56,18 @@ public class PlayerCollecting : MonoBehaviour
         {
             if (pickup1 == true)
             {
-                playerShooting.primaryFire = ConvertGemToProjectile(other.gameObject);
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire);
                 playerShooting.isEmpty1 = false;
                 pickup1 = false;
+                canPickup = false;
                 Destroy(other.gameObject);
             }
             if (pickup2 == true)
             {
-                playerShooting.secondaryFire = ConvertGemToProjectile(other.gameObject);
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire);
                 playerShooting.isEmpty2 = false;
                 pickup2 = false;
+                canPickup = false;
                 Destroy(other.gameObject);
             }
         }
@@ -74,8 +80,15 @@ public class PlayerCollecting : MonoBehaviour
     }
 
     //Converte la gemma nello sparo (da finire)
-    public GameObject ConvertGemToProjectile(GameObject gem)
+    public void ConvertGemToProjectile(GameObject gem, ref GameObject spell)
     {
-        return fireball;
+        if(gem.name == "FireGem")
+        {
+            spell = fireball;
+        }
+        if(gem.name == "WaterGem")
+        {
+            spell = waterspray;
+        }
     }
 }
