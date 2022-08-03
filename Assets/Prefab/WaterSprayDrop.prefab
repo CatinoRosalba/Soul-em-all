@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  waterZone: {fileID: 0}
+  waterZone: {fileID: 1359944603199997067, guid: bbe8e3ab9f3c39746836690711964254, type: 3}
 --- !u!114 &6601592795298026468
 MonoBehaviour:
   m_ObjectHideFlags: 0

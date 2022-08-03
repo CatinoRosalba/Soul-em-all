@@ -26,7 +26,6 @@ public class PlayerCollecting : MonoBehaviour
     {
         if(canPickup == true)
         {
-            Debug.Log("a"); //Se raccogli e ripremi il tasto con cui hai raccolto vicino ad un'altra gemma, non entra in questo if
             if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)
             {
                 pickup1 = true;
@@ -76,17 +75,20 @@ public class PlayerCollecting : MonoBehaviour
     //Toglie la possibilità di raccolta della gemma se ti allontani
     private void OnTriggerExit(Collider other)
     {
-        canPickup = false;
+        if (other.gameObject.CompareTag("Ammo"))
+        {
+            canPickup = false;
+        }
     }
 
     //Converte la gemma nello sparo (da finire)
     public void ConvertGemToProjectile(GameObject gem, ref GameObject spell)
     {
-        if(gem.name == "FireGem")
+        if(gem.name == "FireGem" || gem.name == "FireGem(Clone)")
         {
             spell = fireball;
         }
-        if(gem.name == "WaterGem")
+        if(gem.name == "WaterGem" || gem.name == "WaterGem(Clone)")
         {
             spell = waterspray;
         }

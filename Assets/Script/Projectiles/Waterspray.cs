@@ -33,6 +33,7 @@ public class Waterspray : MonoBehaviour
 
     private void OnDestroy()
     {
-        Instantiate(waterZone, gameObject.transform.position, Quaternion.identity);
+        Vector3 waterzonePosition = new Vector3 (gameObject.transform.position.x, 0.2f, gameObject.transform.position.z);
+        Instantiate(waterZone, waterzonePosition, Quaternion.Euler(90f, 0f, 0f));
     }
 }
