@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCollecting : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class PlayerCollecting : MonoBehaviour
     [SerializeField] PlayerShooting playerShooting;
     [SerializeField] GameObject fireball;
     [SerializeField] GameObject waterspray;
+    [SerializeField] Image imgEmptySlot1;
+    [SerializeField] Image imgEmptySlot2;
+
+    private Collider anotherOther;
 
     //Controlli
     bool canPickup;
@@ -26,15 +31,16 @@ public class PlayerCollecting : MonoBehaviour
     {
         if(canPickup == true)
         {
+            //Se premo prima il tasto dello slot pieno e poi quello vuoto, non cambia immagine
             if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)
             {
                 pickup1 = true;
-                //cambia hud
+                ChangeImageSlot(anotherOther.gameObject, ref imgEmptySlot1);
             }
             if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true)
             {
                 pickup2 = true;
-                //cambia hud
+                ChangeImageSlot(anotherOther.gameObject, ref imgEmptySlot2);
             }
         }
     }
@@ -46,6 +52,7 @@ public class PlayerCollecting : MonoBehaviour
         {
             canPickup = true;
         }
+        anotherOther = other;
     }
 
     //Se sono vicino a delle ammo e premo un pulsante del mouse lo raccolgo (Si distruggono le altre gemme dopo la prima, da fixare)
@@ -93,4 +100,18 @@ public class PlayerCollecting : MonoBehaviour
             spell = waterspray;
         }
     }
+
+    public void ChangeImageSlot(GameObject gem, ref Image imgEmptySlot)
+    {
+        if (gem.name == "FireGem" || gem.name == "FireGem(Clone)")
+        {
+           imgEmptySlot.sprite = Resources.Load<Sprite>("skill_fuoco_attiva");
+        }
+        if (gem.name == "WaterGem" || gem.name == "WaterGem(Clone)")
+        {
+            imgEmptySlot.sprite = Resources.Load<Sprite>("skill_acqua_attiva");
+        }
+        
+    }
+
 }

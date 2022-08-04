@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 761688509}
   - component: {fileID: 761688508}
   m_Layer: 5
-  m_Name: Skill (2)
+  m_Name: SkillSlot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2499,7 +2499,7 @@ Transform:
   m_Children:
   - {fileID: 624737720}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1789808138
 GameObject:
@@ -2513,7 +2513,7 @@ GameObject:
   - component: {fileID: 1789808141}
   - component: {fileID: 1789808140}
   m_Layer: 5
-  m_Name: Skill (1)
+  m_Name: SkillSlot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3122,6 +3122,8 @@ MonoBehaviour:
   playerShooting: {fileID: 1979420550}
   fireball: {fileID: 4470351869424645250, guid: f51923d6d8c1db14d95c230f0012c894, type: 3}
   waterspray: {fileID: 3608292313410773321, guid: ab70e4de5d597fa4aa1ea63e50dd4c7b, type: 3}
+  imgEmptySlot1: {fileID: 1789808140}
+  imgEmptySlot2: {fileID: 761688508}
 --- !u!95 &1979420552
 Animator:
   serializedVersion: 4
@@ -3212,7 +3214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3721194599559746417, guid: bd33ca62e3230b6488c87b4de36899dd, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3721194599559746417, guid: bd33ca62e3230b6488c87b4de36899dd, type: 3}
       propertyPath: m_LocalPosition.x
