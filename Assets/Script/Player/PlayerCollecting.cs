@@ -14,6 +14,8 @@ public class PlayerCollecting : MonoBehaviour
     [SerializeField] GameObject waterspray;
     Collider anotherOther;
 
+    [SerializeField] ParticleSystem effect;
+
     //Controlli
     bool canPickup;
     bool pickup1;
@@ -53,6 +55,7 @@ public class PlayerCollecting : MonoBehaviour
         {
             canPickup = true;
             anotherOther = other;
+            effect.Play();
         }
     }
 
@@ -88,6 +91,7 @@ public class PlayerCollecting : MonoBehaviour
         if (other.gameObject.CompareTag("Ammo"))
         {
             canPickup = false;
+            effect.Stop();
         }
     }
 
