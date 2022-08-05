@@ -6,9 +6,9 @@ public class PlayerShooting : MonoBehaviour
 {
     //Sparo e ammo
     public GameObject primaryFire;
-    public GameObject primaryAmmo;
+    public float primaryAmmo;
     public GameObject secondaryFire;
-    public GameObject secondaryAmmo;
+    public float secondaryAmmo;
 
     //Mira
     [SerializeField] GameObject bulletSpawnPoint;
@@ -43,12 +43,22 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false)
         {
             Fire(primaryFire);
+            primaryAmmo--;
+            if (primaryAmmo == 0)
+            {
+                isEmpty1 = true;
+            }
         }
 
         //Fuoco secondario
-        if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false )
         {
             Fire(secondaryFire);
+            secondaryAmmo--;
+            if (secondaryAmmo == 0)
+            {
+                isEmpty2 = true;
+            }
         }
     }
 

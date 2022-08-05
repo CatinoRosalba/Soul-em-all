@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 559883470}
   - component: {fileID: 559883469}
   - component: {fileID: 559883468}
+  - component: {fileID: 559883472}
   m_Layer: 5
   m_Name: Canvas - HUD
   m_TagString: Untagged
@@ -580,6 +581,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &559883472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559883467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c8c8b1dd63e7b4a8256389b0b2202b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgEmptySlot1: {fileID: 1789808140}
+  imgEmptySlot2: {fileID: 761688508}
+  collission: {fileID: 0}
 --- !u!1 &577544961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,7 +2012,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252252923
 GameObject:
@@ -2436,6 +2452,7 @@ GameObject:
   - component: {fileID: 1613743993}
   - component: {fileID: 1613743992}
   - component: {fileID: 1613743991}
+  - component: {fileID: 1613743997}
   m_Layer: 0
   m_Name: Fire Enemy
   m_TagString: Enemy
@@ -2499,8 +2516,20 @@ Transform:
   m_Children:
   - {fileID: 624737720}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1613743997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613743990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096a340fa17c377479783ed255b060ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789808138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,9 +3126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryFire: {fileID: 0}
-  primaryAmmo: {fileID: 0}
+  primaryAmmo: 0
   secondaryFire: {fileID: 0}
-  secondaryAmmo: {fileID: 0}
+  secondaryAmmo: 0
   bulletSpawnPoint: {fileID: 414832194}
   aimColliderLayerMask:
     serializedVersion: 2
@@ -3120,10 +3149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerShooting: {fileID: 1979420550}
+  slot: {fileID: 559883472}
   fireball: {fileID: 4470351869424645250, guid: f51923d6d8c1db14d95c230f0012c894, type: 3}
   waterspray: {fileID: 3608292313410773321, guid: ab70e4de5d597fa4aa1ea63e50dd4c7b, type: 3}
-  imgEmptySlot1: {fileID: 1789808140}
-  imgEmptySlot2: {fileID: 761688508}
 --- !u!95 &1979420552
 Animator:
   serializedVersion: 4
@@ -3214,7 +3242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3721194599559746417, guid: bd33ca62e3230b6488c87b4de36899dd, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3721194599559746417, guid: bd33ca62e3230b6488c87b4de36899dd, type: 3}
       propertyPath: m_LocalPosition.x
