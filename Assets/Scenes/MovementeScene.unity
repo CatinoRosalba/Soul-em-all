@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 134311990}
   - component: {fileID: 134311989}
   m_Layer: 5
-  m_Name: Usability (2)
+  m_Name: TXTAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,12 +153,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 721214097}
-  m_RootOrder: 1
+  m_Father: {fileID: 761688507}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1030.8, y: 53}
+  m_AnchoredPosition: {x: 55.80005, y: 53}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134311989
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cb89c01901cb174ebc851187c753e4e, type: 2}
   m_sharedMaterial: {fileID: -6354210909983106851, guid: 7cb89c01901cb174ebc851187c753e4e, type: 2}
@@ -730,6 +730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imgEmptySlot1: {fileID: 1789808140}
   imgEmptySlot2: {fileID: 761688508}
+  TXTAmmo1: {fileID: 679007561}
+  TXTAmmo2: {fileID: 134311989}
 --- !u!1 &577544961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1095,7 @@ GameObject:
   - component: {fileID: 679007562}
   - component: {fileID: 679007561}
   m_Layer: 5
-  m_Name: Usability (1)
+  m_Name: TXTAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,12 +1113,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 721214097}
+  m_Father: {fileID: 1789808139}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 900.7, y: 52}
+  m_AnchoredPosition: {x: 55.700073, y: 52}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679007561
@@ -1139,7 +1141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cb89c01901cb174ebc851187c753e4e, type: 2}
   m_sharedMaterial: {fileID: -6354210909983106851, guid: 7cb89c01901cb174ebc851187c753e4e, type: 2}
@@ -1246,8 +1248,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 679007560}
-  - {fileID: 134311988}
   - {fileID: 1953370800}
   - {fileID: 874334777}
   m_Father: {fileID: 559883471}
@@ -1325,7 +1325,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 134311988}
   m_Father: {fileID: 1953370800}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1709,7 +1710,7 @@ RectTransform:
   - {fileID: 358705136}
   - {fileID: 1961262378}
   m_Father: {fileID: 721214097}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2830,7 +2831,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 679007560}
   m_Father: {fileID: 1953370800}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3157,7 +3159,7 @@ RectTransform:
   - {fileID: 1789808139}
   - {fileID: 761688507}
   m_Father: {fileID: 721214097}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3396,6 +3398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76886220d3be4f941a683b30d5e9e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot: {fileID: 559883472}
   primaryFire: {fileID: 0}
   primaryAmmo: 0
   secondaryFire: {fileID: 0}

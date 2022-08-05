@@ -17,6 +17,7 @@ public class FireEnemyScript : MonoBehaviour
         //Danno
         if (other.gameObject.CompareTag("Projectile"))
         {
+            //Funzione in un altro script che prende entità e proiettile e gestisce i danni
             health--;
         }
         //Morte

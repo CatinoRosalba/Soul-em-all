@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     //Slot Skills
-    [SerializeField] public Image imgEmptySlot1;
-    [SerializeField] public Image imgEmptySlot2;
+    public Image imgEmptySlot1;
+    public Image imgEmptySlot2;
+    public TMP_Text TXTAmmo1;
+    public TMP_Text TXTAmmo2;
 
-    //
-    public void EquipSlot(GameObject gem, ref Image imgEmptySlot)
+    //Equip
+    public void EquipSlot(GameObject gem, Image imgEmptySlot)
     {
         if (gem.name == "FireGem" || gem.name == "FireGem(Clone)")
         {
@@ -20,5 +23,10 @@ public class UIManager : MonoBehaviour
         {
             imgEmptySlot.sprite = Resources.Load<Sprite>("skill_acqua_attiva");
         }
+    }
+
+    public void EmptySlot(Image imgEmptySlot)
+    {
+        imgEmptySlot.sprite = Resources.Load<Sprite>("empty_skill");
     }
 }

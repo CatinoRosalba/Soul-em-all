@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
+    //Scripts
+    [SerializeField] UIManager slot;
+
     //Sparo e ammo
     public GameObject primaryFire;
     public float primaryAmmo;
@@ -44,8 +47,10 @@ public class PlayerShooting : MonoBehaviour
         {
             Fire(primaryFire);
             primaryAmmo--;
+            slot.TXTAmmo1.SetText(primaryAmmo.ToString());
             if (primaryAmmo == 0)
             {
+                slot.EmptySlot(slot.imgEmptySlot1);
                 isEmpty1 = true;
             }
         }
@@ -55,8 +60,10 @@ public class PlayerShooting : MonoBehaviour
         {
             Fire(secondaryFire);
             secondaryAmmo--;
+            slot.TXTAmmo2.SetText(secondaryAmmo.ToString());
             if (secondaryAmmo == 0)
             {
+                slot.EmptySlot(slot.imgEmptySlot2);
                 isEmpty2 = true;
             }
         }
