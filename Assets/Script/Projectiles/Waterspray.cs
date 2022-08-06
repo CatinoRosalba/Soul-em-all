@@ -17,7 +17,7 @@ public class Waterspray : MonoBehaviour
     private void Start()
     {
         speed = 30f;
-        damage = 0.2f;
+        damage = 0.8f;
     }
     private void Update()
     {
@@ -30,6 +30,7 @@ public class Waterspray : MonoBehaviour
         //Distrugge il proiettile se entra in contatto con un nemico
         if (other.gameObject.CompareTag("Enemy"))
         {
+            other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");
             Destroy(gameObject);
             Vector3 enemyPosition = new Vector3(other.gameObject.transform.position.x, 0.2f, other.gameObject.transform.position.z);
             Instantiate(waterZone,enemyPosition, Quaternion.Euler(90f, 0f, 0f));

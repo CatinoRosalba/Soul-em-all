@@ -8,11 +8,20 @@ public class Waterzone : MonoBehaviour
 
     private void Start()
     {
-        damage = 0.5f;
+        damage = 0.1f;
     }
 
     private void Update()
     {
         Destroy(gameObject, 5);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        //Distrugge il proiettile se entra in contatto con un nemico
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");    //Mettere timer di danno
+        }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7535,8 +7535,9 @@ GameObject:
   - component: {fileID: 1613743996}
   - component: {fileID: 1613743993}
   - component: {fileID: 1613743992}
-  - component: {fileID: 1613743991}
   - component: {fileID: 1613743997}
+  - component: {fileID: 1613743999}
+  - component: {fileID: 1613743998}
   m_Layer: 0
   m_Name: Fire Enemy
   m_TagString: Enemy
@@ -7544,19 +7545,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1613743991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613743990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84157fd380ade3f46ac2ebd6f2750892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireAmmo: {fileID: 2652850759786794724, guid: bd33ca62e3230b6488c87b4de36899dd, type: 3}
 --- !u!54 &1613743992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7614,6 +7602,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096a340fa17c377479783ed255b060ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1613743998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613743990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446ccc81dd44e01448c05b5fcddbf6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1613743999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613743990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ce108c83759a3488025ce47971d919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  weak: 
+  drop: {fileID: 0}
 --- !u!1 &1789808138
 GameObject:
   m_ObjectHideFlags: 0

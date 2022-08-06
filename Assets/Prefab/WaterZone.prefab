@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1359944603199997069}
   - component: {fileID: 1359944603199997066}
-  - component: {fileID: 1359944603199997068}
   - component: {fileID: 5167487511934731503}
+  - component: {fileID: 3692838708678992601}
   m_Layer: 0
   m_Name: WaterZone
   m_TagString: Untagged
@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359944603199997067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1359944603199997066
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1359944603199997068
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359944603199997067}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.64000016
 --- !u!114 &5167487511934731503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,3 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3781013da7142c648a95e2e478d07b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3692838708678992601
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359944603199997067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8905771, y: 1.0792269, z: 0.39157045}
+  m_Center: {x: 0.08897822, y: -0.04399715, z: -0.095785215}

@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    private Rigidbody rbBullet;
+    Rigidbody rbBullet;
     float speed;
     public float damage;
 
-
-    private void Awake()
-    {
-        rbBullet = GetComponent<Rigidbody>();
-    }
-
     private void Start()
     {
+        rbBullet = GetComponent<Rigidbody>();
         speed = 40f;
         damage = 1;
         rbBullet.velocity = transform.forward * speed;
@@ -27,6 +22,7 @@ public class Fireball : MonoBehaviour
         //Distrugge il proiettile se entra in contatto con un nemico
         if (other.gameObject.CompareTag("Enemy"))
         {
+            other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "fire");
             Destroy(gameObject);
         }
     }
