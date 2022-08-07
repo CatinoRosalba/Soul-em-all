@@ -18,9 +18,6 @@ public class PlayerController : MonoBehaviour
 
     //Rotazione
     float inputAngle;
-    //float turnSmoothAngle = 0.1f;
-    //float turnSmoothVelocity;
-    //float angle;
 
     void Start()
     {
@@ -39,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
         //Angolo rotazione
         inputAngle = Mathf.Atan2(XMovement, ZMovement) * Mathf.Rad2Deg + mainCamera.transform.eulerAngles.y;    //input totale della rotazione del personaggio e della cam
-        //angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, inputAngle, ref turnSmoothVelocity, turnSmoothAngle); //Angolo della rotazione
         movDirection = Quaternion.Euler(0f, inputAngle, 0f) * Vector3.forward;   //Direzione in cui deve muoversi il giocatore considerando l'angolo
 
         //Billboarding

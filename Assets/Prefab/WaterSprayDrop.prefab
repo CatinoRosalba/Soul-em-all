@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5198972701757614194}
   - component: {fileID: 6258371512540382528}
-  - component: {fileID: 470674242182637473}
   - component: {fileID: 5041871824509325452}
   - component: {fileID: 6449151438130977905}
   - component: {fileID: 6601592795298026468}
   - component: {fileID: 7737099723233551617}
+  - component: {fileID: 781638193948868566}
   m_Layer: 2
   m_Name: WaterSprayDrop
   m_TagString: Projectile
@@ -89,19 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!135 &470674242182637473
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3608292313410773321}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.64
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5041871824509325452
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,3 +151,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &781638193948868566
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608292313410773321}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0}
