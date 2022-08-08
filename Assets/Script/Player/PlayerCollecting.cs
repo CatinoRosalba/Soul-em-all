@@ -36,7 +36,7 @@ public class PlayerCollecting : MonoBehaviour
         //Se senza ammo allora puoi raccogliere
         if (canPickup == true)
         {
-            //Se premo prima il tasto dello slot pieno e poi quello vuoto, non cambia immagine
+            //Se premo prima il tasto dello slot pieno e poi quello vuoto, non cambia immagine (da controllare)
             if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)
             {
                 pickup1 = true;
