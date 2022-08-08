@@ -14,7 +14,9 @@ public class PlayerCollecting : MonoBehaviour
     [SerializeField] GameObject waterspray;
     Collider anotherOther;
 
-    [SerializeField] ParticleSystem effect;
+    //Particles gems
+    [SerializeField] GameObject effect;
+    GameObject effectClone;
 
     //Controlli
     bool canPickup;
@@ -55,7 +57,7 @@ public class PlayerCollecting : MonoBehaviour
         {
             canPickup = true;
             anotherOther = other;
-            effect.Play();
+            effectClone = Instantiate(effect, other.transform.position, Quaternion.identity);
         }
     }
 
@@ -72,6 +74,7 @@ public class PlayerCollecting : MonoBehaviour
                 pickup1 = false;
                 canPickup = false;
                 Destroy(other.gameObject);
+                Destroy(effectClone);
             }
             if (pickup2 == true)
             {
@@ -81,6 +84,7 @@ public class PlayerCollecting : MonoBehaviour
                 pickup2 = false;
                 canPickup = false;
                 Destroy(other.gameObject);
+                Destroy(effectClone);
             }
         }
     }
@@ -91,7 +95,7 @@ public class PlayerCollecting : MonoBehaviour
         if (other.gameObject.CompareTag("Ammo"))
         {
             canPickup = false;
-            effect.Stop();
+            Destroy(effectClone);
         }
     }
 
