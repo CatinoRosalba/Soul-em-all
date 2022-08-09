@@ -6,16 +6,18 @@ public class EnemyDamageManager : MonoBehaviour
 {
     Enemy enemy;
 
-    Color originalColor;
+    Material matDefault;
+    Material matWhite;
     float flashTime = .10f;
 
     private void Start()
     {
         enemy = gameObject.GetComponent<Enemy>();
-
+        matWhite = Resources.Load("FlashWhite", typeof(Material)) as Material;
+        
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
         {
-             originalColor = r.material.color;
+            matDefault = r.material;
         }
     }
 
@@ -34,23 +36,14 @@ public class EnemyDamageManager : MonoBehaviour
         StartCoroutine(EFlash());
     }
 
+
     IEnumerator EFlash()
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
         {
-            if (gameObject.name == "Fire Enemy" || gameObject.name == "Fire Enemy(Clone)")
-            {
-                r.material.color = Color.red;
-                yield return new WaitForSeconds(flashTime);
-                r.material.color = originalColor;
-            }
-            else if (gameObject.name == "Water Enemy" || gameObject.name == "Water Enemy(Clone)")
-            {
-                r.material.color = Color.blue;
-                yield return new WaitForSeconds(flashTime);
-                r.material.color = originalColor;
-            }
-            
+            r.material = matWhite;
+            yield return new WaitForSeconds(flashTime);
+            r.material = matDefault;
         }
 
     }
