@@ -68,7 +68,7 @@ public class PlayerCollecting : MonoBehaviour
         {
             if (pickup1 == true)
             {
-                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo);
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, 2, 5);
                 slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());
                 playerShooting.isEmpty1 = false;
                 pickup1 = false;
@@ -78,7 +78,7 @@ public class PlayerCollecting : MonoBehaviour
             }
             if (pickup2 == true)
             {
-                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo);
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo, 2, 5);
                 slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());
                 playerShooting.isEmpty2 = false;
                 pickup2 = false;
@@ -100,17 +100,17 @@ public class PlayerCollecting : MonoBehaviour
     }
 
     //Converte la gemma nello sparo (da finire)
-    public void ConvertGemToProjectile(GameObject gem, ref GameObject spell, ref float ammo)
+    public void ConvertGemToProjectile(GameObject gem, ref GameObject spell, ref float ammo, int min, int max)
     {
         if(gem.name == "FireGem" || gem.name == "FireGem(Clone)")
         {
             spell = fireball;
-            ammo = Random.Range(2, 5);
+            ammo = Random.Range(min, max);
         }
         if(gem.name == "WaterGem" || gem.name == "WaterGem(Clone)")
         {
             spell = waterspray;
-            ammo = Random.Range(2, 5);
+            ammo = Random.Range(min, max);
         }
     }
 }

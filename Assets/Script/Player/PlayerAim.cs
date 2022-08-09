@@ -13,12 +13,7 @@ public class PlayerAim : MonoBehaviour
     public LayerMask jigglyLayerMask;                                                           //Superfici che Jiggly può mirare
     public RaycastHit amneryRaycasthit;                                                         //Punto di mira di Amnery già calcolato
     public RaycastHit jigglyRaycasthit;                                                         //Punto di mira di Jiggly già calcolato
-    public bool jigglyRaycasthitFound;                                                          //Jiggly può mirare lì?
-
-    private void Start()
-    {
-        jigglyRaycasthitFound = false;
-    }
+    public int jigglyRaycasthitFound;                                                        //Jiggly può mirare lì?
 
     void Update()
     {
@@ -35,12 +30,12 @@ public class PlayerAim : MonoBehaviour
         //Mira di Jiggly
         if(Physics.Raycast(ray, out jigglyRaycasthit, 5000f, jigglyLayerMask))                  //Spara il raycast nella posizione ray e se in range e tra le superfici segnate nella layerMask, segna le coordinate nella variabile raycasthit
         {
-            jigglyRaycasthitFound = true;                                                       //Superficie colpibile
+            jigglyRaycasthitFound = jigglyRaycasthit.collider.gameObject.layer;      //Superficie colpibile
             jigglyBulletRay.position = jigglyRaycasthit.point;                                  //Il bulletray per il debug
         }
         else
         {
-            jigglyRaycasthitFound = false;                                                      //Superficie non colpibile
+            jigglyRaycasthitFound = -1;                                                      //Superficie non colpibile
         }
     }
 }

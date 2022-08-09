@@ -13,7 +13,7 @@ public class JigglyFeatures : MonoBehaviour
     private bool isHooked;                                                                          //Già rampinato?
     private Vector3 hookPoint;                                                                      //Punto d'aggancio rampino                                                                                                                               //Punti rampinabili
     private SpringJoint spring;                                                                     //Molla
-    
+    IEnumerator coroutine;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class JigglyFeatures : MonoBehaviour
 
     void Update()
     {
-        if (aim.jigglyRaycasthitFound && Input.GetKeyDown(KeyCode.E) && isHooked == false)          //Se puoi rampinare, viene premuto E e non hai già rampinato
+        if (aim.jigglyRaycasthitFound == 7 && Input.GetKeyDown(KeyCode.E) && isHooked == false)          //Se puoi rampinare, viene premuto E e non hai già rampinato
         {
             isHooked = true;
             StartHook();                                                                            //Rampina
@@ -31,6 +31,13 @@ public class JigglyFeatures : MonoBehaviour
         {
             StopHook();                                                                             //Rompi rampino
             isHooked = false;
+        }
+
+        if(aim.jigglyRaycasthitFound == 6 && Input.GetKeyDown(KeyCode.E) && isHooked == false)
+        {
+            isHooked = true;
+            JigglyAttack();
+            StopCoroutine(DestroyJigglyAttack());
         }
         
     }
@@ -70,5 +77,33 @@ public class JigglyFeatures : MonoBehaviour
 
         hook.SetPosition(0, hookSpawnPoint.transform.position);                                     //Primo punto del rampino
         hook.SetPosition(1, hookPoint);                                                             //Secondo punto del rampino
+    }
+
+    private void JigglyAttack()
+    {
+        hookPoint = aim.jigglyRaycasthit.point;                                                     //Punto in cui si aggancia il rampino
+        hook.positionCount = 2;                                                                     //Vertici del rampino
+        
+        StartCoroutine(DestroyJigglyAttack());                                                      //Coroutine di distruzione
+    }
+
+    /*private void GemFromEnemy()
+    {
+        if (gameObject.name == "Fire Enemy" || gameObject.name == "Fire Enemy(Clone)")
+        {
+            drop = Resources.Load<GameObject>("FireGem");
+        }
+        else if (gameObject.name == "Water Enemy" || gameObject.name == "Water Enemy(Clone)")
+        {
+            drop = Resources.Load<GameObject>("Assets / Prefab / WaterGem.prefab");
+        }
+    }*/
+
+    IEnumerator DestroyJigglyAttack()
+    {
+        yield return new WaitForSeconds(2);
+        //GemFromEnemy();
+        hook.positionCount = 0;
+        isHooked = false;
     }
 }

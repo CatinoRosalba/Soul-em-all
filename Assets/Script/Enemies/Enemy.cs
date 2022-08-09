@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public float health;
     public string weak;
-    public GameObject drop;
+    private GameObject drop;
 
     private Object explosionRef;
 
