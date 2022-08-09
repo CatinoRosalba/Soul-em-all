@@ -8,7 +8,7 @@ public class Fireball : MonoBehaviour
     float speed;
     public float damage;
 
-    private void Start()
+    void Start()
     {
         rbBullet = GetComponent<Rigidbody>();
         speed = 40f;
@@ -17,7 +17,7 @@ public class Fireball : MonoBehaviour
         Destroy(gameObject, 2); //Distrugge il proiettile dopo 5 secondi
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         //Distrugge il proiettile se entra in contatto con un nemico
         if (other.gameObject.CompareTag("Enemy"))
@@ -26,4 +26,5 @@ public class Fireball : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

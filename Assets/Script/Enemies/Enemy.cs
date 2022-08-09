@@ -8,9 +8,13 @@ public class Enemy : MonoBehaviour
     public string weak;
     public GameObject drop;
 
+    private Object explosionRef;
+
     private void Start()
     {
-        if(gameObject.name == "Fire Enemy" || gameObject.name == "Fire Enemy(Clone)")
+        explosionRef = Resources.Load("Explosion");
+
+        if (gameObject.name == "Fire Enemy" || gameObject.name == "Fire Enemy(Clone)")
         {
             health = 3;
             weak = "water";
@@ -30,6 +34,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);
+
+            GameObject explosion = (GameObject)Instantiate(explosionRef);
+            explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            explosion.transform.rotation = gameObject.transform.rotation;
         }
     }
 }
