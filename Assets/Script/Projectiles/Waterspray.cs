@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Waterspray : MonoBehaviour
 {
-    private Rigidbody rbBullet;
-    float speed;
-    public float damage;
-    [SerializeField] GameObject waterZone;
+    private Rigidbody rbBullet;                                                         //RigidBody
+    float speed;                                                                        //Velocità proiettile
+    public float damage;                                                                //Danno proiettile
+    [SerializeField] GameObject waterZone;                                              //Zona d'acqua rilasciata alla distruzione
 
     private void Awake()
     {
@@ -21,19 +21,19 @@ public class Waterspray : MonoBehaviour
     }
     private void Update()
     {
-        rbBullet.velocity = transform.forward * speed;
-        Destroy(gameObject, 0.5f);
+        rbBullet.velocity = transform.forward * speed;                                //Muove il proiettile
+        Destroy(gameObject, 0.5f);                                                      //Distrugge il proiettile dopo mezzo secondo
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //Distrugge il proiettile se entra in contatto con un nemico
+        //Se incontra un entità Enemy
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");
-            Destroy(gameObject);
-            Vector3 enemyPosition = new Vector3(other.gameObject.transform.position.x, 0.2f, other.gameObject.transform.position.z);
-            Instantiate(waterZone,enemyPosition, Quaternion.Euler(90f, 0f, 0f));
+            other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");        //Applica danno
+            Destroy(gameObject);                                                                    //Distrugge il proiettile
+            Vector3 enemyPosition = new Vector3(other.gameObject.transform.position.x, 0.2f, other.gameObject.transform.position.z);    
+            Instantiate(waterZone,enemyPosition, Quaternion.Euler(90f, 0f, 0f));                    //Rilascia la waterzone nella posizione del nemico
         }
     }
 }

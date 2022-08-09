@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health;
-    public string weak;
-    private GameObject drop;
+    public float health;                                                                    //Vita nemico
+    public string weak;                                                                     //Debolezza nemico
+    private GameObject drop;                                                                //Drop nemico
 
-    private Object explosionRef;
+    private Object explosionRef;                                                            //Animazione morte
 
     private void Start()
     {
         explosionRef = Resources.Load("Explosion");
 
-        if (gameObject.name == "Fire Enemy" || gameObject.name == "Fire Enemy(Clone)")
+        if (gameObject.name == "Fire Enemy" || gameObject.name == "Fire Enemy(Clone)")          //Se il nome del nemico è Fire Enemy
         {
-            health = 3;
-            weak = "water";
-            drop = Resources.Load<GameObject>("FireGem");
+            health = 3;                                                                         //Setti vita
+            weak = "water";                                                                     //Setti debolezza
+            drop = Resources.Load<GameObject>("FireGem");                                       //Setti drop
         } 
-        else if(gameObject.name == "Water Enemy" || gameObject.name == "Water Enemy(Clone)")
+        else if(gameObject.name == "Water Enemy" || gameObject.name == "Water Enemy(Clone)")    //Se il nome del nemico è Water Enemy
         {
-            health = 5;
-            weak = "fire";
-            drop = Resources.Load<GameObject>("Assets / Prefab / WaterGem.prefab");
+            health = 5;                                                                         //Setti vita
+            weak = "fire";                                                                      //Setti debolezza
+            drop = Resources.Load<GameObject>("Assets / Prefab / WaterGem.prefab");             //Setti drop
         }
     }
 
     private void Update()
     {
-        if (health <= 0)
+        if (health <= 0)                                                                        //Se la vita è uguale o minore di 0
         {
-            Destroy(gameObject);
-            Instantiate(drop, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject);                                                                //Distruggi nemico
+            Instantiate(drop, gameObject.transform.position, Quaternion.identity);              //Istanzia Drop
 
-            GameObject explosion = (GameObject)Instantiate(explosionRef);
+            GameObject explosion = (GameObject)Instantiate(explosionRef);                       //Esplosione
             explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             explosion.transform.rotation = gameObject.transform.rotation;
         }

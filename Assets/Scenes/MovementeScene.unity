@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2221,7 +2221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1082334330
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2229,7 +2229,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082334329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3644,8 +3644,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShooting: {fileID: 1979420550}
   slot: {fileID: 559883472}
-  fireball: {fileID: 4470351869424645250, guid: f51923d6d8c1db14d95c230f0012c894, type: 3}
-  waterspray: {fileID: 3608292313410773321, guid: ab70e4de5d597fa4aa1ea63e50dd4c7b, type: 3}
   effect: {fileID: 3205335900336288034, guid: bf441a5a1bdd9f44cb658613ef61d865, type: 3}
 --- !u!95 &1979420552
 Animator:
@@ -3692,14 +3690,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amneryBulletRay: {fileID: 1118806388}
-  jigglyBulletRay: {fileID: 1082334332}
   amneryLayerMask:
     serializedVersion: 2
     m_Bits: 193
+  jigglyBulletRay: {fileID: 1082334332}
   jigglyLayerMask:
     serializedVersion: 2
     m_Bits: 192
-  jigglyRaycasthitFound: 0
+  jigglyRaycasthitLayer: 
 --- !u!120 &1979420555
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3813,6 +3811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aim: {fileID: 1979420554}
   hookSpawnPoint: {fileID: 1894811637}
+  hook: {fileID: 1979420555}
 --- !u!81 &1979420557
 AudioListener:
   m_ObjectHideFlags: 0

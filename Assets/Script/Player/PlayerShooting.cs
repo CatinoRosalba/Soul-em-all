@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerShooting : MonoBehaviour
 {
     //Scripts
-    [SerializeField] UIManager slot;
-    [SerializeField] PlayerAim aim;
+    public UIManager slot;                                                      //Script dell'interfaccia degli slot
+    public PlayerAim aim;                                                       //Script della mira
 
     //Sparo e ammo
-    public GameObject bulletSpawnPoint;
-    Vector3 aimDir;
-    public GameObject primaryFire;
-    public float primaryAmmo;
-    public GameObject secondaryFire;
-    public float secondaryAmmo;
+    public GameObject bulletSpawnPoint;                                         //Spawn dei proiettili
+    public GameObject primaryFire;                                              //Sparo col tasto sinistro del mouse
+    public float primaryAmmo;                                                   //Munizioni per lo sparo primario
+    public GameObject secondaryFire;                                            //Sparo col tasto destro del mouse
+    public float secondaryAmmo;                                                 //Munizioni per lo sparo secondario
+    private Vector3 aimDir;                                                     //Direzione di mira tra il punto da colpire e il punto di spawn
 
     //Controlli
-    public bool isEmpty1;
-    public bool isEmpty2;
+    public bool isEmpty1;                                                       //Controllo se lo sparo primario non ha munizioni
+    public bool isEmpty2;                                                       //Controllo se lo sparo secondario non ha munizioni
 
     private void Start()
     {
@@ -28,40 +30,39 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        aimDir = (aim.amneryRaycasthit.point - bulletSpawnPoint.transform.position).normalized;               //Direzione di rotazione della mira
+        //Direzione del proiettile
+        aimDir = (aim.amneryRaycasthit.point - bulletSpawnPoint.transform.position).normalized;               
 
         //Fuoco Primario
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false)              //Se ho munzioni e premo sinistro del mouse
         {
-            Fire(primaryFire, ref primaryAmmo);
-            slot.TXTAmmo1.SetText(primaryAmmo.ToString());
-            if (primaryAmmo == 0)
-            {
-                slot.EmptySlot(slot.imgEmptySlot1);
-                isEmpty1 = true;
-            }
+            Fire(primaryFire, ref primaryAmmo, ref slot.TXTAmmo1);              //Sparo
+            CheckAmmo(primaryAmmo, ref isEmpty1, ref slot.imgEmptySlot1);       //Controllo Munizioni
         }
 
         //Fuoco secondario
-        if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false )
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false)              //Se ho munzioni e premo destro del mouse
         {
-            Fire(secondaryFire, ref secondaryAmmo);
-            slot.TXTAmmo2.SetText(secondaryAmmo.ToString());
-            if (secondaryAmmo == 0)
-            {
-                slot.EmptySlot(slot.imgEmptySlot2);
-                isEmpty2 = true;
-            }
+            Fire(secondaryFire, ref secondaryAmmo, ref slot.TXTAmmo2);          //Sparo
+            CheckAmmo(secondaryAmmo, ref isEmpty2, ref slot.imgEmptySlot2);     //Controllo Munizioni
         }
     }
 
     //Sparo
-    private void Fire(GameObject spell, ref float ammo)
+    private void Fire(GameObject spell, ref float ammo, ref TMP_Text slotAmmo)
     {
-        if(spell.name == "Fireball" || spell.name == "WaterSprayDrop")
+        Instantiate(spell, bulletSpawnPoint.transform.position, Quaternion.LookRotation(aimDir, Vector3.up));   //Sparo
+        ammo--;                                                                 //-1 munizione
+        slotAmmo.SetText(ammo.ToString());                                      //Setto il numero di munizioni nell'interfaccia dello sparo
+    }
+    
+    //Controllo sulle munizioni
+    private void CheckAmmo(float ammo, ref bool isEmpty, ref Image slotImage)
+    {
+        if (ammo == 0)                                                          //Se ho finito le munizioni
         {
-            Instantiate(spell, bulletSpawnPoint.transform.position, Quaternion.LookRotation(aimDir, Vector3.up));
-            ammo--;
+            slot.EmptySlot(slotImage);                                          //Tolgo l'immagine della gemma dallo slot dello sparo secondario
+            isEmpty = true;                                                     //Setto senza munizioni
         }
     }
 }

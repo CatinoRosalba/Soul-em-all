@@ -5,27 +5,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Componenti
-    Rigidbody rb;
-    Camera mainCamera;
-    [SerializeField] GameObject sprite;
-    Animator anim;
+    Rigidbody rb;                                                           //Componente RigidBody
+    Camera mainCamera;                                                      //GameObject MainCamera
+    public GameObject sprite;                                               //Sprite del player
+    Animator anim;                                                          //Compenente animazione
 
     //Movimento
-    float movSpeed = 35f;
-    float ZMovement;
-    float XMovement;
-    Vector3 movDirection;
+    float movSpeed;                                                         //Velocità movimento
+    float ZMovement;                                                        //Input movimento asse Z
+    float XMovement;                                                        //Inout movimento asse X
+    Vector3 movDirection;                                                   //Direzione di movimento
 
     //Rotazione
-    float inputAngle;
+    float inputAngle;                                                       //Angolo della visuale e del personaggio
 
     void Start()
     {
-
         rb = gameObject.GetComponent<Rigidbody>();
         anim = sprite.GetComponent<Animator>();
         mainCamera = Camera.main;
-
+        movSpeed = 35;
     }
 
     void Update()
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         //Angolo rotazione
         inputAngle = Mathf.Atan2(XMovement, ZMovement) * Mathf.Rad2Deg + mainCamera.transform.eulerAngles.y;    //input totale della rotazione del personaggio e della cam
-        movDirection = Quaternion.Euler(0f, inputAngle, 0f) * Vector3.forward;   //Direzione in cui deve muoversi il giocatore considerando l'angolo
+        movDirection = Quaternion.Euler(0f, inputAngle, 0f) * Vector3.forward;                                  //Direzione in cui deve muoversi il giocatore in base alla visuale
 
         //Billboarding
         sprite.transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
@@ -56,13 +55,14 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //Movimento e Rotazione
-        rb.MoveRotation(Quaternion.Euler(0f, mainCamera.transform.eulerAngles.y, 0f));   //Ruota secondo l'angolo fluido e cambia l'asse di movimento
+        rb.MoveRotation(Quaternion.Euler(0f, mainCamera.transform.eulerAngles.y, 0f));          //Ruota l'asse del player secondo l'angolo della cam
         if (XMovement!=0 || ZMovement!=0)
         {
-            rb.AddForce(movDirection.normalized * movSpeed);
+            rb.AddForce(movDirection.normalized * movSpeed);                                    //Movimento
         }
     }
 
+    //Animazione camminata
     void setAnimationState(bool isWalking)
     {
         anim.SetBool("isWalking", isWalking);

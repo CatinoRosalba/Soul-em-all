@@ -5,23 +5,18 @@ using UnityEngine.UI;
 
 public class PlayerCollecting : MonoBehaviour
 {
-    //Altri Script
-    [SerializeField] PlayerShooting playerShooting;
-    [SerializeField] UIManager slot;
-
-    //Spells
-    [SerializeField] GameObject fireball;
-    [SerializeField] GameObject waterspray;
-    Collider anotherOther;
+    //Script
+    [SerializeField] PlayerShooting playerShooting;                 //Script dello sparo
+    [SerializeField] UIManager slot;                                //Script dell'interfaccia
 
     //Particles gems
-    [SerializeField] GameObject effect;
-    GameObject effectClone;
+    [SerializeField] GameObject effect;                             //Effetto caricato 
+    GameObject effectClone;                                         //Effetto applicato
 
     //Controlli
-    bool canPickup;
-    bool pickup1;
-    bool pickup2;
+    bool canPickup;                                                 //Controllo se posso prendere
+    bool pickup1;                                                   //Prendo nello slot 1
+    bool pickup2;                                                   //Prendo nello slot 2
 
     private void Start()
     {
@@ -29,88 +24,86 @@ public class PlayerCollecting : MonoBehaviour
         pickup1 = false;
         pickup2 = false;
     }
-
- 
-    private void Update()
-    {
-        //Se senza ammo allora puoi raccogliere
-        if (canPickup == true)
-        {
-            //Se premo prima il tasto dello slot pieno e poi quello vuoto, non cambia immagine (da controllare)
-            if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)
-            {
-                pickup1 = true;
-                slot.EquipSlot(anotherOther.gameObject, slot.imgEmptySlot1);
-            }
-            if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true)
-            {
-                pickup2 = true;
-                slot.EquipSlot(anotherOther.gameObject, slot.imgEmptySlot2);
-            }
-        }
-    }
-
-    //Posso raccogliere la gemma se sono vicino (mettere segnale visivo)
+    
+    //Sistema di identificazione e attivazione raccolta
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Ammo"))
+        if (other.gameObject.CompareTag("Ammo"))                                                    //Se in contatto con delle munizioni
         {
-            canPickup = true;
-            anotherOther = other;
-            effectClone = Instantiate(effect, other.transform.position, Quaternion.identity);
+            canPickup = true;                                                                       //Puoi raccogliere
+            effectClone = Instantiate(effect, other.transform.position, Quaternion.identity);       //Particelle (??)
         }
     }
 
-    //Se sono vicino a delle ammo e premo un pulsante del mouse lo raccolgo (Si distruggono le altre gemme dopo la prima, da fixare)
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Ammo"))
-        {
-            if (pickup1 == true)
-            {
-                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, 2, 5);
-                slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());
-                playerShooting.isEmpty1 = false;
-                pickup1 = false;
-                canPickup = false;
-                Destroy(other.gameObject);
-                Destroy(effectClone);
-            }
-            if (pickup2 == true)
-            {
-                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo, 2, 5);
-                slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());
-                playerShooting.isEmpty2 = false;
-                pickup2 = false;
-                canPickup = false;
-                Destroy(other.gameObject);
-                Destroy(effectClone);
-            }
-        }
-    }
-
-    //Toglie la possibilità di raccolta della gemma se ti allontani
+    //Sistema di disattivazione raccolta
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Ammo"))
+        if (other.gameObject.CompareTag("Ammo"))                                                    //Se non sono più in contatto con delle munizioni
         {
-            canPickup = false;
-            Destroy(effectClone);
+            canPickup = false;                                                                      //Non posso raccogliere
+            Destroy(effectClone);                                                                   //Stop particelle
         }
     }
 
-    //Converte la gemma nello sparo (da finire)
+    private void Update()
+    {
+        //Sistema di raccolta nello slot apposito
+        if (canPickup == true)                                                                      //Se posso raccogliere
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)                //Se premo il sinistro e non ho munzioni sullo sparo primario
+            {
+                pickup1 = true;                                                                     //Raccolgo nello slot1
+                
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true)                //Se premo il destro e non ho munizioni sullo sparo secondario
+            {
+                pickup2 = true;                                                                     //Raccolgo nello slot2
+            }
+        }
+    }
+
+    //Sistema di equipaggiamento
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ammo"))                                                    //Se ancora in contatto con delle munizioni
+        {
+            if (pickup1 == true)                                                                    //Se posso raccogliere nello slot1
+            {
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, 2, 5);         //Converte la gemma nella spell giusta
+                slot.EquipSlot(other.gameObject, slot.imgEmptySlot1);                               //Aggiunge la gemma allo slot1 dell'interfaccia
+                slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());                       //Aggiunge il numero di munizioni allo slot1 dell'interfaccia
+                playerShooting.isEmpty1 = false;                                                    //Ha munizioni
+                pickup1 = false;                                                                    //Non può raccogliere nello slot1
+                canPickup = false;                                                                  //Non può raccoliere
+                Destroy(other.gameObject);                                                          //Distruggi la gemma
+                Destroy(effectClone);                                                               //Stop particelle
+            }
+            if (pickup2 == true)                                                                    //Se posso raccogliere nello slot2
+            {
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo, 2, 5);     //Converte la gemma nella spell giusta
+                slot.EquipSlot(other.gameObject, slot.imgEmptySlot2);                               //Aggiunge la gemma allo slot2 dell'interfaccia
+                slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());                     //Aggiunge il numero di munizioni allo slot2 dell'interfaccia
+                playerShooting.isEmpty2 = false;                                                    //Ha munizioni
+                pickup2 = false;                                                                    //Non può raccogliere nello slot2
+                canPickup = false;                                                                  //Non può raccoliere
+                Destroy(other.gameObject);                                                          //Distruggi la gemma
+                Destroy(effectClone);                                                               //Stop particelle
+            }
+        }
+    }
+
+    //Converte la gemma nello sparo
     public void ConvertGemToProjectile(GameObject gem, ref GameObject spell, ref float ammo, int min, int max)
     {
-        if(gem.name == "FireGem" || gem.name == "FireGem(Clone)")
+        if(gem.name == "FireGem" || gem.name == "FireGem(Clone)")                                   //Se la gemma si chiama FireGem
         {
-            spell = fireball;
-            ammo = Random.Range(min, max);
+            spell = (GameObject)Resources.Load("Fireball");                                         //Equipaggia la Fireball
+            ammo = Random.Range(min, max);                                                          //Genera le munizioni in maniera casuale tra un minimo e un massimo
         }
-        if(gem.name == "WaterGem" || gem.name == "WaterGem(Clone)")
+        if(gem.name == "WaterGem" || gem.name == "WaterGem(Clone)")                                 //Se la gemma si chiama WaterGem
         {
-            spell = waterspray;
-            ammo = Random.Range(min, max);
+            spell = (GameObject)Resources.Load("WaterSprayDrop"); ;                                 //Equipaggia il Waterspray
+            ammo = Random.Range(min, max);                                                          //Genera le munizioni in maniera casuale tra un minimo e un massimo
         }
     }
 }

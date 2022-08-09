@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemyDamageManager : MonoBehaviour
 {
-    Enemy enemy;
+    Enemy enemy;                                                                            //Riferimento allo script Enemy
+    bool canDamage;                                                                         //Permette di creare gli invisibility frame
 
-    Material matDefault;
+    Material matDefault;                                                                    //Roba del danno
     Material matWhite;
     float flashTime = .10f;
 
     private void Start()
     {
         enemy = gameObject.GetComponent<Enemy>();
+        canDamage = true;
         matWhite = Resources.Load("FlashWhite", typeof(Material)) as Material;
         
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
@@ -23,20 +25,22 @@ public class EnemyDamageManager : MonoBehaviour
 
     public void TakeDamage(float damage, string type)
     {
-        if (type == enemy.weak)
+        if (canDamage == true)
         {
-            enemy.health -= damage * 2f;
-            Debug.Log(enemy.health);
+            if (type == enemy.weak)                                             //Se il nemico è debole
+            {
+                enemy.health -= damage * 2f;                                    //Fai due volte il danno
+            }
+            else
+            {
+                enemy.health -= damage;                                         //Calcola il danno
+            }
+            StartCoroutine(InvisibilityFrame());
+            StartCoroutine(EFlash());                                           //Flash del danno
         }
-        else
-        {
-            enemy.health -= damage;
-        }
-
-        StartCoroutine(EFlash());
     }
 
-
+    //Timer del flash
     IEnumerator EFlash()
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
@@ -48,4 +52,11 @@ public class EnemyDamageManager : MonoBehaviour
 
     }
 
+    //Timer invisibility frame
+    IEnumerator InvisibilityFrame()
+    {
+        canDamage = false;
+        yield return new WaitForSeconds(0.7f);
+        canDamage = true;
+    }
 }

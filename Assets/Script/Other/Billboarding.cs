@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Billboarding : MonoBehaviour
 {
-    Camera mainCamera;
+    Camera mainCamera;                              //Main Camera
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -12,6 +13,6 @@ public class Billboarding : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
+        gameObject.transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);      //Gira il gameObject verso la telecamera
     }
 }
