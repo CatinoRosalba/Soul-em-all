@@ -7,10 +7,13 @@ public class Fireball : MonoBehaviour
     Rigidbody rbBullet;                                                         //RigidBody
     float speed;                                                                //Velocità Proiettile
     public float damage;                                                        //Danno Proiettile
+    AudioSource audioShot;
 
     void Start()
     {
         rbBullet = GetComponent<Rigidbody>();
+        audioShot = GetComponent<AudioSource>();
+        audioShot.PlayOneShot(audioShot.clip);
         speed = 40f;
         damage = 1;
         rbBullet.velocity = transform.forward * speed;                          //Muove il proiettile

@@ -8,6 +8,7 @@ public class Waterspray : MonoBehaviour
     float speed;                                                                        //Velocità proiettile
     public float damage;                                                                //Danno proiettile
     [SerializeField] GameObject waterZone;                                              //Zona d'acqua rilasciata alla distruzione
+    AudioSource audioShot;
 
     private void Awake()
     {
@@ -16,6 +17,8 @@ public class Waterspray : MonoBehaviour
 
     private void Start()
     {
+        audioShot = GetComponent<AudioSource>();
+        audioShot.PlayOneShot(audioShot.clip);
         speed = 30f;
         damage = 0.8f;
     }
