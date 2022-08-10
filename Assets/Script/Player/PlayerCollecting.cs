@@ -14,13 +14,13 @@ public class PlayerCollecting : MonoBehaviour
     GameObject effectClone;                                         //Effetto applicato
 
     //Controlli
-    bool canPickup;                                                 //Controllo se posso prendere
+    bool pickupRange;                                                 //Controllo se posso prendere
     bool pickup1;                                                   //Prendo nello slot 1
     bool pickup2;                                                   //Prendo nello slot 2
 
     private void Start()
     {
-        canPickup = false;
+        pickupRange = false;
         pickup1 = false;
         pickup2 = false;
     }
@@ -30,7 +30,7 @@ public class PlayerCollecting : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ammo"))                                                    //Se in contatto con delle munizioni
         {
-            canPickup = true;                                                                       //Puoi raccogliere
+            pickupRange = true;                                                                     //Puoi raccogliere
             effectClone = Instantiate(effect, other.transform.position, Quaternion.identity);       //Particelle (??)
         }
     }
@@ -40,7 +40,7 @@ public class PlayerCollecting : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ammo"))                                                    //Se non sono più in contatto con delle munizioni
         {
-            canPickup = false;                                                                      //Non posso raccogliere
+            pickupRange = false;                                                                    //Non posso raccogliere
             Destroy(effectClone);                                                                   //Stop particelle
         }
     }
@@ -48,14 +48,14 @@ public class PlayerCollecting : MonoBehaviour
     private void Update()
     {
         //Sistema di raccolta nello slot apposito
-        if (canPickup == true)                                                                      //Se posso raccogliere
+        if (pickupRange == true && playerShooting.canCollect == true)                               //Se posso raccogliere e sono nel raggio della gemma
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)                //Se premo il sinistro e non ho munzioni sullo sparo primario
             {
                 pickup1 = true;                                                                     //Raccolgo nello slot1
                 
             }
-            if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true)                //Se premo il destro e non ho munizioni sullo sparo secondario
+            else if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true && Input.GetKeyDown(KeyCode.Mouse0) == false)   //Se premo il destro e non ho munizioni sullo sparo secondario e non ho premuto l'altro tasto del mouse
             {
                 pickup2 = true;                                                                     //Raccolgo nello slot2
             }
@@ -74,7 +74,7 @@ public class PlayerCollecting : MonoBehaviour
                 slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());                       //Aggiunge il numero di munizioni allo slot1 dell'interfaccia
                 playerShooting.isEmpty1 = false;                                                    //Ha munizioni
                 pickup1 = false;                                                                    //Non può raccogliere nello slot1
-                canPickup = false;                                                                  //Non può raccoliere
+                pickupRange = false;                                                                //Non può raccoliere
                 Destroy(other.gameObject);                                                          //Distruggi la gemma
                 Destroy(effectClone);                                                               //Stop particelle
             }
@@ -85,7 +85,7 @@ public class PlayerCollecting : MonoBehaviour
                 slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());                     //Aggiunge il numero di munizioni allo slot2 dell'interfaccia
                 playerShooting.isEmpty2 = false;                                                    //Ha munizioni
                 pickup2 = false;                                                                    //Non può raccogliere nello slot2
-                canPickup = false;                                                                  //Non può raccoliere
+                pickupRange = false;                                                                //Non può raccoliere
                 Destroy(other.gameObject);                                                          //Distruggi la gemma
                 Destroy(effectClone);                                                               //Stop particelle
             }

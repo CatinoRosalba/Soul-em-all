@@ -22,18 +22,22 @@ public class Waterspray : MonoBehaviour
         speed = 30f;
         damage = 0.8f;
         rbBullet.velocity = transform.forward * speed;                                //Muove il proiettile
-        Destroy(gameObject, 1f);                                                      //Distrugge il proiettile dopo mezzo secondo
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        //Se incontra un entità Enemy
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))                                                   //Se ha tag Enemy
         {
             other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");        //Applica danno
             Destroy(gameObject);                                                                    //Distrugge il proiettile
-            Vector3 enemyPosition = new Vector3(other.gameObject.transform.position.x, 0.2f, other.gameObject.transform.position.z);    
+            Vector3 enemyPosition = new Vector3(other.gameObject.transform.position.x, 0.2f, other.gameObject.transform.position.z);
             Instantiate(waterZone,enemyPosition, Quaternion.Euler(90f, 0f, 0f));                    //Rilascia la waterzone nella posizione del nemico
+        } else if (other.gameObject.CompareTag("Enemy") == false)                                   //Se non ha tag Enemy
+        {
+            Destroy(gameObject);
+            Vector3 projectilePosition = new Vector3(gameObject.transform.position.x, 0.2f, gameObject.transform.position.z);
+            Instantiate(waterZone, projectilePosition, Quaternion.Euler(90f, 0f, 0f));              //Rilascia la waterzone nella posizione del proiettile
         }
     }
 }

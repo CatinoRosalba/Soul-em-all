@@ -22,12 +22,14 @@ public class PlayerShooting : MonoBehaviour
     public bool isEmpty1;                                                       //Controllo se lo sparo primario non ha munizioni
     public bool isEmpty2;                                                       //Controllo se lo sparo secondario non ha munizioni
     private bool canShoot;                                                      //Controllo se posso sparo
+    public bool canCollect;                                                     //Controllo per inserire un tempo tra lo sparo e il raccoglimento se si è su una gemma durante lo sparo
 
     private void Start()
     {
         isEmpty1 = true;
         isEmpty2 = true;
         canShoot = true;
+        canCollect = true;
     }
 
     void Update()
@@ -40,10 +42,7 @@ public class PlayerShooting : MonoBehaviour
         {
             Fire(primaryFire, ref primaryAmmo, ref slot.TXTAmmo1);              //Sparo
             CheckAmmo(primaryAmmo, ref isEmpty1, ref slot.imgEmptySlot1);       //Controllo Munizioni
-            if(isEmpty1 == false)
-            {
-                StartCoroutine(FireCooldown());                                 //Cooldown sparo
-            }
+            StartCoroutine(FireCooldown());                                     //Cooldown sparo
         }
 
         //Fuoco secondario
@@ -51,10 +50,7 @@ public class PlayerShooting : MonoBehaviour
         {
             Fire(secondaryFire, ref secondaryAmmo, ref slot.TXTAmmo2);          //Sparo
             CheckAmmo(secondaryAmmo, ref isEmpty2, ref slot.imgEmptySlot2);     //Controllo Munizioni
-            if (isEmpty2 == false)
-            {
-                StartCoroutine(FireCooldown());                                 //Cooldown sparo
-            }
+            StartCoroutine(FireCooldown());                                     //Cooldown sparo
         }
     }
 
@@ -73,6 +69,7 @@ public class PlayerShooting : MonoBehaviour
         {
             slot.EmptySlot(slotImage);                                          //Tolgo l'immagine della gemma dallo slot dello sparo secondario                                      
             isEmpty = true;                                                     //Setto senza munizioni
+            StartCoroutine(CanCollect());                                       //Tempo di attesa tra ultimo sparo e raccolta
         }
     }
 
@@ -82,5 +79,13 @@ public class PlayerShooting : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(0.7f);
         canShoot = true;
+    }
+
+    //Cooldown raccolta per evitare che un input spari e raccolga subito
+    IEnumerator CanCollect()
+    {
+        canCollect = false;
+        yield return new WaitForSeconds(0.7f);
+        canCollect = true;
     }
 }
