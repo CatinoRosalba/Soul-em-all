@@ -21,11 +21,8 @@ public class Waterspray : MonoBehaviour
         audioShot.PlayOneShot(audioShot.clip);
         speed = 30f;
         damage = 0.8f;
-    }
-    private void Update()
-    {
         rbBullet.velocity = transform.forward * speed;                                //Muove il proiettile
-        Destroy(gameObject, 0.5f);                                                      //Distrugge il proiettile dopo mezzo secondo
+        Destroy(gameObject, 1f);                                                      //Distrugge il proiettile dopo mezzo secondo
     }
 
     private void OnTriggerEnter(Collider other)

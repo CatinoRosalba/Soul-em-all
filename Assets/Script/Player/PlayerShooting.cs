@@ -21,11 +21,13 @@ public class PlayerShooting : MonoBehaviour
     //Controlli
     public bool isEmpty1;                                                       //Controllo se lo sparo primario non ha munizioni
     public bool isEmpty2;                                                       //Controllo se lo sparo secondario non ha munizioni
+    private bool canShoot;                                                      //Controllo se posso sparo
 
     private void Start()
     {
         isEmpty1 = true;
         isEmpty2 = true;
+        canShoot = true;
     }
 
     void Update()
@@ -34,17 +36,25 @@ public class PlayerShooting : MonoBehaviour
         aimDir = (aim.amneryRaycasthit.point - bulletSpawnPoint.transform.position).normalized;               
 
         //Fuoco Primario
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false)              //Se ho munzioni e premo sinistro del mouse
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false && canShoot == true)              //Se ho munzioni e premo sinistro del mouse
         {
             Fire(primaryFire, ref primaryAmmo, ref slot.TXTAmmo1);              //Sparo
             CheckAmmo(primaryAmmo, ref isEmpty1, ref slot.imgEmptySlot1);       //Controllo Munizioni
+            if(isEmpty1 == false)
+            {
+                StartCoroutine(FireCooldown());                                 //Cooldown sparo
+            }
         }
 
         //Fuoco secondario
-        if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false)              //Se ho munzioni e premo destro del mouse
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false && canShoot == true)              //Se ho munzioni e premo destro del mouse
         {
             Fire(secondaryFire, ref secondaryAmmo, ref slot.TXTAmmo2);          //Sparo
             CheckAmmo(secondaryAmmo, ref isEmpty2, ref slot.imgEmptySlot2);     //Controllo Munizioni
+            if (isEmpty2 == false)
+            {
+                StartCoroutine(FireCooldown());                                 //Cooldown sparo
+            }
         }
     }
 
@@ -61,8 +71,16 @@ public class PlayerShooting : MonoBehaviour
     {
         if (ammo == 0)                                                          //Se ho finito le munizioni
         {
-            slot.EmptySlot(slotImage);                                          //Tolgo l'immagine della gemma dallo slot dello sparo secondario
+            slot.EmptySlot(slotImage);                                          //Tolgo l'immagine della gemma dallo slot dello sparo secondario                                      
             isEmpty = true;                                                     //Setto senza munizioni
         }
+    }
+
+    //Cooldown sparo
+    IEnumerator FireCooldown()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(0.7f);
+        canShoot = true;
     }
 }

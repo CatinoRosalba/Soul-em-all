@@ -102,7 +102,7 @@ public class PlayerCollecting : MonoBehaviour
         }
         if(gem.name == "WaterGem" || gem.name == "WaterGem(Clone)")                                 //Se la gemma si chiama WaterGem
         {
-            spell = (GameObject)Resources.Load("WaterSprayDrop"); ;                                 //Equipaggia il Waterspray
+            spell = (GameObject)Resources.Load("WaterSpray");                                       //Equipaggia il Waterspray
             ammo = Random.Range(min, max);                                                          //Genera le munizioni in maniera casuale tra un minimo e un massimo
         }
     }
