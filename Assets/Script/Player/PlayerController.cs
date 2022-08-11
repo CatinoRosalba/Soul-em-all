@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         anim = sprite.GetComponent<Animator>();
         mainCamera = Camera.main;
-        movSpeed = 35;
+        movSpeed = 75f;
     }
 
     void Update()
@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
         {
             setAnimationState(false);
         }
-
     }
 
     private void FixedUpdate()

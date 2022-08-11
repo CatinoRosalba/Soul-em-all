@@ -6,6 +6,7 @@ using UnityEngine;
 /*Si occupa della vita del giocatore, dei danni ricevuti e del Game Over*/
 public class Player : MonoBehaviour
 {
+    public GameObject player;
     float health;                                                                                   //Vita del giocatore
     bool gameOver;                                                                                  //Stato di GameOver
     bool invisibilityFrame;                                                                         //Permette di evitare il danno consecutivo 
@@ -51,4 +52,15 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         invisibilityFrame = false;                                                                  //Prendi danno
     }
+
+    #region Singleton
+
+    public static Player instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    #endregion
 }

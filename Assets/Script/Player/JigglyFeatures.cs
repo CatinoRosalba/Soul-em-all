@@ -20,7 +20,8 @@ public class JigglyFeatures : MonoBehaviour
     //Variabili Attacco di Jiggly
     private bool jigglyAttackState;                                                                 //Verifica se si sta usando l'attacco di Jiggly
     private bool CooldownJigglyAttack;                                                              //Cooldown abilità di Jiggly
-    private string enemyName;                                                                       //Nome nemico attaccato con Jiggly per il drop della gemma
+    private GameObject enemy;                                                                       //Nemico attaccato con Jiggly per il drop della gemma
+    private string enemyName;                                                                       //Nome del nemico agganciato
     private float maxJigglyAttackRange;                                                             //Range massimo dell'attacco di Jiggly
     
     void Start()
@@ -54,11 +55,20 @@ public class JigglyFeatures : MonoBehaviour
         {
             if (isInRange(maxJigglyAttackRange))
             {
-                enemyName = aim.jigglyRaycasthit.collider.gameObject.name;                                                  //Salvo il nome del nemico per la gemma
-                jigglyAttackState = true;                                                                                   //Attacco di Jiggly attivo
-                JigglyAttack();                                                                                             //Inizio attacco di Jiggly
+                enemy = aim.jigglyRaycasthit.collider.gameObject;                                                       //Nemico agganciato
+                enemyName = enemy.name;                                                                                 //Nome nemico agganciato
+                jigglyAttackState = true;                                                                               //Attacco di Jiggly attivo
+                hook.positionCount = 2;                                                                                 //Vertici del rampino
+                StartCoroutine(StartJigglyAttack());                                                                    //Coroutine di esecuzione dell'attacco
+                StartCoroutine(StartCooldownJigglyAttack());                                                            //Cooldown abilità Jiggly                                                                                             //Inizio attacco di Jiggly
             }
         }
+        if (jigglyAttackState == true)
+        {
+            hookPoint = enemy.transform.position;                                                                       //Punto in cui si aggancia il rampino
+            Debug.Log(hookPoint);
+        }
+        Debug.Log(jigglyAttackState);
     }
 
     private void LateUpdate()
@@ -114,10 +124,7 @@ public class JigglyFeatures : MonoBehaviour
     //Inizia Attacco Jiggly
     private void JigglyAttack()
     {
-        hookPoint = aim.jigglyRaycasthit.point;                                                     //Punto in cui si aggancia il rampino
-        hook.positionCount = 2;                                                                     //Vertici del rampino
-        StartCoroutine(StartJigglyAttack());                                                        //Coroutine di esecuzione dell'attacco
-        StartCoroutine(StartCooldownJigglyAttack());                                                //Cooldown abilità Jiggly
+        
     }
 
     //Gestione attacco Jiggly
@@ -126,6 +133,7 @@ public class JigglyFeatures : MonoBehaviour
         yield return new WaitForSeconds(2);
         GemFromEnemy();                                                                             //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato
         enemyName = "";                                                                             //Resetta il nome del nemico
+        enemy = null;                                                                               //Resetta il nemico agganciato
         hook.positionCount = 0;                                                                     //Distrugge l'attacco
         jigglyAttackState = false;                                                                  //Attacco Jiggly non attivo
         CooldownJigglyAttack = true;                                                                //Inizio Cooldown
