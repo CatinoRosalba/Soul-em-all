@@ -7,6 +7,7 @@ public class JigglyFeatures : MonoBehaviour
     //Scripts
     public PlayerAim aim;                                                                           //Usato per la verifica col raycast se possibile rampinare/usare Jiggly
     public GameObject hookSpawnPoint;                                                               //Punto di spawn del rampino
+    [SerializeField] UIManager slot;
 
     //Variabili Rampino
     public LineRenderer hook;                                                                       //Rampino
@@ -39,6 +40,7 @@ public class JigglyFeatures : MonoBehaviour
         //Rampino
         if (aim.jigglyRaycasthitLayer == "GrapplingPoint" && Input.GetKeyDown(KeyCode.E) && isHooked == false && jigglyAttackState == false && canHook == true)    //Se puoi rampinare, viene premuto E, non hai già rampinato e non è attivo l'attacco di Jiggly e è finito il cooldown
         {
+
             if (isInRange(maxHookRange))                                                                                //Se in range
             {
                 isHooked = true;

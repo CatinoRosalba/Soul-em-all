@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     //Slot Skills
     public Image imgEmptySlot1;                                                     //Slot Sparo 1
     public Image imgEmptySlot2;                                                     //Slot Sparo 2
+    public Image imgSlotAttackJiggly;                                               //Slot Attack Jiggly
     public TMP_Text TXTAmmo1;                                                       //Munizioni Sparo 1
     public TMP_Text TXTAmmo2;                                                       //Munizioni Sparo 2
 
@@ -30,4 +31,15 @@ public class UIManager : MonoBehaviour
     {
         imgEmptySlot.sprite = Resources.Load<Sprite>("empty_skill");                //Equipaggia Slot vuoto
     }
+
+    public void DisableJigglyAttackSlot(Image imgSlotAttackJigglyAble)
+    {
+        imgSlotAttackJigglyAble.sprite = Resources.Load<Sprite>("skill_jigg_disattivo");     //Equipaggia FireGem
+    }
+
+    public void AbleJigglyAttackSlot(Image imgSlotAttackJigglyDisable)
+    {
+        imgSlotAttackJigglyDisable.sprite = Resources.Load<Sprite>("skill_jigg_attivo");     //Equipaggia FireGem
+    }
+
 }
