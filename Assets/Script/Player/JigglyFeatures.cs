@@ -61,14 +61,18 @@ public class JigglyFeatures : MonoBehaviour
                 enemyName = enemy.name;                                                                                 //Nome nemico agganciato
                 jigglyAttackState = true;                                                                               //Attacco di Jiggly attivo
                 hook.positionCount = 2;                                                                                 //Vertici del rampino
+                slot.DisableJigglyAttackSlot();                                                                         //Countdown skill
                 StartCoroutine(StartJigglyAttack());                                                                    //Coroutine di esecuzione dell'attacco
                 StartCoroutine(StartCooldownJigglyAttack());                                                            //Cooldown abilità Jiggly                                                                                             //Inizio attacco di Jiggly
             }
+            
         }
+        if (slot.isCountDown) slot.ApplyCountDown();                                                                    //aggiorna il countdown
         if (jigglyAttackState == true)
         {
             hookPoint = enemy.transform.position;                                                                       //Punto in cui si aggancia il rampino
         }
+
     }
 
     private void LateUpdate()

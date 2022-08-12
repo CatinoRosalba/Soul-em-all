@@ -7,9 +7,9 @@ public class EnemyDamageManager : MonoBehaviour
     Enemy enemy;                                                                            //Riferimento allo script Enemy
     bool canDamage;                                                                         //Permette di creare gli invisibility frame
 
-    Material matDefault;                                                                    //Roba del danno
-    Material matWhite;
-    float flashTime = .10f;
+    Material matDefault;                                                                    //materiale di default
+    Material matWhite;                                                                      //material di colore bianco
+    float flashTime = .10f;                                                                 //tempo del flash
 
     private void Start()
     {
@@ -17,6 +17,7 @@ public class EnemyDamageManager : MonoBehaviour
         canDamage = true;
         matWhite = Resources.Load("FlashWhite", typeof(Material)) as Material;
         
+        //accesso allo sprite figlio dell'oggetto padre Enemy
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
         {
             matDefault = r.material;

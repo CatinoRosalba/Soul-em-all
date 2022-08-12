@@ -14,7 +14,7 @@ public class PlayerCollecting : MonoBehaviour
     GameObject effectClone;                                         //Effetto applicato
 
     //Controlli
-    bool pickupRange;                                                 //Controllo se posso prendere
+    bool pickupRange;                                               //Controllo se posso prendere
     bool pickup1;                                                   //Prendo nello slot 1
     bool pickup2;                                                   //Prendo nello slot 2
 

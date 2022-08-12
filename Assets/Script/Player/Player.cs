@@ -7,13 +7,28 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject player;
+    public GameObject[] goHealth;                                                                   //Oggetto vita del giocatore
     float health;                                                                                   //Vita del giocatore
     bool gameOver;                                                                                  //Stato di GameOver
-    bool invisibilityFrame;                                                                         //Permette di evitare il danno consecutivo 
+    bool invisibilityFrame;                                                                         //Permette di evitare il danno consecutivo
+
+    Material matDefault;                                                                            //Materiale di default
+    Material matWhite;                                                                              //Material di colore bianco
+    float flashTime = .10f;                                                                         //Tempo del flash
+    private Object explosionRef;                                                                    //Animazione morte
 
     void Start()
     {
         health = 3;
+
+        matWhite = Resources.Load("FlashWhite", typeof(Material)) as Material;
+        explosionRef = Resources.Load("Explosion");
+
+        //accesso allo sprite figlio dell'oggetto padre Enemy
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            matDefault = r.material;
+        }
     }
 
     void Update()
@@ -26,8 +41,10 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un proiettile
         {
-            health--;                                                                             //Prendi danno
-            if(health <= 0)                                                                         //Se la vita è 0 o meno
+            health--;                                                                               //Prendi danno
+            Destroy(goHealth[(int)health].gameObject);                                              //Distrugge lo sprite della vita
+            StartCoroutine(EFlash());                                                               //Flash del danno
+            if (health <= 0)                                                                         //Se la vita è 0 o meno
             {
                 gameOver = true;                                                                    //Gameover
             }
@@ -42,10 +59,21 @@ public class Player : MonoBehaviour
         {
             health--;                                                                               //Prendi danno
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * (-10), ForceMode.Impulse); //Contraccolpo
+
+            StartCoroutine(EFlash());                                                               //Flash del danno
+            Destroy(goHealth[(int)health].gameObject);                                              //Distrugge lo sprite della vita
+            
             if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
+                GameObject explosion = (GameObject) Instantiate(explosionRef);                       //Esplosione
+                ParticleSystem.MainModule setColor = explosion.GetComponent<ParticleSystem>().main;
+                setColor.startColor = new Color(80 / 255f, 18 / 255f, 88 / 255f);                    //Cambia colore delle particelle
+                explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                explosion.transform.rotation = gameObject.transform.rotation;
+
                 gameOver = true;                                                                    //Gameover
             }
+
             StartCoroutine(InvisibiliyyFrame());                                                    //Iniziano gli InvisibilityFrame
         }
     }
@@ -66,5 +94,17 @@ public class Player : MonoBehaviour
         invisibilityFrame = true;                                                                   //Non prendi danno
         yield return new WaitForSeconds(2f);
         invisibilityFrame = false;                                                                  //Prendi danno
+    }
+
+    //Timer del flash
+    IEnumerator EFlash()
+    {
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            r.material = matWhite;
+            yield return new WaitForSeconds(flashTime);
+            r.material = matDefault;
+        }
+
     }
 }
