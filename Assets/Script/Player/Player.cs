@@ -35,6 +35,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un proiettile
+        {
+            health--;                                                                               //Prendi danno
+            if (health <= 0)                                                                        //Se la vita è 0 o meno
+            {
+                gameOver = true;                                                                    //Gameover
+            }
+            StartCoroutine(InvisibiliyyFrame());                                                    //Iniziano gli InvisibilityFrame
+        }
+    }
+
     //Funzione di GameOver
     private void GameOver(bool gameOver)
     {
@@ -49,18 +62,7 @@ public class Player : MonoBehaviour
     IEnumerator InvisibiliyyFrame()
     {
         invisibilityFrame = true;                                                                   //Non prendi danno
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         invisibilityFrame = false;                                                                  //Prendi danno
     }
-
-    #region Singleton
-
-    public static Player instance;
-
-    private void Awake()
-    {
-        instance = this;
-    }
-
-    #endregion
 }

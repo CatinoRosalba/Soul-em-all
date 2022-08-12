@@ -1393,7 +1393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2115245670926779370, guid: 344c30ce392f8aa41b18f26ae3ca8c87, type: 3}
       propertyPath: m_StoppingDistance
-      value: 7
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6463268145296441665, guid: 344c30ce392f8aa41b18f26ae3ca8c87, type: 3}
       propertyPath: m_RootOrder
@@ -3689,7 +3689,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 929765771}
-  movSpeed: 0
 --- !u!114 &1979420550
 MonoBehaviour:
   m_ObjectHideFlags: 0

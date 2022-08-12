@@ -66,9 +66,7 @@ public class JigglyFeatures : MonoBehaviour
         if (jigglyAttackState == true)
         {
             hookPoint = enemy.transform.position;                                                                       //Punto in cui si aggancia il rampino
-            Debug.Log(hookPoint);
         }
-        Debug.Log(jigglyAttackState);
     }
 
     private void LateUpdate()
@@ -99,7 +97,7 @@ public class JigglyFeatures : MonoBehaviour
         spring.autoConfigureConnectedAnchor = false;                                                //Disattiva l'auto configurazione
         spring.connectedAnchor = hookPoint;                                                         //connette la molla al punto del rampino
         spring.spring = 20f;                                                                        //Valori da modificare per sistemare il rampino a piacimento (da sistemare)
-        spring.damper = 2f;
+        spring.damper = 3.5f;
         spring.massScale = 20f;
     }
 
