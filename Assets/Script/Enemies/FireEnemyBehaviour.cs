@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBehaviour : MonoBehaviour
+public class FireEnemyBehaviour : MonoBehaviour
 {
     private GameObject player;
     private NavMeshAgent agent;
@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     private float distance;
     private bool isFollowing;
     private bool canAttack;
+    private bool canBrake;
 
     void Start()
     {
@@ -19,7 +20,8 @@ public class EnemyBehaviour : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
         isFollowing = true;
-        canAttack = true;
+        canAttack = false;
+        StartCoroutine(AttackCooldown());
     }
 
     private void Update()
@@ -37,6 +39,15 @@ public class EnemyBehaviour : MonoBehaviour
         {
             StartCoroutine(Melee(agent, distance));
         }
+
+        if(canBrake == true)
+        {
+            StartCoroutine(Brake());
+        }
+        else
+        {
+            rb.drag = 1;
+        }
     }
 
     IEnumerator Melee(NavMeshAgent agent, float distance)
@@ -44,13 +55,28 @@ public class EnemyBehaviour : MonoBehaviour
         canAttack = false;
         isFollowing = false;
         agent.enabled = false;
-        yield return new WaitForSeconds(0.5f);
+
+        yield return new WaitForSeconds(0.7f);
         Vector3 direction = player.transform.position - gameObject.transform.position;
         rb.AddForce(direction * 7.5f, ForceMode.Impulse);
+        canBrake = true;
+
         yield return new WaitForSeconds(0.7f);
         agent.enabled = true;
         isFollowing = true;
+        canBrake = false;
         StartCoroutine(AttackCooldown());
+    }
+
+    IEnumerator Brake()
+    {
+        float initialDistance = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        yield return 0; 
+        float secondDistance = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        if (secondDistance > initialDistance)
+        {
+            rb.drag = 8;
+        }
     }
     
     IEnumerator AttackCooldown()

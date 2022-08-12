@@ -121,12 +121,6 @@ public class JigglyFeatures : MonoBehaviour
 
     //METODI ATTACCO JIGGLY
 
-    //Inizia Attacco Jiggly
-    private void JigglyAttack()
-    {
-        
-    }
-
     //Gestione attacco Jiggly
     IEnumerator StartJigglyAttack()
     {

@@ -21,12 +21,12 @@ public class Player : MonoBehaviour
         GameOver(gameOver);                                                                         //Verifica il GameOver
     }
 
-    //Gestione del danno sul giocatore
+    //Gestione del danno sul giocatore da proiettile
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Projectile") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un proiettile
         {
-            health--;                                                                               //Prendi danno
+            health--;                                                                             //Prendi danno
             if(health <= 0)                                                                         //Se la vita è 0 o meno
             {
                 gameOver = true;                                                                    //Gameover
@@ -35,11 +35,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Gestione del danno sul giocatore da proiettile
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un proiettile
+        if (collision.gameObject.CompareTag("Enemy") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un nemico
         {
             health--;                                                                               //Prendi danno
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * (-10), ForceMode.Impulse); //Contraccolpo
             if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
                 gameOver = true;                                                                    //Gameover

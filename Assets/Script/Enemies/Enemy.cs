@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         {
             health = 5;                                                                         //Setti vita
             weak = "fire";                                                                      //Setti debolezza
-            drop = Resources.Load<GameObject>("Assets / Prefab / WaterGem.prefab");             //Setti drop
+            drop = Resources.Load<GameObject>("WaterGem");                                      //Setti drop
         }
     }
 
