@@ -19,7 +19,7 @@ public class Waterspray : MonoBehaviour
     {
         audioShot = GetComponent<AudioSource>();
         audioShot.PlayOneShot(audioShot.clip);
-        speed = 30f;
+        speed = 40f;
         damage = 0.8f;
         rbBullet.velocity = transform.forward * speed;                                //Muove il proiettile
     }

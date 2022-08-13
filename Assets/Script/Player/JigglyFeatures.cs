@@ -27,6 +27,7 @@ public class JigglyFeatures : MonoBehaviour
     
     void Start()
     {
+        hook.enabled = false;
         isHooked = false;
         jigglyAttackState = false;
         CooldownJigglyAttack = false;
@@ -40,14 +41,15 @@ public class JigglyFeatures : MonoBehaviour
         //Rampino
         if (aim.jigglyRaycasthitLayer == "GrapplingPoint" && Input.GetKeyDown(KeyCode.E) && isHooked == false && jigglyAttackState == false && canHook == true)    //Se puoi rampinare, viene premuto E, non hai già rampinato e non è attivo l'attacco di Jiggly e è finito il cooldown
         {
-
             if (isInRange(maxHookRange))                                                                                //Se in range
             {
+                hook.enabled = true;
                 isHooked = true;
                 StartHook();                                                                                            //Rampina
             }
         } else if(isHooked == true && Input.GetKeyDown(KeyCode.E) && jigglyAttackState == false)                        //Se hai già rampinato e premi E e non è attivo l'attaco di Jiggly
         {
+            hook.enabled = false;
             StopHook();                                                                                                 //Rompi rampino
             isHooked = false;
         }
@@ -57,6 +59,7 @@ public class JigglyFeatures : MonoBehaviour
         {
             if (isInRange(maxJigglyAttackRange))
             {
+                hook.enabled = true;
                 enemy = aim.jigglyRaycasthit.collider.gameObject;                                                       //Nemico agganciato
                 enemyName = enemy.name;                                                                                 //Nome nemico agganciato
                 jigglyAttackState = true;                                                                               //Attacco di Jiggly attivo
@@ -130,6 +133,7 @@ public class JigglyFeatures : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         GemFromEnemy();                                                                             //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato
+        hook.enabled = false;
         enemyName = "";                                                                             //Resetta il nome del nemico
         enemy = null;                                                                               //Resetta il nemico agganciato
         hook.positionCount = 0;                                                                     //Distrugge l'attacco

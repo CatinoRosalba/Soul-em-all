@@ -39,12 +39,12 @@ public class Player : MonoBehaviour
     //Gestione del danno sul giocatore da proiettile
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Projectile") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un proiettile
+        if (other.gameObject.CompareTag("EnemyProjectile") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un proiettile
         {
             health--;                                                                               //Prendi danno
             Destroy(goHealth[(int)health].gameObject);                                              //Distrugge lo sprite della vita
             StartCoroutine(EFlash());                                                               //Flash del danno
-            if (health <= 0)                                                                         //Se la vita è 0 o meno
+            if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
                 gameOver = true;                                                                    //Gameover
             }
