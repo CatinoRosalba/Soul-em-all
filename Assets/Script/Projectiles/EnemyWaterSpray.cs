@@ -28,9 +28,9 @@ public class EnemyWaterSpray : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))                                    //Se ha tag Enemy
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Default"))
         {
-            Destroy(gameObject);                                                      //Distrugge il proiettile
+            Destroy(gameObject);                                                          //Distrugge il proiettile
         }
     }
 }

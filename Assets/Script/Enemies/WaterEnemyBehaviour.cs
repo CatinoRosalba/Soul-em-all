@@ -8,41 +8,80 @@ public class WaterEnemyBehaviour : MonoBehaviour
     private GameObject player;
     private NavMeshAgent agent;
     public GameObject bulletSpawnPoint;
+    private Rigidbody rb;
 
     private float distance;
+    private float minStoppingDistance;
+    private float maxStoppingDistance;
+    private int direction;
+    private bool canChangeDir;
+    private bool canMove;
     private bool canAttack;
     private Vector3 aimDir;
-    private Vector3 backstep;
 
     void Start()
     {
         player = GameObject.Find("Amnery");
+        rb = gameObject.GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        minStoppingDistance = agent.stoppingDistance - 2;
+        maxStoppingDistance = agent.stoppingDistance + 2;
+        canMove = true;
         canAttack = false;
         StartCoroutine(AttackCooldown());
+        StartCoroutine(DirectionStrafe());
     }
 
     private void Update()
     {
-        gameObject.transform.LookAt(player.transform.position);
         distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        if (distance > agent.stoppingDistance)
+        gameObject.transform.LookAt(player.transform.position);
+        if (distance > maxStoppingDistance)
         {
+            agent.enabled = true;
             agent.SetDestination(player.transform.position);
-            if(distance == agent.stoppingDistance)
-            {
-                //Cammina in cerchio
-            }
         }
-        else
-        {
-            //Backstep
-        }
-
         if(canAttack == true)
         {
             StartCoroutine(Attack());
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (distance <= maxStoppingDistance && distance >= minStoppingDistance)
+        {
+            agent.enabled = false;
+            rb.velocity = transform.right * 10 * direction;
+            if(canChangeDir == true)
+            {
+                StartCoroutine(DirectionStrafe());
+            }
+        }
+        else if (distance < minStoppingDistance)
+        {
+            agent.enabled = false;
+            rb.velocity = transform.forward * -10;
+        }
+    }
+
+    IEnumerator DirectionStrafe()
+    {
+        canChangeDir = false;
+        int random = Random.Range(1, 3);
+        switch (random)
+        {
+            case 1:
+                direction = -1;
+                break;
+
+            case 2:
+                direction = 1;
+                break;
+        }
+        yield return new WaitForSeconds(2.5f);
+        canChangeDir = true;
     }
 
     IEnumerator Attack()
