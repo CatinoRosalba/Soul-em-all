@@ -28,10 +28,10 @@ public class PlayerCollecting : MonoBehaviour
     //Sistema di identificazione e attivazione raccolta
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ammo"))                                                    //Se in contatto con delle munizioni
+        if (other.gameObject.CompareTag("Ammo"))                                                    //Se entra in contatto con delle munizioni
         {
             pickupRange = true;                                                                     //Puoi raccogliere
-            effectClone = Instantiate(effect, other.transform.position, Quaternion.identity);       //Particelle (??)
+            effectClone = Instantiate(effect, other.transform.position, Quaternion.identity);       //Particelle
         }
     }
 

@@ -8,7 +8,7 @@ public class Waterspray : MonoBehaviour
     float speed;                                                                        //Velocità proiettile
     public float damage;                                                                //Danno proiettile
     [SerializeField] GameObject waterZone;                                              //Zona d'acqua rilasciata alla distruzione
-    AudioSource audioShot;
+    AudioSource audioShot;                                                              //Audio sparo
 
     private void Awake()
     {

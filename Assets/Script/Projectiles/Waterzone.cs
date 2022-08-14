@@ -20,21 +20,12 @@ public class Waterzone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //Se un nemico rimane in contatto
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))                                                   //Se un nemico rimane in contatto
         {
-            if(canDamage == true)
+            if(canDamage == true)                                                                   //Se può far danno
             {
                 other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");    //calcola danno
-                StartCoroutine(DamageTick());                                                       //Cooldown danno
             }
         }
-    }
-
-    IEnumerator DamageTick()
-    {
-        canDamage = false;
-        yield return new WaitForSeconds(0.7f);
-        canDamage = true;
     }
 }

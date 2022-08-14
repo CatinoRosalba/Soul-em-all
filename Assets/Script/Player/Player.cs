@@ -6,15 +6,14 @@ using UnityEngine;
 /*Si occupa della vita del giocatore, dei danni ricevuti e del Game Over*/
 public class Player : MonoBehaviour
 {
-    public GameObject player;
     public GameObject[] goHealth;                                                                   //Oggetto vita del giocatore
-    float health;                                                                                   //Vita del giocatore
-    bool gameOver;                                                                                  //Stato di GameOver
-    bool invisibilityFrame;                                                                         //Permette di evitare il danno consecutivo
+    private float health;                                                                                   //Vita del giocatore
+    private bool gameOver;                                                                                  //Stato di GameOver
+    private bool invisibilityFrame;                                                                         //Permette di evitare il danno consecutivo
 
-    Material matDefault;                                                                            //Materiale di default
-    Material matWhite;                                                                              //Material di colore bianco
-    float flashTime = .10f;                                                                         //Tempo del flash
+    private Material matDefault;                                                                            //Materiale di default
+    private Material matWhite;                                                                              //Material di colore bianco
+    private float flashTime = .10f;                                                                         //Tempo del flash
     private Object explosionRef;                                                                    //Animazione morte
 
     void Start()
@@ -39,7 +38,7 @@ public class Player : MonoBehaviour
     //Gestione del danno sul giocatore da proiettile
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnemyProjectile") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un proiettile
+        if (other.gameObject.CompareTag("EnemyProjectile") && invisibilityFrame == false)           //Se puoi prendere danno e entri in contatto con un proiettile
         {
             health--;                                                                               //Prendi danno
             Destroy(goHealth[(int)health].gameObject);                                              //Distrugge lo sprite della vita
@@ -59,10 +58,8 @@ public class Player : MonoBehaviour
         {
             health--;                                                                               //Prendi danno
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * (-10), ForceMode.Impulse); //Contraccolpo
-
             StartCoroutine(EFlash());                                                               //Flash del danno
             Destroy(goHealth[(int)health].gameObject);                                              //Distrugge lo sprite della vita
-            
             if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
                 GameObject explosion = (GameObject) Instantiate(explosionRef);                       //Esplosione
@@ -73,7 +70,6 @@ public class Player : MonoBehaviour
 
                 gameOver = true;                                                                    //Gameover
             }
-
             StartCoroutine(InvisibiliyyFrame());                                                    //Iniziano gli InvisibilityFrame
         }
     }

@@ -37,17 +37,14 @@ public class PlayerController : MonoBehaviour
         inputAngle = Mathf.Atan2(XMovement, ZMovement) * Mathf.Rad2Deg + mainCamera.transform.eulerAngles.y;    //input totale della rotazione del personaggio e della cam
         movDirection = Quaternion.Euler(0f, inputAngle, 0f) * Vector3.forward;                                  //Direzione in cui deve muoversi il giocatore in base alla visuale
 
-        //Billboarding
-        sprite.transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
-
         //Animazione camminata
-        if (rb.velocity != new Vector3(0f, 0f, 0f))
+        if (rb.velocity != new Vector3(0f, 0f, 0f))                                             //Se si sta muovendo
         {
-            setAnimationState(true);
+            setAnimationState(true);                                                            //Attiva camminata                                                   
         }
-        else
+        else                                                                                    //Se sta fermo
         {
-            setAnimationState(false);
+            setAnimationState(false);                                                           //Disattiva camminata
         }
     }
 

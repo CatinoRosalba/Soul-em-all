@@ -7,8 +7,7 @@ public class EnemyWaterSpray : MonoBehaviour
     private Rigidbody rbBullet;                                                      //RigidBody
     float speed;                                                                     //Velocità proiettile
     public float damage;                                                             //Danno proiettile
-    [SerializeField] GameObject waterZone;                                           //Zona d'acqua rilasciata alla distruzione
-    AudioSource audioShot;
+    [SerializeField] GameObject waterZone;                                           //Zona d'acqua rilasciata alla distruzione                                        
 
     private void Awake()
     {
@@ -17,8 +16,6 @@ public class EnemyWaterSpray : MonoBehaviour
 
     private void Start()
     {
-        audioShot = GetComponent<AudioSource>();
-        audioShot.PlayOneShot(audioShot.clip);
         speed = 70f;
         damage = 0.8f;
         rbBullet.velocity = transform.forward * speed;                                //Muove il proiettile
@@ -28,9 +25,9 @@ public class EnemyWaterSpray : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Default"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Default"))        //Se entra in contatto con il player o con qualcos'altro
         {
-            Destroy(gameObject);                                                          //Distrugge il proiettile
+            Destroy(gameObject);                                                                    //Distrugge il proiettile
         }
     }
 }

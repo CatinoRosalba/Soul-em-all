@@ -7,7 +7,7 @@ public class JigglyFeatures : MonoBehaviour
     //Scripts
     public PlayerAim aim;                                                                           //Usato per la verifica col raycast se possibile rampinare/usare Jiggly
     public GameObject hookSpawnPoint;                                                               //Punto di spawn del rampino
-    [SerializeField] UIManager slot;
+    [SerializeField] UIManager slot;                                                                //Interfaccia
 
     //Variabili Rampino
     public LineRenderer hook;                                                                       //Rampino
@@ -43,15 +43,15 @@ public class JigglyFeatures : MonoBehaviour
         {
             if (isInRange(maxHookRange))                                                                                //Se in range
             {
-                hook.enabled = true;
-                isHooked = true;
+                hook.enabled = true;                                                                                    //Attiva rampino
+                isHooked = true;                                                                                        //Sei rampinato
                 StartHook();                                                                                            //Rampina
             }
         } else if(isHooked == true && Input.GetKeyDown(KeyCode.E) && jigglyAttackState == false)                        //Se hai già rampinato e premi E e non è attivo l'attaco di Jiggly
         {
-            hook.enabled = false;
+            hook.enabled = false;                                                                                       //Disattiva rampino
             StopHook();                                                                                                 //Rompi rampino
-            isHooked = false;
+            isHooked = false;                                                                                           //Non sei rampinato
         }
 
         //Attacco di Jiggly
@@ -59,7 +59,7 @@ public class JigglyFeatures : MonoBehaviour
         {
             if (isInRange(maxJigglyAttackRange))
             {
-                hook.enabled = true;
+                hook.enabled = true;                                                                                    //Attiva rampino
                 enemy = aim.jigglyRaycasthit.collider.gameObject;                                                       //Nemico agganciato
                 enemyName = enemy.name;                                                                                 //Nome nemico agganciato
                 jigglyAttackState = true;                                                                               //Attacco di Jiggly attivo
@@ -70,10 +70,13 @@ public class JigglyFeatures : MonoBehaviour
             }
             
         }
-        if (slot.isCountDown) slot.ApplyCountDown();                                                                    //aggiorna il countdown
-        if (jigglyAttackState == true)
+        if (slot.isCountDown)                                                                                           //Se lo slot è in cooldown
         {
-            hookPoint = enemy.transform.position;                                                                       //Punto in cui si aggancia il rampino
+            slot.ApplyCountDown();                                                                                      //aggiorna il countdown
+        }
+        if (jigglyAttackState == true)                                                                                  //Se stai usando l'attacco di Jiggl
+        {
+            hookPoint = enemy.transform.position;                                                                       //Aggiorna l'aggancio al punto in cui si aggancia il rampino
         }
 
     }
@@ -86,8 +89,7 @@ public class JigglyFeatures : MonoBehaviour
     //Range massimo di Jiggly
     private bool isInRange(float maxRange)
     {
-        float distance = (aim.jigglyRaycasthit.point - gameObject.transform.position).magnitude;                                         //Distanza tra player e punto d'aggrappo
-        Debug.Log(distance);
+        float distance = Vector3.Distance(aim.jigglyRaycasthit.point, gameObject.transform.position);                   //Distanza tra player e punto d'aggrappo
         if (distance <= maxRange)                                                                                       //Se minore del range massimo
         {
             return true;                                                                                                //Puoi aggrapparti
@@ -105,9 +107,9 @@ public class JigglyFeatures : MonoBehaviour
         spring = gameObject.AddComponent<SpringJoint>();                                            //Effetto molla per il rampino
         spring.autoConfigureConnectedAnchor = false;                                                //Disattiva l'auto configurazione
         spring.connectedAnchor = hookPoint;                                                         //connette la molla al punto del rampino
-        spring.spring = 20f;                                                                        //Valori da modificare per sistemare il rampino a piacimento (da sistemare)
-        spring.damper = 3.5f;
-        spring.massScale = 20f;
+        spring.spring = 20f;                                                                        //Effetto Molla
+        spring.damper = 3.5f;                                                                       //Attrito
+        spring.massScale = 20f;                                                                     //Mass
     }
 
     //Distruggi Rampino
@@ -115,9 +117,10 @@ public class JigglyFeatures : MonoBehaviour
     {
         hook.positionCount = 0;                                                                     //Riduce i vertici a 0 per farlo sparire
         Destroy(spring);                                                                            //Distrugge l'effetto molla
-        StartCoroutine(HookCooldown());
+        StartCoroutine(HookCooldown());                                                             //Attiva cooldown
     }
 
+    //Cooldown rampino
     IEnumerator HookCooldown()
     {
         canHook = false;
@@ -133,7 +136,7 @@ public class JigglyFeatures : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         GemFromEnemy();                                                                             //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato
-        hook.enabled = false;
+        hook.enabled = false;                                                                       //Disattiva rampino
         enemyName = "";                                                                             //Resetta il nome del nemico
         enemy = null;                                                                               //Resetta il nemico agganciato
         hook.positionCount = 0;                                                                     //Distrugge l'attacco

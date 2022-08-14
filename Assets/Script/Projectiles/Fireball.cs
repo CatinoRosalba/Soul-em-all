@@ -7,7 +7,7 @@ public class Fireball : MonoBehaviour
     Rigidbody rbBullet;                                                         //RigidBody
     float speed;                                                                //Velocità Proiettile
     public float damage;                                                        //Danno Proiettile
-    AudioSource audioShot;
+    AudioSource audioShot;                                                      //Audio sparo
 
     void Start()
     {
@@ -22,8 +22,7 @@ public class Fireball : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Se il proiettile entra in contatto con un nemico
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))                                               //Se il proiettile entra in contatto con un nemico
         {
             other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "fire");     //Applica Danno
             Destroy(gameObject);                                                                //Distruggi Proiettile

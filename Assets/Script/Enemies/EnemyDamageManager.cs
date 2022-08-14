@@ -26,7 +26,7 @@ public class EnemyDamageManager : MonoBehaviour
 
     public void TakeDamage(float damage, string type)
     {
-        if (canDamage == true)
+        if (canDamage == true)                                                  //Se può subire danno
         {
             if (type == enemy.weak)                                             //Se il nemico è debole
             {
