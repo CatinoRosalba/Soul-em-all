@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         //Movimento e Rotazione
         rb.MoveRotation(Quaternion.Euler(0f, mainCamera.transform.eulerAngles.y, 0f));          //Ruota l'asse del player secondo l'angolo della cam
-        if (XMovement!=0 || ZMovement!=0 && isGrounded == true)
+        if ((XMovement!=0 || ZMovement!=0) && isGrounded == true)
         {
             rb.AddForce(movDirection.normalized * movSpeed);                   //Movimento
         }
