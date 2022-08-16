@@ -13,10 +13,10 @@ public class JigglyFeatures : MonoBehaviour
     public LineRenderer hook;                                                                       //Rampino
     private bool isHooked;                                                                          //Verifica se si sta usando il rampino
     private Vector3 hookPoint;                                                                      //Punto d'aggancio finale del rampino (usato pure per l'attacco di Jiggly)
-    private SpringJoint spring;                                                                     //Effetto rampino
+    private Rigidbody rb;                                                                           //Rigidbody usatp per il pull
+    private bool isPulling;                                                                         //Se il giocatore sat venendo tirato dal rampino
     private bool canHook;                                                                           //Variabile usata per il cooldown del rampino
     private float maxHookRange;                                                                     //Range massimo del rampino
-    private float minHookRange;                                                                     //Range minimo del rampino
 
     //Variabili Attacco di Jiggly
     private bool jigglyAttackState;                                                                 //Verifica se si sta usando l'attacco di Jiggly
@@ -24,7 +24,7 @@ public class JigglyFeatures : MonoBehaviour
     private GameObject enemy;                                                                       //Nemico attaccato con Jiggly per il drop della gemma
     private string enemyName;                                                                       //Nome del nemico agganciato
     private float maxJigglyAttackRange;                                                             //Range massimo dell'attacco di Jiggly
-    
+
     void Start()
     {
         hook.enabled = false;
@@ -32,8 +32,10 @@ public class JigglyFeatures : MonoBehaviour
         jigglyAttackState = false;
         CooldownJigglyAttack = false;
         canHook = true;
-        maxHookRange = 30;
+        maxHookRange = 40;
         maxJigglyAttackRange = 20;
+        rb = GetComponent<Rigidbody>();
+        isPulling = false;
     }
 
     void Update()
@@ -54,6 +56,11 @@ public class JigglyFeatures : MonoBehaviour
             isHooked = false;                                                                                           //Non sei rampinato
         }
 
+        if (isPulling)                                                                                                  //Se il rampino tira il giocatore
+        {
+            rb.AddForce((hookPoint - gameObject.transform.position).normalized * 0.3f, ForceMode.VelocityChange);       //Tira con al fisica
+        }
+
         //Attacco di Jiggly
         if(aim.jigglyRaycasthitLayer == "Target" && Input.GetKeyDown(KeyCode.Q) && isHooked == false && CooldownJigglyAttack == false)  //Se  puoi attaccare, premi Q, non sei agganciato e non sei in cooldown  
         {
@@ -68,7 +75,6 @@ public class JigglyFeatures : MonoBehaviour
                 StartCoroutine(StartJigglyAttack());                                                                    //Coroutine di esecuzione dell'attacco
                 StartCoroutine(StartCooldownJigglyAttack());                                                            //Cooldown abilità Jiggly                                                                                             //Inizio attacco di Jiggly
             }
-            
         }
         if (slot.isCountDown)                                                                                           //Se lo slot è in cooldown
         {
@@ -104,19 +110,16 @@ public class JigglyFeatures : MonoBehaviour
     {
         hookPoint = aim.jigglyRaycasthit.point;                                                     //Punto in cui si aggancia il rampino
         hook.positionCount = 2;                                                                     //Vertici del rampino
-        spring = gameObject.AddComponent<SpringJoint>();                                            //Effetto molla per il rampino
-        spring.autoConfigureConnectedAnchor = false;                                                //Disattiva l'auto configurazione
-        spring.connectedAnchor = hookPoint;                                                         //connette la molla al punto del rampino
-        spring.spring = 20f;                                                                        //Effetto Molla
-        spring.damper = 3.5f;                                                                       //Attrito
-        spring.massScale = 20f;                                                                     //Mass
+        isPulling = true;                                                                           //Il rampino tira il giocatore
+        rb.useGravity = false;
     }
 
     //Distruggi Rampino
     private void StopHook()
     {
         hook.positionCount = 0;                                                                     //Riduce i vertici a 0 per farlo sparire
-        Destroy(spring);                                                                            //Distrugge l'effetto molla
+        isPulling = false;                                                                          //Il rampino non tira il giocatore
+        rb.useGravity = true;
         StartCoroutine(HookCooldown());                                                             //Attiva cooldown
     }
 

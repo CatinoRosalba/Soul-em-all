@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     float XMovement;                                                        //Inout movimento asse X
     Vector3 movDirection;                                                   //Direzione di movimento
 
+    //Se tocca il terreno
+    bool isGrounded;
+
     //Rotazione
     float inputAngle;                                                       //Angolo della visuale e del personaggio
 
@@ -37,6 +40,9 @@ public class PlayerController : MonoBehaviour
         inputAngle = Mathf.Atan2(XMovement, ZMovement) * Mathf.Rad2Deg + mainCamera.transform.eulerAngles.y;    //input totale della rotazione del personaggio e della cam
         movDirection = Quaternion.Euler(0f, inputAngle, 0f) * Vector3.forward;                                  //Direzione in cui deve muoversi il giocatore in base alla visuale
 
+        //Vedo se il giocatore tocca il terreno
+        CheckIsGrounded();
+
         //Animazione camminata
         if (rb.velocity != new Vector3(0f, 0f, 0f))                                             //Se si sta muovendo
         {
@@ -52,9 +58,9 @@ public class PlayerController : MonoBehaviour
     {
         //Movimento e Rotazione
         rb.MoveRotation(Quaternion.Euler(0f, mainCamera.transform.eulerAngles.y, 0f));          //Ruota l'asse del player secondo l'angolo della cam
-        if (XMovement!=0 || ZMovement!=0)
+        if (XMovement!=0 || ZMovement!=0 && isGrounded == true)
         {
-            rb.AddForce(movDirection.normalized * movSpeed);                                    //Movimento
+            rb.AddForce(movDirection.normalized * movSpeed);                   //Movimento
         }
     }
 
@@ -62,5 +68,22 @@ public class PlayerController : MonoBehaviour
     void setAnimationState(bool isWalking)
     {
         anim.SetBool("isWalking", isWalking);
+    }
+
+    //Controllo se tocca terra
+    private void CheckIsGrounded()
+    {
+        RaycastHit hit;
+        float distance = 1f;
+        Vector3 dir = new Vector3(0, -1);
+
+        if (Physics.Raycast(transform.position, dir, out hit, distance))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 }

@@ -7106,7 +7106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738644879}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 130}
+  m_LocalPosition: {x: 0, y: -0.1, z: 130}
   m_LocalScale: {x: 20, y: 1, z: 14}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8380,6 +8380,7 @@ GameObject:
   - component: {fileID: 838359781}
   - component: {fileID: 838359780}
   - component: {fileID: 838359779}
+  - component: {fileID: 838359791}
   m_Layer: 2
   m_Name: Amnery
   m_TagString: Player
@@ -8665,6 +8666,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838359791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838359778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472167e6782ec2a4ea1787ec71f760b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullSpeed: 0.5
+  stopDistance: 4
+  hookObject: {fileID: 566800889002849923, guid: ca32802a7a5d9384b9e5b2dd89e767c4, type: 3}
+  shootTransform: {fileID: 813291481}
+  aim: {fileID: 838359784}
+  hook: {fileID: 566800889002849928, guid: ca32802a7a5d9384b9e5b2dd89e767c4, type: 3}
+  pulling: 0
+  rb: {fileID: 0}
 --- !u!1 &859384142
 GameObject:
   m_ObjectHideFlags: 0
@@ -9769,7 +9790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965755622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

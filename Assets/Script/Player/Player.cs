@@ -7,13 +7,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject[] goHealth;                                                                   //Oggetto vita del giocatore
-    private float health;                                                                                   //Vita del giocatore
-    private bool gameOver;                                                                                  //Stato di GameOver
-    private bool invisibilityFrame;                                                                         //Permette di evitare il danno consecutivo
+    private float health;                                                                           //Vita del giocatore
+    private bool gameOver;                                                                          //Stato di GameOver
+    private bool invisibilityFrame;                                                                 //Permette di evitare il danno consecutivo
 
-    private Material matDefault;                                                                            //Materiale di default
-    private Material matWhite;                                                                              //Material di colore bianco
-    private float flashTime = .10f;                                                                         //Tempo del flash
+    private Material matDefault;                                                                    //Materiale di default
+    private Material matWhite;                                                                      //Material di colore bianco
+    private float flashTime = .10f;                                                                 //Tempo del flash
     private Object explosionRef;                                                                    //Animazione morte
 
     void Start()
