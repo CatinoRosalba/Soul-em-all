@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FireEnemyBehaviour : MonoBehaviour
+public class FireEnemyAttack : MonoBehaviour
 {
     private GameObject player;                                                                      //Giocatore
     private NavMeshAgent agent;                                                                     //NavMeshAgent

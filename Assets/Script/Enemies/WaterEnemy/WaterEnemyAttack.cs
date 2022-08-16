@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class WaterEnemyBehaviour : MonoBehaviour
+public class WaterEnemyAttack : MonoBehaviour
 {
     private GameObject player;                                          //Giocatore
     private NavMeshAgent agent;                                         //NavMeshAgent dell'entità
