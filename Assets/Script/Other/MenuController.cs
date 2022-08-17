@@ -53,7 +53,7 @@ public class MenuController : MonoBehaviour
 
             //Sensibilità
             sensX = 500;
-            backgroundVolumeSlider.value = sensX;
+            sensitivitySlider.value = sensX;
             PlayerPrefs.SetInt(SensitivityX, sensX);
             
             PlayerPrefs.SetInt(FirstPlay, -1);                                      //Setta la variabile di FirstPlay
@@ -110,7 +110,7 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundVolumePref, backgroundVolumeSlider.value);                 //Salva il valore backgound
         PlayerPrefs.SetFloat(SoundFXPref, effectVolumeSlider.value);                              //Salva il valore effetti
-        PlayerPrefs.SetInt(SensitivityX, (int)sensitivitySlider.value);
+        PlayerPrefs.SetInt(SensitivityX, (int) sensitivitySlider.value);
     }
     
 
