@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class MenuController : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class MenuController : MonoBehaviour
     private static readonly string FirstPlay = "FirstPlay";
     private static readonly string BackgroundVolumePref = "BackgroundVolumePref";
     private static readonly string SoundFXPref = "SoundFXPref";
+    private static readonly string SensitivityX = "SensX";
     private int firstPlayInt;
+
 
     [Header("Nuovo gioco")]
     public string newGame;
@@ -26,9 +29,14 @@ public class MenuController : MonoBehaviour
     [SerializeField] private AudioSource[] effectAudio;
     private float effectVolumeValue;
 
+    [Header("Impostazioni - Sensibilità")]
+    [SerializeField] private Slider sensitivitySlider;
+    private int sensX;
+
 
     private void Start()
     {
+
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
         if (firstPlayInt == 0)                                                      //Se è la prima volta che apre il gioco
@@ -39,10 +47,15 @@ public class MenuController : MonoBehaviour
             PlayerPrefs.SetFloat(BackgroundVolumePref, backgroundVolumeValue);      //Salva il master volume
 
             //Volume effetti
-            effectVolumeValue = 0.5f;                                              //Setta il volume degli effetti
+            effectVolumeValue = 0.5f;                                               //Setta il volume degli effetti
             effectVolumeSlider.value = effectVolumeValue;                           //Assegna allo slider
             PlayerPrefs.SetFloat(SoundFXPref, effectVolumeValue);                   //Salva il volume
 
+            //Sensibilità
+            sensX = 500;
+            backgroundVolumeSlider.value = sensX;
+            PlayerPrefs.SetInt(SensitivityX, sensX);
+            
             PlayerPrefs.SetInt(FirstPlay, -1);                                      //Setta la variabile di FirstPlay
         }
         else
@@ -54,6 +67,10 @@ public class MenuController : MonoBehaviour
             //Volume effetti
             effectVolumeValue = PlayerPrefs.GetFloat(SoundFXPref); ;                 //Setta il volume degli effetti
             effectVolumeSlider.value = effectVolumeValue;                            //Assegna allo slider
+
+            //Sensibitlià
+            sensX = PlayerPrefs.GetInt(SensitivityX);
+            sensitivitySlider.value = sensX;
         }
     }
 
@@ -93,6 +110,8 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundVolumePref, backgroundVolumeSlider.value);                 //Salva il valore backgound
         PlayerPrefs.SetFloat(SoundFXPref, effectVolumeSlider.value);                              //Salva il valore effetti
+        PlayerPrefs.SetInt(SensitivityX, (int)sensitivitySlider.value);
     }
+    
 
 }
