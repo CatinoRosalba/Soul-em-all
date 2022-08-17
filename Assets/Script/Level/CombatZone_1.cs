@@ -4,49 +4,66 @@ using UnityEngine;
 
 public class CombatZone_1 : MonoBehaviour
 {
+    private float totalEnemies;
     private bool clear;
-    private GameObject[] fireClone = new GameObject[4];
-    private Vector3[] fireClonePosition = new Vector3[4];
-    private GameObject[] waterClone;
+    private bool inCombat;
+    public GameObject cage;
 
     // Start is called before the first frame update
     void Start()
     {
-        fireClonePosition[1] = new Vector3(54, 1, 22);
-        fireClonePosition[2] = new Vector3(72, 1, 33);
-        fireClonePosition[2] = new Vector3(71, 1, 6);
-        fireClonePosition[2] = new Vector3(46, 1, 8);
+        clear = false;
+        inCombat = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (totalEnemies <= 0 && inCombat == true)
+        {
+            clear = true;
+        }
+
+        if(clear == true)
+        {
+            cage.GetComponent<BoxCollider>().enabled = false;
+            cage.GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && clear == false)
+        if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("a");
-            for (int i = 0; i < 4; i++)
-            {
-                fireClone[i] = (GameObject)Instantiate(Resources.Load("Fire Enemy"), fireClonePosition[i], Quaternion.identity);
-                Debug.Log(fireClone);
-            }
+            ActivateSpawners();
+            inCombat = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && clear == false)
         {
-            DestroyAllEnemies();
+            inCombat = false;
+            DestroyEnemies();
         }
     }
 
-    private void DestroyAllEnemies()
+    private void ActivateSpawners()
     {
-        //for(int )
+        GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        for(int i = 0; i < spawners.Length; i++)
+        {
+            spawners[i].GetComponent<SpawnerScript>().SpawnEnemy();
+        }
+    }
+
+    private void DestroyEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i]);
+        }
     }
 }

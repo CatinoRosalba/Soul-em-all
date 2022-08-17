@@ -8,6 +8,8 @@ TagManager:
   - Projectile
   - Ammo
   - EnemyProjectile
+  - Spawner
+  - Category
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - Target
   - GrapplingPoint
-  - 
+  - Wall
   - 
   - 
   - 

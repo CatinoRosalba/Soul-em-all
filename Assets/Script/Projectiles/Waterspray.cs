@@ -33,7 +33,7 @@ public class Waterspray : MonoBehaviour
             Destroy(gameObject);                                                                    //Distrugge il proiettile
             Vector3 enemyPosition = new Vector3(other.gameObject.transform.position.x, 0.2f, other.gameObject.transform.position.z);
             Instantiate(waterZone,enemyPosition, Quaternion.Euler(90f, 0f, 0f));                    //Rilascia la waterzone nella posizione del nemico
-        } else if (other.gameObject.CompareTag("Enemy") == false)                                   //Se non ha tag Enemy
+        } else if (other.gameObject.CompareTag("Enemy") == false && other.gameObject.CompareTag("Category") == false) //Se non ha tag Enemy o Category
         {
             Destroy(gameObject);
             Vector3 projectilePosition = new Vector3(gameObject.transform.position.x, 0.2f, gameObject.transform.position.z);

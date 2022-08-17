@@ -14,13 +14,13 @@ public class Enemy : MonoBehaviour
     {
         explosionRef = Resources.Load("Explosion");
 
-        if (gameObject.name == "Fire Enemy" || gameObject.name == "Fire Enemy(Clone)")          //Se il nome del nemico è Fire Enemy
+        if (gameObject.name.Contains("Fire"))          //Se il nome del nemico è Fire Enemy
         {
             health = 3;                                                                         //Setti vita
             weak = "water";                                                                     //Setti debolezza
             drop = Resources.Load<GameObject>("FireGem");                                       //Setti drop
         } 
-        else if(gameObject.name == "Water Enemy" || gameObject.name == "Water Enemy(Clone)")    //Se il nome del nemico è Water Enemy
+        else if(gameObject.name.Contains("Water"))    //Se il nome del nemico è Water Enemy
         {
             health = 5;                                                                         //Setti vita
             weak = "fire";                                                                      //Setti debolezza
