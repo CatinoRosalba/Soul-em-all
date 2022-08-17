@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
     {
         health = 3;
 
-        matWhite = Resources.Load("FlashWhite", typeof(Material)) as Material;
-        explosionRef = Resources.Load("Explosion");
+        matWhite = Resources.Load("Particles/FlashWhite", typeof(Material)) as Material;
+        explosionRef = Resources.Load("Particles/Explosion");
 
         //accesso allo sprite figlio dell'oggetto padre Enemy
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
@@ -101,6 +101,5 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(flashTime);
             r.material = matDefault;
         }
-
     }
 }

@@ -12,19 +12,19 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        explosionRef = Resources.Load("Explosion");
+        explosionRef = Resources.Load("Particles/Explosion");
 
         if (gameObject.name.Contains("Fire"))          //Se il nome del nemico è Fire Enemy
         {
             health = 3;                                                                         //Setti vita
             weak = "water";                                                                     //Setti debolezza
-            drop = Resources.Load<GameObject>("FireGem");                                       //Setti drop
+            drop = Resources.Load<GameObject>("Gems/FireGem");                                       //Setti drop
         } 
         else if(gameObject.name.Contains("Water"))    //Se il nome del nemico è Water Enemy
         {
             health = 5;                                                                         //Setti vita
             weak = "fire";                                                                      //Setti debolezza
-            drop = Resources.Load<GameObject>("WaterGem");                                      //Setti drop
+            drop = Resources.Load<GameObject>("Gems/WaterGem");                                      //Setti drop
         }
     }
 

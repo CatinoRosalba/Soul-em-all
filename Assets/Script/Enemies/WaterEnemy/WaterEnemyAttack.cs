@@ -115,7 +115,7 @@ public class WaterEnemyAttack : MonoBehaviour
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(0.2f);
-        Instantiate(Resources.Load("EnemyWaterSpray"), bulletSpawnPoint.transform.position, Quaternion.LookRotation(aimDir, Vector3.up));   //Spara tanti proiettili in base a quante volte è stata chiamat la coroutine in 0.2 secondi dal cooldown dello sparo nella direzione scelta
+        Instantiate(Resources.Load("Projectiles/EnemyWaterSpray"), bulletSpawnPoint.transform.position, Quaternion.LookRotation(aimDir, Vector3.up));   //Spara tanti proiettili in base a quante volte è stata chiamat la coroutine in 0.2 secondi dal cooldown dello sparo nella direzione scelta
         StartCoroutine(AttackCooldown());                                                           //Cooldown sparo
     }
 

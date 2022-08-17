@@ -22,18 +22,18 @@ public class UIManager : MonoBehaviour
     {
         if (gem.name == "FireGem" || gem.name == "FireGem(Clone)")                  //Se la gemma è FireGem
         {
-            imgEmptySlot.sprite = Resources.Load<Sprite>("skill_fuoco_attiva");     //Equipaggia FireGem
+            imgEmptySlot.sprite = Resources.Load<Sprite>("UI/skill_fuoco_attiva");     //Equipaggia FireGem
         }
         if (gem.name == "WaterGem" || gem.name == "WaterGem(Clone)")                //Se la gemma è WaterGem
         {
-            imgEmptySlot.sprite = Resources.Load<Sprite>("skill_acqua_attiva");     //Equipaggia WaterGem
+            imgEmptySlot.sprite = Resources.Load<Sprite>("UI/skill_acqua_attiva");     //Equipaggia WaterGem
         }
     }
 
     //Svuota uno Slot Sparo
     public void EmptySlot(Image imgEmptySlot)
     {
-        imgEmptySlot.sprite = Resources.Load<Sprite>("empty_skill");                //Equipaggia Slot vuoto
+        imgEmptySlot.sprite = Resources.Load<Sprite>("UI/empty_skill");                //Equipaggia Slot vuoto
     }
 
     //Disattiva la skill di attacco di Jiggly e setta il countdown

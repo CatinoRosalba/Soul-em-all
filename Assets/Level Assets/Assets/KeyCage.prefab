@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 4424428077708310108}
   - component: {fileID: 4424428077708310109}
   m_Layer: 0
-  m_Name: Cage
+  m_Name: KeyCage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4424428077708310106
 Transform:
@@ -109,9 +109,10 @@ GameObject:
   - component: {fileID: 4424428078349494242}
   - component: {fileID: 4424428078349494244}
   - component: {fileID: 4424428078349494245}
+  - component: {fileID: 259791700124216316}
   m_Layer: 0
-  m_Name: Slime
-  m_TagString: Untagged
+  m_Name: Key
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,3 +197,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000005, z: 0.20000009}
   m_Center: {x: 0, y: -0.000000834465, z: -0.0000038146973}
+--- !u!114 &259791700124216316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424428078349494243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d7b2879d3f78845bf66b7773e5d19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

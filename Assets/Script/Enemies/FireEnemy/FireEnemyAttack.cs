@@ -25,7 +25,7 @@ public class FireEnemyAttack : MonoBehaviour
     private void Update()
     {
         distance = Vector3.Distance(player.transform.position, gameObject.transform.position);          //Calcolo continuamente la distanza tra l'entità e il giocatore
-        if (distance > agent.stoppingDistance)                                                                        //Se sta seguendo il giocatore
+        if (distance > agent.stoppingDistance && agent.enabled == true)                                 //Se sta seguendo il giocatore
         {
             agent.SetDestination(player.transform.position);                                            //Il NavMeshAgent direziona l'entità al giocatore
         }

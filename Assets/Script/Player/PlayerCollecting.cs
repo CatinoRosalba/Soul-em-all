@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class PlayerCollecting : MonoBehaviour
 {
@@ -95,14 +96,14 @@ public class PlayerCollecting : MonoBehaviour
     //Converte la gemma nello sparo
     public void ConvertGemToProjectile(GameObject gem, ref GameObject spell, ref float ammo, int min, int max)
     {
-        if(gem.name == "FireGem" || gem.name == "FireGem(Clone)")                                   //Se la gemma si chiama FireGem
+        if(gem.name.Contains("Fire"))                                                               //Se la gemma si chiama FireGem
         {
-            spell = (GameObject)Resources.Load("Fireball");                                         //Equipaggia la Fireball
+            spell = (GameObject)Resources.Load("Projectiles/Fireball");                             //Equipaggia la Fireball
             ammo = Random.Range(min, max);                                                          //Genera le munizioni in maniera casuale tra un minimo e un massimo
         }
-        if(gem.name == "WaterGem" || gem.name == "WaterGem(Clone)")                                 //Se la gemma si chiama WaterGem
+        if(gem.name.Contains("Water"))                                                              //Se la gemma si chiama WaterGem
         {
-            spell = (GameObject)Resources.Load("WaterSpray");                                       //Equipaggia il Waterspray
+            spell = (GameObject)Resources.Load("Projectiles/WaterSpray");                                       //Equipaggia il Waterspray
             ammo = Random.Range(min, max);                                                          //Genera le munizioni in maniera casuale tra un minimo e un massimo
         }
     }

@@ -15,7 +15,7 @@ public class EnemyDamageManager : MonoBehaviour
     {
         enemy = gameObject.GetComponent<Enemy>();
         canDamage = true;
-        matWhite = Resources.Load("FlashWhite", typeof(Material)) as Material;
+        matWhite = Resources.Load("Particles/FlashWhite", typeof(Material)) as Material;
         
         //accesso allo sprite figlio dell'oggetto padre Enemy
         foreach (Renderer r in GetComponentsInChildren<Renderer>())

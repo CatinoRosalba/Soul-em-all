@@ -157,13 +157,13 @@ public class JigglyFeatures : MonoBehaviour
     //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato
     private void GemFromEnemy()
     {
-        if (enemyName == "Fire Enemy" || enemyName == "Fire Enemy(Clone)")                                              //Se il nemico è Fire Enemy
+        if (gameObject.name.Contains("Fire"))                                               //Se il nemico è Fire Enemy
         {
-            Instantiate(Resources.Load<GameObject>("FireGem"), gameObject.transform.position, Quaternion.identity);     //Istanzia Fire Gem
+            Instantiate(Resources.Load<GameObject>("Gems/FireGem"), gameObject.transform.position, Quaternion.identity);     //Istanzia Fire Gem
         }
-        else if (enemyName == "Water Enemy" || enemyName == "Water Enemy(Clone)")                                       //Se il nemico è Water Enemy
+        else if (gameObject.name.Contains("Water"))                                         //Se il nemico è Water Enemy
         {
-            Instantiate(Resources.Load<GameObject>("WaterGem"), gameObject.transform.position, Quaternion.identity);    //Istanzia Water Gem
+            Instantiate(Resources.Load<GameObject>("Gems/WaterGem"), gameObject.transform.position, Quaternion.identity);    //Istanzia Water Gem
         }
     }
 

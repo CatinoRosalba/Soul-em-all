@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7251762311888936376}
   - component: {fileID: 2501722609986858889}
   - component: {fileID: 8787640433938133937}
+  - component: {fileID: 4571981295340100636}
   - component: {fileID: 96803365}
   m_Layer: 2
   m_Name: FireGem
@@ -110,6 +111,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 096a340fa17c377479783ed255b060ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4571981295340100636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2652850759786794724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369cd27a77c17084e876f24551b3b7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &96803365
