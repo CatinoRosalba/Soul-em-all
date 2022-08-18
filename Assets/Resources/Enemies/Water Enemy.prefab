@@ -248,7 +248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fecb064a73b5784d871d2ca391bfd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 6040655112085133303}
   bulletSpawnPoint: {fileID: 4220604415227357465}
+  rb: {fileID: 6719444895194452336}
 --- !u!114 &6380925416372642940
 MonoBehaviour:
   m_ObjectHideFlags: 0

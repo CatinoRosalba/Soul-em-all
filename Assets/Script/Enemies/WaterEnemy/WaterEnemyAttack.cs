@@ -6,25 +6,25 @@ using UnityEngine.AI;
 public class WaterEnemyAttack : MonoBehaviour
 {
     private GameObject player;                                          //Giocatore
-    private NavMeshAgent agent;                                         //NavMeshAgent dell'entità
-    private GameObject bulletSpawnPoint;                                //Punto di spawn proiettili
-    private Rigidbody rb;                                               //Rigidbody
+    public NavMeshAgent agent;                                         //NavMeshAgent dell'entità
+    public GameObject bulletSpawnPoint;                                //Punto di spawn proiettili
+    public Rigidbody rb;                                               //Rigidbody
 
-    private float distance;                                             //Distanza tra entità e giocatore
-    private float minStoppingDistance;                                  //Distanza minima di stop dell'entità dal giocatore
-    private float maxStoppingDistance;                                  //Distanza massima di stop dell'entità dal giocatore
-    private int direction;                                              //Direzione di spostamento laterale
-    private bool canChangeDir;                                          //Usata per il cooldown di ricalcolo della direzione dello spostamento laterale
-    private bool canAttack;                                             //Usata per il cooldown dell'attacco
-    private bool canChangeDirAim;                                       //Usata per il cooldown di cambio direzione sparo
-    private Vector3 aimDir;                                             //Direzione di mira
+    private float distance;                                            //Distanza tra entità e giocatore
+    private float minStoppingDistance;                                 //Distanza minima di stop dell'entità dal giocatore
+    private float maxStoppingDistance;                                 //Distanza massima di stop dell'entità dal giocatore
+    private int direction;                                             //Direzione di spostamento laterale
+    private bool canChangeDir;                                         //Usata per il cooldown di ricalcolo della direzione dello spostamento laterale
+    private bool canAttack;                                            //Usata per il cooldown dell'attacco
+    private bool canChangeDirAim;                                      //Usata per il cooldown di cambio direzione sparo
+    private Vector3 aimDir;                                            //Direzione di mira
 
     void Start()
     {
         player = GameObject.Find("Amnery");
-        bulletSpawnPoint = transform.Find("bulletSpawnPoint").gameObject;
-        rb = gameObject.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
+
         agent.updateRotation = false;
         minStoppingDistance = agent.stoppingDistance - 2;
         maxStoppingDistance = agent.stoppingDistance + 2;

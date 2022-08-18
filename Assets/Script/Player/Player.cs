@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject[] goHealth;                                                                   //Oggetto vita del giocatore
+    private SpriteRenderer sprite;
     private float health;                                                                           //Vita del giocatore
     private bool gameOver;                                                                          //Stato di GameOver
     private bool invisibilityFrame;                                                                 //Permette di evitare il danno consecutivo
@@ -19,15 +20,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         health = 3;
+        sprite = transform.Find("Sprite").GetComponent<SpriteRenderer>();
 
         matWhite = Resources.Load("Particles/FlashWhite", typeof(Material)) as Material;
         explosionRef = Resources.Load("Particles/Explosion");
 
-        //accesso allo sprite figlio dell'oggetto padre Enemy
-        foreach (Renderer r in GetComponentsInChildren<Renderer>())
-        {
-            matDefault = r.material;
-        }
+        matDefault = sprite.material;
     }
 
     void Update()
@@ -95,11 +93,8 @@ public class Player : MonoBehaviour
     //Timer del flash
     IEnumerator EFlash()
     {
-        foreach (Renderer r in GetComponentsInChildren<Renderer>())
-        {
-            r.material = matWhite;
-            yield return new WaitForSeconds(flashTime);
-            r.material = matDefault;
-        }
+        sprite.material = matWhite;
+        yield return new WaitForSeconds(flashTime);
+        sprite.material = matDefault;
     }
 }

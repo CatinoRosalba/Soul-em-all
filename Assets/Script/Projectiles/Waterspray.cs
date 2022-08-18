@@ -27,17 +27,15 @@ public class Waterspray : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))                                                   //Se ha tag Enemy
+        if (!other.gameObject.CompareTag("Player") && !other.isTrigger)                             //Se ha tag Enemy
         {
-            other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");        //Applica danno
-            Destroy(gameObject);                                                                    //Distrugge il proiettile
-            Vector3 enemyPosition = new Vector3(other.gameObject.transform.position.x, 0.2f, other.gameObject.transform.position.z);
-            Instantiate(waterZone,enemyPosition, Quaternion.Euler(90f, 0f, 0f));                    //Rilascia la waterzone nella posizione del nemico
-        } else if (other.gameObject.CompareTag("Enemy") == false && other.gameObject.CompareTag("Category") == false) //Se non ha tag Enemy o Category
-        {
-            Destroy(gameObject);
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");    //Applica danno
+            }
             Vector3 projectilePosition = new Vector3(gameObject.transform.position.x, 0.2f, gameObject.transform.position.z);
             Instantiate(waterZone, projectilePosition, Quaternion.Euler(90f, 0f, 0f));              //Rilascia la waterzone nella posizione del proiettile
-        }
+            Destroy(gameObject);                                                                    //Distrugge il proiettile
+        } 
     }
 }

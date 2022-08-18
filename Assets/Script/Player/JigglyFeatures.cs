@@ -37,7 +37,7 @@ public class JigglyFeatures : MonoBehaviour
         maxJigglyAttackRange = 20;
         rb = gameObject.GetComponent<Rigidbody>();
         aim = gameObject.GetComponent<PlayerAim>();
-        hookSpawnPoint = transform.Find("BulletSpawnPoint").gameObject;
+        hookSpawnPoint = transform.Find("JigglySpawnPoint").gameObject;
     }
 
     void Update()
@@ -159,11 +159,11 @@ public class JigglyFeatures : MonoBehaviour
     //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato
     private void GemFromEnemy()
     {
-        if (gameObject.name.Contains("Fire"))                                               //Se il nemico è Fire Enemy
+        if (enemyName.Contains("Fire"))                                               //Se il nemico è Fire Enemy
         {
             Instantiate(Resources.Load<GameObject>("Gems/FireGem"), gameObject.transform.position, Quaternion.identity);     //Istanzia Fire Gem
         }
-        else if (gameObject.name.Contains("Water"))                                         //Se il nemico è Water Enemy
+        else if (enemyName.Contains("Water"))                                         //Se il nemico è Water Enemy
         {
             Instantiate(Resources.Load<GameObject>("Gems/WaterGem"), gameObject.transform.position, Quaternion.identity);    //Istanzia Water Gem
         }
