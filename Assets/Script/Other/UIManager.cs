@@ -7,15 +7,30 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     //Slot Skills
+    [Header("Immagini Slot vuoti")]
     public Image imgEmptySlot1;                                                     //Slot Sparo 1
-    public Image imgEmptySlot2;                                                     //Slot Sparo 2+
-    public Image imgCountDown;                                                      //Immagine Countdown
+    public Image imgEmptySlot2;                                                     //Slot Sparo 2
+
+    [Header("Testi ammo")]
     public TMP_Text TXTAmmo1;                                                       //Munizioni Sparo 1
     public TMP_Text TXTAmmo2;                                                       //Munizioni Sparo 2
-    public TMP_Text TXTCountDown;                                                   //Testo Countdown
-    public float countDownTime = 0.5f;                                              //Tempo di partenza del countdown
-    public float countDownTimer = 0.0f;                                             //Tempo di fine del countdown
-    public bool isCountDown = false;
+
+    [Header("Immagini filtro countdown")]
+    public Image imgCountDownAttack;                                                //Immagine Countdown
+    public Image imgCountDownHook;                                                  //Immagine Countdown
+
+    [Header("Coutdown Attacco")]
+    public TMP_Text TXTCountDownAttack;                                             //Testo Countdown
+    public float countDownTimeAttack = 0.5f;                                        //Tempo di partenza del countdown
+    public float countDownTimerAttack = 0.0f;                                       //Tempo di fine del countdown
+    public bool isAttackCountDown = false;
+
+    [Header("Countdown Rampino")]
+    public TMP_Text TXTCountDownHook;                                               //Testo Countdown
+    public float countDownTimeHook = 0.5f;                                          //Tempo di partenza del countdown
+    public float countDownTimerHook = 0.0f;                                         //Tempo di fine del countdown
+    public bool isHookCountDown = false;
+
 
     //Equip Slot Sparo
     public void EquipSlot(GameObject gem, Image imgEmptySlot)
@@ -40,30 +55,30 @@ public class UIManager : MonoBehaviour
     public void DisableJigglyAttackSlot()
     {
         //Se il countdown non è attivo resetta
-        if (!isCountDown)
+        if (!isAttackCountDown)
         {
-            imgCountDown.gameObject.SetActive(true);
-            TXTCountDown.gameObject.SetActive(true);
-            isCountDown = true;
-            imgCountDown.fillAmount = 0.0f;
-            countDownTimer = countDownTime;
+            imgCountDownAttack.gameObject.SetActive(true);
+            TXTCountDownAttack.gameObject.SetActive(true);
+            isAttackCountDown = true;
+            imgCountDownAttack.fillAmount = 0.0f;
+            countDownTimerAttack = countDownTimeAttack;
         }
     }
 
-    public void ApplyCountDown()
+    public void ApplyAttackCountDown()
     {
-        countDownTimer -= Time.deltaTime;                                           //Sottrae al timer il tempo
+        countDownTimerAttack -= Time.deltaTime;                                           //Sottrae al timer il tempo
 
-        if(countDownTimer <= 0.0f)                                                  //Se finisce il tempo
+        if(countDownTimerAttack <= 0.0f)                                                  //Se finisce il tempo
         {
-            isCountDown = false;                                                    //Disattiva il countdown
-            TXTCountDown.gameObject.SetActive(false);                               //Disattiva il testo
-            imgCountDown.gameObject.SetActive(false);                               //Disattiva l'immagine
+            isAttackCountDown = false;                                                    //Disattiva il countdown
+            TXTCountDownAttack.gameObject.SetActive(false);                               //Disattiva il testo
+            imgCountDownAttack.gameObject.SetActive(false);                               //Disattiva l'immagine
         }
         else
         {
-            TXTCountDown.text = Mathf.RoundToInt(countDownTimer).ToString();        //Setta il testo
-            imgCountDown.fillAmount = countDownTimer / countDownTime;               //Setta l'immagine
+            TXTCountDownAttack.text = Mathf.RoundToInt(countDownTimerAttack).ToString();  //Setta il testo
+            imgCountDownAttack.fillAmount = countDownTimerAttack / countDownTimeAttack;   //Setta l'immagine
         }
     }
 

@@ -5,8 +5,8 @@ using UnityEngine;
 public class JigglyFeatures : MonoBehaviour
 {
     //Scripts
-    private PlayerAim aim;                                                                           //Usato per la verifica col raycast se possibile rampinare/usare Jiggly
-    private GameObject hookSpawnPoint;                                                               //Punto di spawn del rampino
+    private PlayerAim aim;                                                                          //Usato per la verifica col raycast se possibile rampinare/usare Jiggly
+    private GameObject hookSpawnPoint;                                                              //Punto di spawn del rampino
     [SerializeField] UIManager slot;                                                                //Interfaccia
 
     //Variabili Rampino
@@ -46,7 +46,7 @@ public class JigglyFeatures : MonoBehaviour
         if (aim.jigglyRaycasthitLayer == "GrapplingPoint" && Input.GetKeyDown(KeyCode.E) && isHooked == false && jigglyAttackState == false && canHook == true)    //Se puoi rampinare, viene premuto E, non hai già rampinato e non è attivo l'attacco di Jiggly e è finito il cooldown
         {
             if (isInRange(maxHookRange))                                                                                //Se in range
-            {
+            {   
                 hook.enabled = true;                                                                                    //Attiva rampino
                 isHooked = true;                                                                                        //Sei rampinato
                 StartHook();                                                                                            //Rampina
@@ -78,15 +78,14 @@ public class JigglyFeatures : MonoBehaviour
                 StartCoroutine(StartCooldownJigglyAttack());                                                            //Cooldown abilità Jiggly                                                                                             //Inizio attacco di Jiggly
             }
         }
-        if (slot.isCountDown)                                                                                           //Se lo slot è in cooldown
+        if (slot.isAttackCountDown)                                                                                     //Se lo slot è in cooldown
         {
-            slot.ApplyCountDown();                                                                                      //aggiorna il countdown
+            slot.ApplyAttackCountDown();                                                                                //aggiorna il countdown
         }
         if (jigglyAttackState == true)                                                                                  //Se stai usando l'attacco di Jiggl
         {
             hookPoint = enemy.transform.position;                                                                       //Aggiorna l'aggancio al punto in cui si aggancia il rampino
         }
-
     }
 
     private void LateUpdate()
