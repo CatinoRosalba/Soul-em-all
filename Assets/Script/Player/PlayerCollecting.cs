@@ -7,23 +7,24 @@ using static UnityEditor.Progress;
 public class PlayerCollecting : MonoBehaviour
 {
     //Script
-    [SerializeField] PlayerShooting playerShooting;                 //Script dello sparo
+    private PlayerShooting playerShooting;                          //Script dello sparo
     [SerializeField] UIManager slot;                                //Script dell'interfaccia
 
     //Particles gems
     [SerializeField] GameObject effect;                             //Effetto caricato 
-    GameObject effectClone;                                         //Effetto applicato
+    private GameObject effectClone;                                         //Effetto applicato
 
     //Controlli
-    bool pickupRange;                                               //Controllo se posso prendere
-    bool pickup1;                                                   //Prendo nello slot 1
-    bool pickup2;                                                   //Prendo nello slot 2
+    private bool pickupRange;                                               //Controllo se posso prendere
+    private bool pickup1;                                                   //Prendo nello slot 1
+    private bool pickup2;                                                   //Prendo nello slot 2
 
     private void Start()
     {
         pickupRange = false;
         pickup1 = false;
         pickup2 = false;
+        playerShooting = gameObject.GetComponent<PlayerShooting>();
     }
     
     //Sistema di identificazione e attivazione raccolta

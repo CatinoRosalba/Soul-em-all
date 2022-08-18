@@ -10,7 +10,7 @@ public class CombatZone_1 : MonoBehaviour
     public GameObject cage;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         clear = false;
         inCombat = false;

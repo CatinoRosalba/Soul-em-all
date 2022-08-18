@@ -7,7 +7,7 @@ public class WaterEnemyAttack : MonoBehaviour
 {
     private GameObject player;                                          //Giocatore
     private NavMeshAgent agent;                                         //NavMeshAgent dell'entità
-    public GameObject bulletSpawnPoint;                                 //Punto di spawn proiettili
+    private GameObject bulletSpawnPoint;                                //Punto di spawn proiettili
     private Rigidbody rb;                                               //Rigidbody
 
     private float distance;                                             //Distanza tra entità e giocatore
@@ -22,6 +22,7 @@ public class WaterEnemyAttack : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Amnery");
+        bulletSpawnPoint = transform.Find("bulletSpawnPoint").gameObject;
         rb = gameObject.GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;

@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour
 {
-    Inventory inventory;
+    private Inventory inventory;
+
+    private void Start()
+    {
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
             GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().addCollectable(gameObject.name, gameObject.tag);
+            Destroy(gameObject);
         }
     }
 }

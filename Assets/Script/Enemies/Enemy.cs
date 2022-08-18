@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     public float health;                                                                    //Vita nemico
     public string weak;                                                                     //Debolezza nemico
     private GameObject drop;                                                                //Drop nemico
-
     private Object explosionRef;                                                            //Animazione morte
 
     private void Start()

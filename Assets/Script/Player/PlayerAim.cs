@@ -19,6 +19,12 @@ public class PlayerAim : MonoBehaviour
     public RaycastHit jigglyRaycasthit;                                                         //Punto di mira di Jiggly già calcolato
     public string jigglyRaycasthitLayer;                                                        //Layer dell'oggetto mirato da Jiggly
 
+    private void Start()
+    {
+        amneryBulletRay = transform.Find("AmneryBulletRay");
+        jigglyBulletRay = transform.Find("JigglyBulletRay");
+    }
+
     void Update()
     {
         //Mira in base alla cam

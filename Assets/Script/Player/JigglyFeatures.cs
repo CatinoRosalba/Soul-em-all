@@ -5,8 +5,8 @@ using UnityEngine;
 public class JigglyFeatures : MonoBehaviour
 {
     //Scripts
-    public PlayerAim aim;                                                                           //Usato per la verifica col raycast se possibile rampinare/usare Jiggly
-    public GameObject hookSpawnPoint;                                                               //Punto di spawn del rampino
+    private PlayerAim aim;                                                                           //Usato per la verifica col raycast se possibile rampinare/usare Jiggly
+    private GameObject hookSpawnPoint;                                                               //Punto di spawn del rampino
     [SerializeField] UIManager slot;                                                                //Interfaccia
 
     //Variabili Rampino
@@ -32,10 +32,12 @@ public class JigglyFeatures : MonoBehaviour
         jigglyAttackState = false;
         CooldownJigglyAttack = false;
         canHook = true;
+        isPulling = false;
         maxHookRange = 40;
         maxJigglyAttackRange = 20;
-        rb = GetComponent<Rigidbody>();
-        isPulling = false;
+        rb = gameObject.GetComponent<Rigidbody>();
+        aim = gameObject.GetComponent<PlayerAim>();
+        hookSpawnPoint = transform.Find("BulletSpawnPoint").gameObject;
     }
 
     void Update()

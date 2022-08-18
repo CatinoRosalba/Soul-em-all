@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class EnemyDamageManager : MonoBehaviour
 {
-    Enemy enemy;                                                                            //Riferimento allo script Enemy
-    bool canDamage;                                                                         //Permette di creare gli invisibility frame
-
-    Material matDefault;                                                                    //materiale di default
-    Material matWhite;                                                                      //material di colore bianco
-    float flashTime = .10f;                                                                 //tempo del flash
+    private Enemy enemy;                                                                            //Riferimento allo script Enemy
+    private bool canDamage;                                                                         //Permette di creare gli invisibility frame
+    private Material matDefault;                                                                    //materiale di default
+    private Material matWhite;                                                                      //material di colore bianco
+    private float flashTime = .10f;                                                                 //tempo del flash
 
     private void Start()
     {

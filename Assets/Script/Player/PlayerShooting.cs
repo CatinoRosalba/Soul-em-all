@@ -8,10 +8,10 @@ public class PlayerShooting : MonoBehaviour
 {
     //Scripts
     public UIManager slot;                                                      //Script dell'interfaccia degli slot
-    public PlayerAim aim;                                                       //Script della mira
+    private PlayerAim aim;                                                       //Script della mira
 
     //Sparo e ammo
-    public GameObject bulletSpawnPoint;                                         //Spawn dei proiettili
+    private GameObject bulletSpawnPoint;                                         //Spawn dei proiettili
     public GameObject primaryFire;                                              //Sparo col tasto sinistro del mouse
     public float primaryAmmo;                                                   //Munizioni per lo sparo primario
     public GameObject secondaryFire;                                            //Sparo col tasto destro del mouse
@@ -30,6 +30,8 @@ public class PlayerShooting : MonoBehaviour
         isEmpty2 = true;
         canShoot = true;
         canCollect = true;
+        aim = gameObject.GetComponent<PlayerAim>();
+        bulletSpawnPoint = transform.Find("BulletSpawnPoint").gameObject;
     }
 
     void Update()
