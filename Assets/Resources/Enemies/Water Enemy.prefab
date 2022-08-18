@@ -248,9 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fecb064a73b5784d871d2ca391bfd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 6040655112085133303}
   bulletSpawnPoint: {fileID: 4220604415227357465}
-  rb: {fileID: 6719444895194452336}
 --- !u!114 &6380925416372642940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b8cf2057a7e374482bfe0c6bc05e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!114 &3540649004656899351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,11 +270,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046299096355644328}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f105f6388bfb03478e01b8f2230f154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+    serializedVersion: 2
+    m_Bits: 512
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 409
 --- !u!1 &4220604415227357465
 GameObject:
   m_ObjectHideFlags: 0

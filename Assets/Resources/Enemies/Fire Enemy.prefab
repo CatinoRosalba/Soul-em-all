@@ -124,7 +124,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4304748612835425224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22f6e9f707373b945a974b081bdaa36b, type: 3}
   m_Name: 
@@ -136,11 +136,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4304748612835425224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e3f00e269c77814a8c60f650d32050b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  agent: {fileID: 0}
+  distance: 0
 --- !u!114 &5478691788878280469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +156,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dfc6e972d015d429b36391f22d1428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+    serializedVersion: 2
+    m_Bits: 512
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 409
 --- !u!1 &4304748612911624824
 GameObject:
   m_ObjectHideFlags: 0

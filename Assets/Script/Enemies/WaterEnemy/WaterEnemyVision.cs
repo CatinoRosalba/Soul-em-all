@@ -4,15 +4,44 @@ using UnityEngine;
 
 public class WaterEnemyVision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool hasVision;
+    public LayerMask player;
+    public LayerMask obstacles;
+
+    private void Start()
     {
-        
+        StartCoroutine(FOVRoutine());
+    }
+    private void Update()
+    {
+        if (hasVision)
+        {
+            gameObject.GetComponent<WaterEnemyMovement>().enabled = true;
+            gameObject.GetComponent<WaterEnemyAttack>().enabled = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator FOVRoutine()
     {
-        
+        while (true)
+        {
+            yield return new WaitForSeconds(0.2f);
+            FOVCheck();
+        }
+    }
+
+    private void FOVCheck()
+    {
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, 200, player);
+        if (rangeChecks.Length != 0)
+        {
+            Transform target = rangeChecks[0].transform;
+            Vector3 directionToTarget = (target.position - transform.position).normalized;
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacles))
+            {
+                hasVision = true;
+            }
+        }
     }
 }
