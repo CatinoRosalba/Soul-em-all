@@ -84,8 +84,8 @@ public class WaterEnemyMovement : MonoBehaviour
         StartCoroutine(DirectionChangeCooldown());
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawLine(gameObject.transform.position, agent.destination);
-    }
+    }*/
 }

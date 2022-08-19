@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour
 {
+    public string name;
     private Inventory inventory;
 
     private void Start()
@@ -15,7 +16,7 @@ public class Collectables : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().addCollectable(gameObject.name, gameObject.tag);
+            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().addCollectable(name, gameObject.tag);
             Destroy(gameObject);
         }
     }
