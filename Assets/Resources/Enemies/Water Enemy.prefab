@@ -156,6 +156,8 @@ Transform:
   m_Children:
   - {fileID: 5919251968248950163}
   - {fileID: 6918201144424063800}
+  - {fileID: 8198783124665525070}
+  - {fileID: 5670390770522703297}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   weak: 
+  hook: {fileID: 0}
 --- !u!114 &755017010507833775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   rb: {fileID: 0}
+  rightStep: {fileID: 4797048385421814518}
+  leftStep: {fileID: 3690850114413090051}
 --- !u!114 &3540649004656899351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +286,37 @@ MonoBehaviour:
   obstacles:
     serializedVersion: 2
     m_Bits: 409
+--- !u!1 &3690850114413090051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5670390770522703297}
+  m_Layer: 6
+  m_Name: LeftStep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5670390770522703297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690850114413090051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2096032158817748362}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4220604415227357465
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,4 +347,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2096032158817748362}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4797048385421814518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8198783124665525070}
+  m_Layer: 6
+  m_Name: RightStep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8198783124665525070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797048385421814518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2096032158817748362}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -9,9 +9,11 @@ public class WaterEnemyMovement : MonoBehaviour
     private GameObject player;                                         //Giocatore
     public NavMeshAgent agent;                                         //NavMeshAgent dell'entità
     public Rigidbody rb;                                               //Rigidbody
+    public GameObject rightStep;
+    public GameObject leftStep;                                        
     private float distance;                                            //Distanza tra entità e giocatore
-    private float minStoppingDistance;                                 //Distanza minima di stop dell'entità dal giocatore
-    private float maxStoppingDistance;                                 //Distanza massima di stop dell'entità dal giocatore
+    private float minDistanceFromPlayer;                               //Distanza minima di stop dell'entità dal giocatore
+    private float maxDistanceFromPlayer;                               //Distanza massima di stop dell'entità dal giocatore
     private int direction;                                             //Direzione di spostamento laterale
     private bool canChangeDir;                                         //Usata per il cooldown di ricalcolo della direzione dello spostamento laterale
 
@@ -22,65 +24,48 @@ public class WaterEnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
-        minStoppingDistance = agent.stoppingDistance - 2;
-        maxStoppingDistance = agent.stoppingDistance + 2;
-        ChangeDirection();
+        minDistanceFromPlayer = 10;
+        maxDistanceFromPlayer = 14;
+        canChangeDir = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(player.transform.position, gameObject.transform.position);      //Calcolo continuamente la distanza dell'entità dal giocatore
-        //gameObject.transform.LookAt(player.transform.position);                                     //L'entità guarda il giocatore per settare continuamente i assi
-        if (distance > maxStoppingDistance)                                                         //Se è più lontano della distanza di stop massima
+        distance = Vector3.Distance(player.transform.position, gameObject.transform.position);    //Calcolo continuamente la distanza dell'entità dal giocatore
+        gameObject.transform.LookAt(player.transform.position);                                   //L'entità guarda il giocatore per settare continuamente i assi
+        if (distance > maxDistanceFromPlayer)                                                     //Se è più lontano della distanza di stop massima
         {
-            agent.enabled = true;                                                                   //Attiva NavMeshAgent
-            agent.SetDestination(player.transform.position);                                        //Il NavMeshAgent lo sposta verso il giocatore
+            agent.SetDestination(player.transform.position);                                      //Il NavMeshAgent lo sposta verso il giocatore
         }
-        if (distance < minStoppingDistance)                                                    //Se si trova dopo la distanza minima di stop dal giocatorw
+        if (distance < minDistanceFromPlayer)                                                     //Se si trova dopo la distanza minima di stop dal giocatorw
         {
             Vector3 direction = (player.transform.position - gameObject.transform.position).normalized;
             for (int i = 0; i < 30; i++)
             {
                 NavMeshHit hit;
-                if (NavMesh.SamplePosition(gameObject.transform.position - direction * agent.stoppingDistance * 2, out hit, 3, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(gameObject.transform.position - direction, out hit, 3, NavMesh.AllAreas))
                 {
                     agent.SetDestination(hit.position);
-                    Debug.Log(agent.destination);
                     break;
                 }
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        /*if (distance <= maxStoppingDistance && distance >= minStoppingDistance)                    //Se l'entità è tra la distanza minima e massima di stop
+        if (distance <= maxDistanceFromPlayer && distance >= minDistanceFromPlayer)                  //Se l'entità è tra la distanza minima e massima di stop
         {
-            agent.enabled = false;                                                                   //Disattiva NavMeshAgent (non funziona per queste due feature, si disattiva per evitare di entrare in conflitto con la fisica)
-            rb.velocity = transform.right * 10 * direction;                                          //Spostamento laterale nella direzione scelta randomicamente
-            if (canChangeDir == true)                                                                //Se il cooldown di cambio direzione è finito
+            if (canChangeDir)
             {
-                ChangeDirection();
+                direction = Random.Range(1, 3);
                 StartCoroutine(DirectionChangeCooldown());
             }
-        }
-        else*/ 
-    }
-
-    private void ChangeDirection()
-    {
-        canChangeDir = true;                                                                        //Può cambiare direzione
-        int random = Random.Range(1, 3);                                                            //Scelta randomica direzione (da 1 a 3-1=2)
-        switch (random)
-        {
-            case 1:
-                direction = -1;                                                                     //Setta sinistra
-                break;
-
-            case 2:
-                direction = 1;                                                                      //Setta destra
-                break;
+            Debug.Log(direction);
+            if (direction == 1)
+            {
+                agent.SetDestination(rightStep.transform.position);
+            } else if ( direction == 2)
+            {
+                agent.SetDestination(leftStep.transform.position);
+            }
         }
     }
 
@@ -95,7 +80,7 @@ public class WaterEnemyMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         StopCoroutine(DirectionChangeCooldown());
-        direction = -direction;
+        direction = Random.Range(1, 3);
         StartCoroutine(DirectionChangeCooldown());
     }
 
