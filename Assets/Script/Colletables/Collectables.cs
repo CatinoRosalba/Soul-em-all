@@ -16,7 +16,7 @@ public class Collectables : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().addCollectable(name, gameObject.tag);
+            inventory.GetComponent<Inventory>().addCollectable(name, gameObject.tag);
             Destroy(gameObject);
         }
     }

@@ -9,13 +9,21 @@ public class Waterzone : MonoBehaviour
 
     private void Start()
     {
-        damage = 0.1f;
+        damage = 0.2f;
         canDamage = true;
     }
 
     private void Update()
     {
         Destroy(gameObject, 5);                             //Dstruggi la zona dopo 5 secondi
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))                                                   //Se un nemico rimane in contatto
+        {
+            other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");    //calcola danno
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -25,7 +33,15 @@ public class Waterzone : MonoBehaviour
             if(canDamage == true)                                                                   //Se può far danno
             {
                 other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");    //calcola danno
+                StartCoroutine(DamageCooldown());
             }
         }
+    }
+
+    IEnumerator DamageCooldown()
+    {
+        canDamage = false;
+        yield return new WaitForSeconds(0.75f);
+        canDamage = true;
     }
 }

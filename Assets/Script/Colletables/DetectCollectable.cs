@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectKey : MonoBehaviour
+public class DetectCollectable : MonoBehaviour
 {
-    public string key;
+    public string collectable;
     private GameObject gate;
     private Inventory inventory;
 
@@ -18,10 +18,8 @@ public class DetectKey : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("a");
-            if (inventory.CheckKeys(key))
+            if (inventory.CheckCollectable(collectable))
             {
-                Debug.Log("b");
                 gate.GetComponent<BoxCollider>().enabled = false;
                 gate.GetComponent<MeshRenderer>().enabled = false;
             }

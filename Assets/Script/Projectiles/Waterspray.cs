@@ -33,9 +33,19 @@ public class Waterspray : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "water");    //Applica danno
             }
-            Vector3 projectilePosition = new Vector3(gameObject.transform.position.x, 0.2f, gameObject.transform.position.z);
+            Vector3 projectilePosition = new Vector3(gameObject.transform.position.x, CalculateFloorPoint() + 0.1f, gameObject.transform.position.z);
             Instantiate(waterZone, projectilePosition, Quaternion.Euler(90f, 0f, 0f));              //Rilascia la waterzone nella posizione del proiettile
             Destroy(gameObject);                                                                    //Distrugge il proiettile
         } 
+    }
+
+    private float CalculateFloorPoint()
+    {
+        RaycastHit hit;
+        float distance = 1f;
+        Vector3 dir = new Vector3(0, -1);
+
+        Physics.Raycast(transform.position, dir, out hit, distance);
+        return hit.point.y;
     }
 }

@@ -18,15 +18,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool CheckKeys(string key)
+    public bool CheckCollectable(string collectable)
     {
-        if (keys.Contains(key))
+        if (keys.Contains(collectable))
         {
             return true;
         }
-        else
+        if (savedSlimes.Contains(collectable))
         {
-            return false;
+            return true;
         }
+        return false;
     }
 }
