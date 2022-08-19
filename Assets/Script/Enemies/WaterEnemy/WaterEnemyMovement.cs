@@ -58,7 +58,6 @@ public class WaterEnemyMovement : MonoBehaviour
                 direction = Random.Range(1, 3);
                 StartCoroutine(DirectionChangeCooldown());
             }
-            Debug.Log(direction);
             if (direction == 1)
             {
                 agent.SetDestination(rightStep.transform.position);

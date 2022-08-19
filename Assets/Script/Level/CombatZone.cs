@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatZone_1 : MonoBehaviour
+public class CombatZone : MonoBehaviour
 {
     private float totalEnemies;
     private bool clear;
@@ -33,7 +33,7 @@ public class CombatZone_1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && clear == false)
         {
             ActivateSpawners();
             inCombat = true;
@@ -42,7 +42,7 @@ public class CombatZone_1 : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && clear == false)
+        if (other.gameObject.CompareTag("Player"))
         {
             inCombat = false;
             DestroyEnemies();
@@ -51,10 +51,13 @@ public class CombatZone_1 : MonoBehaviour
 
     private void ActivateSpawners()
     {
-        GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
-        for(int i = 0; i < spawners.Length; i++)
+        for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            spawners[i].GetComponent<SpawnerScript>().SpawnEnemy();
+            GameObject child = gameObject.transform.GetChild(i).gameObject;
+            if (child.CompareTag("Spawner"))
+            {
+                child.GetComponent<SpawnerScript>().SpawnEnemy();
+            }
         }
     }
 

@@ -35,7 +35,6 @@ public class EnemyDamageManager : MonoBehaviour
             {
                 enemy.health -= damage;                                         //Calcola il danno
             }
-            StartCoroutine(InvisibilityFrame());
             StartCoroutine(EFlash());                                           //Flash del danno
         }
     }
@@ -50,13 +49,5 @@ public class EnemyDamageManager : MonoBehaviour
             r.material = matDefault;
         }
 
-    }
-
-    //Timer invisibility frame
-    IEnumerator InvisibilityFrame()
-    {
-        canDamage = false;
-        yield return new WaitForSeconds(0.7f);
-        canDamage = true;
     }
 }

@@ -32,7 +32,7 @@ public class FireEnemyVision : MonoBehaviour
 
     private void FOVCheck()
     {
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, 200, player);
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, 30, player);
         if (rangeChecks.Length != 0)
         {
             Transform target = rangeChecks[0].transform;

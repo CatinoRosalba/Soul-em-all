@@ -16,7 +16,7 @@ public class EnemyWaterSpray : MonoBehaviour
 
     private void Start()
     {
-        speed = 70f;
+        speed = 80f;
         damage = 0.8f;
         rbBullet.velocity = transform.forward * speed;                                //Muove il proiettile
         Destroy(gameObject, 2);
@@ -25,9 +25,9 @@ public class EnemyWaterSpray : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Default"))        //Se entra in contatto con il player o con qualcos'altro
+        if (!other.isTrigger && !other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);                                                                    //Distrugge il proiettile
+            Destroy(gameObject);                                                         //Distrugge il proiettile
         }
     }
 }

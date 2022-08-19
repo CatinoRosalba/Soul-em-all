@@ -73,7 +73,7 @@ public class PlayerCollecting : MonoBehaviour
         {
             if (pickup1 == true)                                                                    //Se posso raccogliere nello slot1
             {
-                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, 2, 5);         //Converte la gemma nella spell giusta
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, 3, 6);         //Converte la gemma nella spell giusta
                 slot.EquipSlot(other.gameObject, slot.imgEmptySlot1);                               //Aggiunge la gemma allo slot1 dell'interfaccia
                 slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());                       //Aggiunge il numero di munizioni allo slot1 dell'interfaccia
                 playerShooting.isEmpty1 = false;                                                    //Ha munizioni
@@ -84,7 +84,7 @@ public class PlayerCollecting : MonoBehaviour
             }
             if (pickup2 == true)                                                                    //Se posso raccogliere nello slot2
             {
-                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo, 2, 5);     //Converte la gemma nella spell giusta
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo, 4, 7);     //Converte la gemma nella spell giusta
                 slot.EquipSlot(other.gameObject, slot.imgEmptySlot2);                               //Aggiunge la gemma allo slot2 dell'interfaccia
                 slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());                     //Aggiunge il numero di munizioni allo slot2 dell'interfaccia
                 playerShooting.isEmpty2 = false;                                                    //Ha munizioni

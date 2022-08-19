@@ -104,6 +104,17 @@ public class JigglyFeatures : MonoBehaviour
         return false;                                                                                                   //Non puoi aggrapparti
     }
 
+    //Disegna Jiggly
+    private void drawHook()
+    {
+        if (isHooked == false && jigglyAttackState == false)                                        //Se non c'è il rampino o l'attacco di Jiggly, non disegnare
+        {
+            return;
+        }
+        hook.SetPosition(0, hookSpawnPoint.transform.position);                                     //Primo punto del rampino
+        hook.SetPosition(1, hookPoint);                                                             //Secondo punto del rampino
+    }
+
     //METODI RAMPINO
 
     //Crea Rampino
@@ -128,7 +139,7 @@ public class JigglyFeatures : MonoBehaviour
     IEnumerator HookCooldown()
     {
         canHook = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         canHook = true;
     }
 
@@ -138,20 +149,20 @@ public class JigglyFeatures : MonoBehaviour
     //Gestione attacco Jiggly
     IEnumerator StartJigglyAttack()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         GemFromEnemy();                                                                             //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato
         hook.enabled = false;                                                                       //Disattiva rampino
         enemyName = "";                                                                             //Resetta il nome del nemico
         enemy = null;                                                                               //Resetta il nemico agganciato
         hook.positionCount = 0;                                                                     //Distrugge l'attacco
         jigglyAttackState = false;                                                                  //Attacco Jiggly non attivo
-        CooldownJigglyAttack = true;                                                                //Inizio Cooldown
     }
 
     //Cooldown attacco Jiggly
     IEnumerator StartCooldownJigglyAttack()
     {
-        yield return new WaitForSeconds(5);
+        CooldownJigglyAttack = true;                                                                //Inizio Cooldown
+        yield return new WaitForSeconds(7);
         CooldownJigglyAttack = false;                                                               //Disattiva Cooldown
     }
 
@@ -166,16 +177,5 @@ public class JigglyFeatures : MonoBehaviour
         {
             Instantiate(Resources.Load<GameObject>("Gems/WaterGem"), gameObject.transform.position, Quaternion.identity);    //Istanzia Water Gem
         }
-    }
-
-    //Disegna Jiggly
-    private void drawHook()
-    {
-        if (isHooked == false && jigglyAttackState == false)                                        //Se non c'è il rampino o l'attacco di Jiggly, non disegnare
-        {
-            return;
-        }
-        hook.SetPosition(0, hookSpawnPoint.transform.position);                                     //Primo punto del rampino
-        hook.SetPosition(1, hookPoint);                                                             //Secondo punto del rampino
     }
 }
