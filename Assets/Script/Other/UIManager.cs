@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Immagini filtro countdown")]
     public Image imgCountDownAttack;                                                //Immagine Countdown
-    public Image imgCountDownHook;                                                  //Immagine Countdown
+    //public Image imgCountDownHook;                                                  //Immagine Countdown
 
     [Header("Coutdown Attacco")]
     public TMP_Text TXTCountDownAttack;                                             //Testo Countdown
@@ -25,11 +25,11 @@ public class UIManager : MonoBehaviour
     public float countDownTimerAttack = 0.0f;                                       //Tempo di fine del countdown
     public bool isAttackCountDown = false;
 
-    [Header("Countdown Rampino")]
+    /*[Header("Countdown Rampino")]
     public TMP_Text TXTCountDownHook;                                               //Testo Countdown
     public float countDownTimeHook = 0.5f;                                          //Tempo di partenza del countdown
     public float countDownTimerHook = 0.0f;                                         //Tempo di fine del countdown
-    public bool isHookCountDown = false;
+    public bool isHookCountDown = false;*/
 
 
     //Equip Slot Sparo

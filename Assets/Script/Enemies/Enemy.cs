@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public string weak;                                                                     //Debolezza nemico
     private GameObject drop;                                                                //Drop nemico
     private Object explosionRef;                                                            //Animazione morte
+    public LineRenderer hook;
 
     private void Start()
     {

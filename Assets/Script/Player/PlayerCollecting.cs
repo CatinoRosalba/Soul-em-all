@@ -11,8 +11,9 @@ public class PlayerCollecting : MonoBehaviour
     [SerializeField] UIManager slot;                                //Script dell'interfaccia
 
     //Particles gems
+    [SerializeField] private AudioSource sfxPickup;                 //Suoni quando raccogli
     [SerializeField] GameObject effect;                             //Effetto caricato 
-    private GameObject effectClone;                                         //Effetto applicato
+    private GameObject effectClone;                                 //Effetto applicato
 
     //Controlli
     private bool pickupRange;                                               //Controllo se posso prendere
@@ -55,11 +56,12 @@ public class PlayerCollecting : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)                //Se premo il sinistro e non ho munzioni sullo sparo primario
             {
                 pickup1 = true;                                                                     //Raccolgo nello slot1
-                
+                sfxPickup.Play();
             }
             else if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true && Input.GetKeyDown(KeyCode.Mouse0) == false)   //Se premo il destro e non ho munizioni sullo sparo secondario e non ho premuto l'altro tasto del mouse
             {
                 pickup2 = true;                                                                     //Raccolgo nello slot2
+                sfxPickup.Play();
             }
         }
     }
