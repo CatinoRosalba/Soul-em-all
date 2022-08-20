@@ -22,9 +22,12 @@ public class Fireball : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))                                               //Se il proiettile entra in contatto con un nemico
+        if (!other.gameObject.CompareTag("Player") && !other.isTrigger)                             //Se ha tag Enemy
         {
-            other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "fire");     //Applica Danno
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                other.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(damage, "fire");     //Applica Danno
+            }
             Destroy(gameObject);                                                                //Distruggi Proiettile
         }
     }

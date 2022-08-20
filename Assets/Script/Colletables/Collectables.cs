@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour
 {
-    public string nameSlime;
+    public string id;
     private Inventory inventory;
 
     private void Start()
@@ -16,7 +16,7 @@ public class Collectables : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            inventory.GetComponent<Inventory>().addCollectable(nameSlime, gameObject.tag);
+            inventory.GetComponent<Inventory>().addCollectable(id, gameObject.tag);
             Destroy(gameObject);
         }
     }
