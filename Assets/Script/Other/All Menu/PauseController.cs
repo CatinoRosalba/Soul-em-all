@@ -48,7 +48,7 @@ public class PauseController : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("MainMenu");
         Debug.Log("menu");
     }
 
