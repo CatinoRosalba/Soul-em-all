@@ -53,12 +53,15 @@ public class PlayerCollecting : MonoBehaviour
         //Sistema di raccolta nello slot apposito
         if (pickupRange == true && playerShooting.canCollect == true)                               //Se posso raccogliere e sono nel raggio della gemma
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && playerShooting.isEmpty1 == true)                //Se premo il sinistro e non ho munzioni sullo sparo primario
+            if (Input.GetKeyDown(KeyCode.Mouse0) 
+                && playerShooting.isEmpty1 == true 
+                && PauseController.isGamePaused == false)                                            //Se premo il sinistro e non ho munzioni sullo sparo primario
             {
                 pickup1 = true;                                                                     //Raccolgo nello slot1
                 sfxPickup.Play();
             }
-            else if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true && Input.GetKeyDown(KeyCode.Mouse0) == false)   //Se premo il destro e non ho munizioni sullo sparo secondario e non ho premuto l'altro tasto del mouse
+            else if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true 
+                && Input.GetKeyDown(KeyCode.Mouse0) == false && PauseController.isGamePaused == false)   //Se premo il destro e non ho munizioni sullo sparo secondario e non ho premuto l'altro tasto del mouse
             {
                 pickup2 = true;                                                                     //Raccolgo nello slot2
                 sfxPickup.Play();

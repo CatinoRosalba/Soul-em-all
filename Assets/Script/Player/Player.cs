@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public GameObject[] goHealth;                                                                   //Oggetto vita del giocatore
     private SpriteRenderer spriteRenderer;
     private float health;                                                                           //Vita del giocatore
+    [SerializeField] GameOverController gameOverController;
     private bool gameOver;                                                                          //Stato di GameOver
     private bool invisibilityFrame;                                                                 //Permette di evitare il danno consecutivo
 
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        health = 3;
+        health = 5;
         spriteRenderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
 
         matWhite = Resources.Load("Particles/FlashWhite", typeof(Material)) as Material;
@@ -77,7 +78,7 @@ public class Player : MonoBehaviour
     {
         if (gameOver == true)
         {
-            //Messaggio sconfitta/schermata/animazione morte/ecc.
+            gameOverController.SetUpGameOver();                                                     //Attivo schermata gameover
             gameObject.SetActive(false);                                                            //Morte del player
         }
     }
