@@ -2659,7 +2659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307497ef82fc4a245aa4c16bfbac65d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGame: 
+  newGame: AlphaTest
 --- !u!4 &889475995
 Transform:
   m_ObjectHideFlags: 0

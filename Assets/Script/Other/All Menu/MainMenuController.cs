@@ -12,11 +12,12 @@ public class MainMenuController : MonoBehaviour
     public void newGameDialogYes()
     {
         SceneManager.LoadScene(newGame);                                    //Carica una nuova scena
+        Time.timeScale = 1;
     }
 
     public void newGameDialogNo()
     {
-        //SceneManager.LoadScene(newGame);
+        SceneManager.LoadScene(newGame);
     }
 
     public void exitButton()
