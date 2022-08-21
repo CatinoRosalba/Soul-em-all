@@ -9,7 +9,6 @@ TagManager:
   - Ammo
   - EnemyProjectile
   - Spawner
-  - Category
   - Slime
   - Default
   - Key
