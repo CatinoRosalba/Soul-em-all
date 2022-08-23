@@ -15,4 +15,5 @@ public class DialogueTrigger : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
+
 }

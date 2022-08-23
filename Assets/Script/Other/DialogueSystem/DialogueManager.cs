@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -9,18 +10,28 @@ public class DialogueManager : MonoBehaviour
     public DialogueTrigger trigger;
 
     private Queue<string> sentences;
-    public TMP_Text avatarNameText;
-    public TMP_Text dialogueText;
+    public Image avatarImage; 
+    public TMP_Text avatarNameText;                             //Nome dell'avatar
+    public TMP_Text dialogueText;                               //Testo dialogo
+    private bool start;                                         //Controllo primo dialogo
 
     private void Start()
     {
         sentences = new Queue<string>();
-        trigger.TriggerDialogue();                                  //Trigger per iniziare il dialogo
+
+        start = true;                                   
+       
+        if (start)                                              //Se il tutorial è appena iniziato fa partire subito il dialogo
+        {
+            trigger.TriggerDialogue();                          //Trigger per iniziare il dialogo
+            start = false;                                      //indico che non siamo più in fase di start
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         avatarNameText.text = dialogue.avatarName;
+        avatarImage.sprite = dialogue.avatarImage;
 
         sentences.Clear();
 
