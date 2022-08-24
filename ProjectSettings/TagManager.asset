@@ -10,20 +10,18 @@ TagManager:
   - EnemyProjectile
   - Spawner
   - Slime
-  - Default
   - Key
   - Inventory
-  - Category
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Target
+  - Enemy
   - GrapplingPoint
-  - Wall
+  - 
   - Player
   - 
   - 
