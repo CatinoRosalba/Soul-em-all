@@ -33,6 +33,15 @@ public class DialogueManager : MonoBehaviour
         avatarNameText.text = dialogue.avatarName;
         avatarImage.sprite = dialogue.avatarImage;
 
+        if(avatarImage.sprite.name == "jiggly_solo1024")
+        {
+            avatarImage.rectTransform.sizeDelta = new Vector2(83, 56);
+        }
+        else
+        {
+            avatarImage.rectTransform.sizeDelta = new Vector2(77, 70);
+        }
+
         sentences.Clear();
 
         foreach(string sentence in dialogue.sentences)
@@ -75,5 +84,6 @@ public class DialogueManager : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        sentences.Clear();
     }
 }

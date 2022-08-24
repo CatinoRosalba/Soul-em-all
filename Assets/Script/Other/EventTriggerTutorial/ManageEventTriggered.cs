@@ -5,21 +5,40 @@ using TMPro;
 
 public class ManageEventTriggered : MonoBehaviour
 {
-    public DialogueTrigger trigger;
+    [Header("Trigger Zona Gemme")]
+    public DialogueTrigger triggerGem;
 
-    private void Start()
-    {
-        TriggerEvent[] triggers = GameObject.FindObjectsOfType<TriggerEvent>();
+    [Header("Trigger Zona Nemici")]
+    public DialogueTrigger triggerEnemy;
 
-        foreach(TriggerEvent trigger in triggers)
-        {
-            trigger.onTrigger.AddListener(showGemInstruction);
-        }
-    }
+    [Header("Trigger Zona Jiggly")]
+    public DialogueTrigger triggerJiggly;
 
-    public void showGemInstruction()
+    [Header("Trigger Zona Finale")]
+    public DialogueTrigger triggerFinale;
+
+
+    public void showGemDialog()
     {
         Debug.Log("Sono nella zona gemme");
-        trigger.TriggerDialogue();
+        triggerGem.TriggerDialogue();
+    }
+    
+    public void showEnemyDialog()
+    {
+        Debug.Log("Sono nella zona Nemici");
+        triggerEnemy.TriggerDialogue();
+    }
+
+    public void showJigglyDialog()
+    {
+        Debug.Log("Sono nella zona Nemici");
+        triggerJiggly.TriggerDialogue();
+    }
+
+    public void showFinalDialog()
+    {
+        Debug.Log("Sono nella zona Nemici");
+        triggerFinale.TriggerDialogue();
     }
 }
