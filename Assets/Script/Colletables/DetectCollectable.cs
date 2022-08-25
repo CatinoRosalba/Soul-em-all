@@ -25,4 +25,16 @@ public class DetectCollectable : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (inventory.CheckCollectable(collectable))
+            {
+                gate.GetComponent<BoxCollider>().enabled = true;
+                gate.GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+    }
 }

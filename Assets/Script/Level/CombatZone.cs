@@ -5,47 +5,33 @@ using UnityEngine;
 public class CombatZone : MonoBehaviour
 {
     private float totalEnemies;
-    private bool clear;
     private bool inCombat;
     public GameObject cage;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        clear = false;
         inCombat = false;
     }
 
     private void Update()
     {
-        totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (totalEnemies <= 0 && inCombat == true)
+        if (inCombat)
         {
-            clear = true;
-        }
-
-        if(clear == true)
-        {
-            cage.GetComponent<BoxCollider>().enabled = false;
-            cage.GetComponent<MeshRenderer>().enabled = false;
+            totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            if (totalEnemies <= 0)
+            {
+                cage.GetComponent<BoxCollider>().enabled = false;
+                cage.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && clear == false)
+        if (other.gameObject.CompareTag("Player") && !inCombat)
         {
             ActivateSpawners();
             inCombat = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            inCombat = false;
-            DestroyEnemies();
         }
     }
 
@@ -58,15 +44,6 @@ public class CombatZone : MonoBehaviour
             {
                 child.GetComponent<SpawnerScript>().SpawnEnemy();
             }
-        }
-    }
-
-    private void DestroyEnemies()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            Destroy(enemies[i]);
         }
     }
 }

@@ -28,14 +28,6 @@ public class Labyrinth : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            DestroyEnemies();
-        }
-    }
-
     private void ActivateSpawners()
     {
         for (int i = 0; i < gameObject.transform.childCount; i++)
@@ -45,15 +37,6 @@ public class Labyrinth : MonoBehaviour
             {
                 child.GetComponent<SpawnerScript>().SpawnEnemy();
             }
-        }
-    }
-
-    private void DestroyEnemies()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            Destroy(enemies[i]);
         }
     }
 }

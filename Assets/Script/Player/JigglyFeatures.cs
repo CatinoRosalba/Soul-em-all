@@ -64,7 +64,7 @@ public class JigglyFeatures : MonoBehaviour
         }
 
         //Attacco di Jiggly
-        if(aim.jigglyRaycasthitLayer == "Target" && Input.GetKeyDown(KeyCode.Q) && isHooked == false && CooldownJigglyAttack == false)  //Se  puoi attaccare, premi Q, non sei agganciato e non sei in cooldown  
+        if(aim.jigglyRaycasthitLayer == "Enemy" && Input.GetKeyDown(KeyCode.Q) && isHooked == false && CooldownJigglyAttack == false)  //Se  puoi attaccare, premi Q, non sei agganciato e non sei in cooldown  
         {
             if (isInRange(maxJigglyAttackRange))
             {

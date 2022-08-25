@@ -109,6 +109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key
       objectReference: {fileID: 0}
+    - target: {fileID: 8708312856153366488, guid: e0d98ed79d8b74f40b1f5f176d234836, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9167149423497118922, guid: e0d98ed79d8b74f40b1f5f176d234836, type: 3}
       propertyPath: m_RootOrder
       value: 0
