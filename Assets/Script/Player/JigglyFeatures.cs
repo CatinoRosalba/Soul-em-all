@@ -11,7 +11,7 @@ public class JigglyFeatures : MonoBehaviour
 
     //Variabili Rampino
     public LineRenderer hook;                                                                       //Rampino
-    private bool isHooked;                                                                          //Verifica se si sta usando il rampino
+    public bool isHooked;                                                                          //Verifica se si sta usando il rampino
     private Vector3 hookPoint;                                                                      //Punto d'aggancio finale del rampino (usato pure per l'attacco di Jiggly)
     private Rigidbody rb;                                                                           //Rigidbody usatp per il pull
     private bool isPulling;                                                                         //Se il giocatore sat venendo tirato dal rampino
@@ -19,7 +19,7 @@ public class JigglyFeatures : MonoBehaviour
     private float maxHookRange;                                                                     //Range massimo del rampino
 
     //Variabili Attacco di Jiggly
-    private bool jigglyAttackState;                                                                 //Verifica se si sta usando l'attacco di Jiggly
+    public bool jigglyAttackState;                                                                 //Verifica se si sta usando l'attacco di Jiggly
     private bool CooldownJigglyAttack;                                                              //Cooldown abilità di Jiggly
     private GameObject enemy;                                                                       //Nemico attaccato con Jiggly per il drop della gemma
     private string enemyName;                                                                       //Nome del nemico agganciato
