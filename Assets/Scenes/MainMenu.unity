@@ -4654,7 +4654,7 @@ GameObject:
   - component: {fileID: 1503532385}
   - component: {fileID: 1503532388}
   m_Layer: 5
-  m_Name: Carica partita
+  m_Name: Seleziona livello
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4678,7 +4678,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 16, y: 9}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 550, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503532385
 MonoBehaviour:
@@ -4756,7 +4756,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Carica partita
+  m_text: Seleziona livello
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cb89c01901cb174ebc851187c753e4e, type: 2}
   m_sharedMaterial: {fileID: -6354210909983106851, guid: 7cb89c01901cb174ebc851187c753e4e, type: 2}
