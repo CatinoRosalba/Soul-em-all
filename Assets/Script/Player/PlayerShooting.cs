@@ -8,28 +8,28 @@ public class PlayerShooting : MonoBehaviour
 {
     //Scripts
     public UIManager slot;                                                      //Script dell'interfaccia degli slot
-    private PlayerAim aim;                                                       //Script della mira
+    private PlayerAim aim;                                                      //Script della mira
 
     //Sparo e ammo
-    private GameObject bulletSpawnPoint;                                         //Spawn dei proiettili
+    private GameObject bulletSpawnPoint;                                        //Spawn dei proiettili
+    public GameObject equippedGem1;
     public GameObject primaryFire;                                              //Sparo col tasto sinistro del mouse
-    public float primaryAmmo;                                                   //Munizioni per lo sparo primario
+    public int primaryAmmo;                                                     //Munizioni per lo sparo primario
+    public GameObject equippedGem2;
     public GameObject secondaryFire;                                            //Sparo col tasto destro del mouse
-    public float secondaryAmmo;                                                 //Munizioni per lo sparo secondario
+    public int secondaryAmmo;                                                   //Munizioni per lo sparo 
     private Vector3 aimDir;                                                     //Direzione di mira tra il punto da colpire e il punto di spawn
 
     //Controlli
     public bool isEmpty1;                                                       //Controllo se lo sparo primario non ha munizioni
     public bool isEmpty2;                                                       //Controllo se lo sparo secondario non ha munizioni
     private bool canShoot;                                                      //Controllo se posso sparo
-    public bool canCollect;                                                     //Controllo per inserire un tempo tra lo sparo e il raccoglimento se si è su una gemma durante lo sparo
-
+   
     private void Start()
     {
         isEmpty1 = true;
         isEmpty2 = true;
         canShoot = true;
-        canCollect = true;
         aim = gameObject.GetComponent<PlayerAim>();
         bulletSpawnPoint = transform.Find("BulletSpawnPoint").gameObject;
     }
@@ -57,7 +57,7 @@ public class PlayerShooting : MonoBehaviour
     }
 
     //Sparo
-    private void Fire(GameObject spell, ref float ammo, ref TMP_Text slotAmmo)
+    private void Fire(GameObject spell, ref int ammo, ref TMP_Text slotAmmo)
     {
         Instantiate(spell, bulletSpawnPoint.transform.position, Quaternion.LookRotation(aimDir, Vector3.up));   //Sparo
         ammo--;                                                                 //-1 munizione
@@ -71,7 +71,6 @@ public class PlayerShooting : MonoBehaviour
         {
             slot.EmptySlot(slotImage);                                          //Tolgo l'immagine della gemma dallo slot dello sparo secondario                                      
             isEmpty = true;                                                     //Setto senza munizioni
-            StartCoroutine(CanCollect());                                       //Tempo di attesa tra ultimo sparo e raccolta
         }
     }
 
@@ -81,13 +80,5 @@ public class PlayerShooting : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(0.7f);
         canShoot = true;
-    }
-
-    //Cooldown raccolta per evitare che un input spari e raccolga subito
-    IEnumerator CanCollect()
-    {
-        canCollect = false;
-        yield return new WaitForSeconds(0.7f);
-        canCollect = true;
     }
 }

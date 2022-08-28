@@ -43,7 +43,7 @@ public class JigglyFeatures : MonoBehaviour
     void Update()
     {
         //Rampino
-        if (aim.jigglyRaycasthitLayer == "GrapplingPoint" && Input.GetKeyDown(KeyCode.E) && isHooked == false && jigglyAttackState == false && canHook == true)    //Se puoi rampinare, viene premuto E, non hai già rampinato e non è attivo l'attacco di Jiggly e è finito il cooldown
+        if (aim.jigglyRaycasthitLayer == "GrapplingPoint" && Input.GetKeyDown(KeyCode.LeftShift) && isHooked == false && jigglyAttackState == false && canHook == true)    //Se puoi rampinare, viene premuto E, non hai già rampinato e non è attivo l'attacco di Jiggly e è finito il cooldown
         {
             if (isInRange(maxHookRange))                                                                                //Se in range
             {   
@@ -51,7 +51,7 @@ public class JigglyFeatures : MonoBehaviour
                 isHooked = true;                                                                                        //Sei rampinato
                 StartHook();                                                                                            //Rampina
             }
-        } else if(isHooked == true && Input.GetKeyDown(KeyCode.E) && jigglyAttackState == false)                        //Se hai già rampinato e premi E e non è attivo l'attaco di Jiggly
+        } else if(isHooked == true && Input.GetKeyDown(KeyCode.LeftShift) && jigglyAttackState == false)                        //Se hai già rampinato e premi E e non è attivo l'attaco di Jiggly
         {
             hook.enabled = false;                                                                                       //Disattiva rampino
             StopHook();                                                                                                 //Rompi rampino
@@ -64,7 +64,7 @@ public class JigglyFeatures : MonoBehaviour
         }
 
         //Attacco di Jiggly
-        if(aim.jigglyRaycasthitLayer == "Enemy" && Input.GetKeyDown(KeyCode.Q) && isHooked == false && CooldownJigglyAttack == false)  //Se  puoi attaccare, premi Q, non sei agganciato e non sei in cooldown  
+        if(aim.jigglyRaycasthitLayer == "Enemy" && Input.GetKeyDown(KeyCode.R) && isHooked == false && CooldownJigglyAttack == false)  //Se  puoi attaccare, premi Q, non sei agganciato e non sei in cooldown  
         {
             if (isInRange(maxJigglyAttackRange))
             {

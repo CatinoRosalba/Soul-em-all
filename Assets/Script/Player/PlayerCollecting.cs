@@ -18,12 +18,14 @@ public class PlayerCollecting : MonoBehaviour
     private bool pickupRange;                                               //Controllo se posso prendere
     private bool pickup1;                                                   //Prendo nello slot 1
     private bool pickup2;                                                   //Prendo nello slot 2
+    private GameObject gem;
 
     private void Start()
     {
         pickupRange = false;
         pickup1 = false;
         pickup2 = false;
+        gem = null;
         playerShooting = gameObject.GetComponent<PlayerShooting>();
     }
     
@@ -33,6 +35,7 @@ public class PlayerCollecting : MonoBehaviour
         if (other.gameObject.CompareTag("Ammo"))                                                    //Se entra in contatto con delle munizioni
         {
             pickupRange = true;                                                                     //Puoi raccogliere
+            gem = other.gameObject;
             effectClone = Instantiate(effect, other.transform.position, Quaternion.identity);       //Particelle
         }
     }
@@ -43,6 +46,7 @@ public class PlayerCollecting : MonoBehaviour
         if (other.gameObject.CompareTag("Ammo"))                                                    //Se non sono più in contatto con delle munizioni
         {
             pickupRange = false;                                                                    //Non posso raccogliere
+            gem = null;
             Destroy(effectClone);                                                                   //Stop particelle
         }
     }
@@ -50,17 +54,19 @@ public class PlayerCollecting : MonoBehaviour
     private void Update()
     {
         //Sistema di raccolta nello slot apposito
-        if (pickupRange == true && playerShooting.canCollect == true)                               //Se posso raccogliere e sono nel raggio della gemma
+        if (pickupRange == true)                               //Se posso raccogliere e sono nel raggio della gemma
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) 
-                && playerShooting.isEmpty1 == true 
+            //controlla se ho già la gemma e addala
+
+            if (Input.GetKeyDown(KeyCode.Q) 
                 && PauseController.isGamePaused == false)                                            //Se premo il sinistro e non ho munzioni sullo sparo primario
             {
                 pickup1 = true;                                                                     //Raccolgo nello slot1
                 sfxPickup.Play();
             }
-            else if (Input.GetKeyDown(KeyCode.Mouse1) && playerShooting.isEmpty2 == true 
-                && Input.GetKeyDown(KeyCode.Mouse0) == false && PauseController.isGamePaused == false)   //Se premo il destro e non ho munizioni sullo sparo secondario e non ho premuto l'altro tasto del mouse
+            else if (Input.GetKeyDown(KeyCode.E) 
+                && Input.GetKeyDown(KeyCode.Q) == false 
+                && PauseController.isGamePaused == false)   //Se premo il destro e non ho munizioni sullo sparo secondario e non ho premuto l'altro tasto del mouse
             {
                 pickup2 = true;                                                                     //Raccolgo nello slot2
                 sfxPickup.Play();
@@ -75,7 +81,12 @@ public class PlayerCollecting : MonoBehaviour
         {
             if (pickup1 == true)                                                                    //Se posso raccogliere nello slot1
             {
-                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, 3, 6);         //Converte la gemma nella spell giusta
+                if (!playerShooting.isEmpty1)
+                {
+                    Debug.Log(playerShooting.primaryAmmo);
+                    dropEquippedGem(playerShooting.equippedGem1, playerShooting.primaryAmmo);
+                }
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, ref playerShooting.equippedGem1);         //Converte la gemma nella spell giusta
                 slot.EquipSlot(other.gameObject, slot.imgEmptySlot1);                               //Aggiunge la gemma allo slot1 dell'interfaccia
                 slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());                       //Aggiunge il numero di munizioni allo slot1 dell'interfaccia
                 playerShooting.isEmpty1 = false;                                                    //Ha munizioni
@@ -86,7 +97,11 @@ public class PlayerCollecting : MonoBehaviour
             }
             if (pickup2 == true)                                                                    //Se posso raccogliere nello slot2
             {
-                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo, 4, 7);     //Converte la gemma nella spell giusta
+                if (!playerShooting.isEmpty2)
+                {
+                    dropEquippedGem(playerShooting.equippedGem2, playerShooting.secondaryAmmo);
+                }
+                ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo, ref playerShooting.equippedGem2);     //Converte la gemma nella spell giusta
                 slot.EquipSlot(other.gameObject, slot.imgEmptySlot2);                               //Aggiunge la gemma allo slot2 dell'interfaccia
                 slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());                     //Aggiunge il numero di munizioni allo slot2 dell'interfaccia
                 playerShooting.isEmpty2 = false;                                                    //Ha munizioni
@@ -98,18 +113,36 @@ public class PlayerCollecting : MonoBehaviour
         }
     }
 
+    private bool HasGem(GameObject equippedGem, GameObject gem)
+    {
+        if (equippedGem.Equals(gem))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void dropEquippedGem(GameObject equippedGem, int ammo)
+    {
+        GameObject clone;
+        clone = Instantiate(equippedGem, gameObject.transform.position, Quaternion.identity);
+        clone.GetComponent<GemScript>().canDespawn = false;
+        clone.GetComponent<GemScript>().ammo = ammo;
+    }
+
     //Converte la gemma nello sparo
-    public void ConvertGemToProjectile(GameObject gem, ref GameObject spell, ref float ammo, int min, int max)
+    public void ConvertGemToProjectile(GameObject gem, ref GameObject spell, ref int ammo, ref GameObject equippedGem)
     {
         if(gem.name.Contains("Fire"))                                                               //Se la gemma si chiama FireGem
         {
             spell = (GameObject)Resources.Load("Projectiles/Fireball");                             //Equipaggia la Fireball
-            ammo = Random.Range(min, max);                                                          //Genera le munizioni in maniera casuale tra un minimo e un massimo
+            equippedGem = (GameObject)Resources.Load("Gems/FireGem");
         }
         if(gem.name.Contains("Water"))                                                              //Se la gemma si chiama WaterGem
         {
-            spell = (GameObject)Resources.Load("Projectiles/WaterSpray");                                       //Equipaggia il Waterspray
-            ammo = Random.Range(min, max);                                                          //Genera le munizioni in maniera casuale tra un minimo e un massimo
+            spell = (GameObject)Resources.Load("Projectiles/WaterSpray");                           //Equipaggia il Waterspray
+            equippedGem = (GameObject)Resources.Load("Gems/WaterGem");
         }
+        ammo = gem.GetComponent<GemScript>().ammo;
     }
 }
