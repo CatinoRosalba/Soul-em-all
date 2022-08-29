@@ -5,25 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    [Header("Nuovo gioco")]
-    public string newGame;
-
+    public string chapter;
 
     public void newGameDialogYes()
     {
-        SceneManager.LoadScene(newGame);                                    //Carica una nuova scena
+        SceneManager.LoadScene("Tutorial");                   //Carica una nuova scena
         Time.timeScale = 1;
-    }
-
-    public void newGameDialogNo()
-    {
-        SceneManager.LoadScene(newGame);
     }
 
     public void exitButton()
     {
         Application.Quit();
         Debug.Log("Uscito");
+    }
+
+    public void selectChapter(string chapter)
+    {
+        SceneManager.LoadScene(chapter);                   //Carica una nuova scena
+        Time.timeScale = 1;
     }
 
 }

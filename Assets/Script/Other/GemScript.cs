@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class GemScript : MonoBehaviour
 {
-    public bool canDespawn;
+    public bool canDespawn = true;
     public int ammo;
     public int min;
     public int max;
@@ -14,7 +14,6 @@ public class GemScript : MonoBehaviour
     {
         min = 3;
         max = 7;
-        canDespawn = true;
         ammo = Random.Range(min, max);
     }
 

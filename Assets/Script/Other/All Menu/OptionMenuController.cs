@@ -29,7 +29,6 @@ public class OptionMenuController : MonoBehaviour
     [Header("Impostazioni - Sensibilità")]
     [SerializeField] private Slider sensitivitySlider;
     [SerializeField] private TMP_Text sensitivityText;
-    //[SerializeField] private CinemachineFreeLook cam;
     private int sensX;
 
     private void Start()
@@ -95,7 +94,6 @@ public class OptionMenuController : MonoBehaviour
 
     public void UpdateSensitivityValue(float value)
     {
-        //cam.m_XAxis.m_MaxSpeed = value;
         sensitivityText.text = value.ToString("0");
     }
 
