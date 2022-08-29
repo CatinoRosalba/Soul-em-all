@@ -56,7 +56,24 @@ public class PlayerCollecting : MonoBehaviour
         //Sistema di raccolta nello slot apposito
         if (pickupRange == true)                               //Se posso raccogliere e sono nel raggio della gemma
         {
-            //controlla se ho già la gemma e addala
+            if (HasGem(playerShooting.equippedGem1, gem))
+            {
+                playerShooting.primaryAmmo += gem.GetComponent<GemScript>().ammo;
+                slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());
+                pickupRange = false;
+                sfxPickup.Play();
+                Destroy(gem);
+                Destroy(effectClone);
+            }
+            else if (HasGem(playerShooting.equippedGem2, gem))
+            {
+                playerShooting.secondaryAmmo += gem.GetComponent<GemScript>().ammo;
+                slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());
+                pickupRange = false;
+                sfxPickup.Play();
+                Destroy(gem);
+                Destroy(effectClone);
+            }
 
             if (Input.GetKeyDown(KeyCode.Q) 
                 && PauseController.isGamePaused == false)                                            //Se premo il sinistro e non ho munzioni sullo sparo primario
@@ -83,7 +100,6 @@ public class PlayerCollecting : MonoBehaviour
             {
                 if (!playerShooting.isEmpty1)
                 {
-                    Debug.Log(playerShooting.primaryAmmo);
                     dropEquippedGem(playerShooting.equippedGem1, playerShooting.primaryAmmo);
                 }
                 ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, ref playerShooting.equippedGem1);         //Converte la gemma nella spell giusta
@@ -115,7 +131,7 @@ public class PlayerCollecting : MonoBehaviour
 
     private bool HasGem(GameObject equippedGem, GameObject gem)
     {
-        if (equippedGem.Equals(gem))
+        if (equippedGem != null && gem.name.Contains(equippedGem.name))
         {
             return true;
         }

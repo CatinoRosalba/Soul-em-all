@@ -30,6 +30,8 @@ public class PlayerShooting : MonoBehaviour
         isEmpty1 = true;
         isEmpty2 = true;
         canShoot = true;
+        equippedGem1 = null;
+        equippedGem2 = null;
         aim = gameObject.GetComponent<PlayerAim>();
         bulletSpawnPoint = transform.Find("BulletSpawnPoint").gameObject;
     }
@@ -43,7 +45,7 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false && canShoot == true && PauseController.isGamePaused == false)              //Se ho munzioni e premo sinistro del mouse
         {
             Fire(primaryFire, ref primaryAmmo, ref slot.TXTAmmo1);              //Sparo
-            CheckAmmo(primaryAmmo, ref isEmpty1, ref slot.imgEmptySlot1);       //Controllo Munizioni
+            CheckAmmo(primaryAmmo, ref isEmpty1, ref equippedGem1, ref slot.imgEmptySlot1);       //Controllo Munizioni
             StartCoroutine(FireCooldown());                                     //Cooldown sparo
         }
 
@@ -51,7 +53,7 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false && canShoot == true && PauseController.isGamePaused == false)              //Se ho munzioni e premo destro del mouse
         {
             Fire(secondaryFire, ref secondaryAmmo, ref slot.TXTAmmo2);          //Sparo
-            CheckAmmo(secondaryAmmo, ref isEmpty2, ref slot.imgEmptySlot2);     //Controllo Munizioni
+            CheckAmmo(secondaryAmmo, ref isEmpty2, ref equippedGem2, ref slot.imgEmptySlot2);     //Controllo Munizioni
             StartCoroutine(FireCooldown());                                     //Cooldown sparo
         }
     }
@@ -65,12 +67,13 @@ public class PlayerShooting : MonoBehaviour
     }
     
     //Controllo sulle munizioni
-    private void CheckAmmo(float ammo, ref bool isEmpty, ref Image slotImage)
+    private void CheckAmmo(float ammo, ref bool isEmpty, ref GameObject gem, ref Image slotImage)
     {
         if (ammo == 0)                                                          //Se ho finito le munizioni
         {
             slot.EmptySlot(slotImage);                                          //Tolgo l'immagine della gemma dallo slot dello sparo secondario                                      
             isEmpty = true;                                                     //Setto senza munizioni
+            gem = null;
         }
     }
 
