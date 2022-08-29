@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 1991997471360162484}
   - component: {fileID: 1991997471360162487}
   m_Layer: 7
-  m_Name: Leaves
+  m_Name: GrapplingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,8 +223,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.58227, y: 6.84, z: 0.5}
-  m_Center: {x: 0.2807634, y: 1.5, z: 0}
+  m_Size: {x: 12, y: 15, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1991997471504013465
 GameObject:
   m_ObjectHideFlags: 0

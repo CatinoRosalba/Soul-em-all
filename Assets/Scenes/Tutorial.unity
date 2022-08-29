@@ -9160,7 +9160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1991997471504013465, guid: a4d452cd5e2cd1743892a3f54d9af2a7, type: 3}
       propertyPath: m_Name
-      value: Tree (2)
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 1991997471504013465, guid: a4d452cd5e2cd1743892a3f54d9af2a7, type: 3}
       propertyPath: m_IsActive
@@ -26545,7 +26545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205331593052, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03394823
+      value: 0.03394826
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205331593052, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -26553,7 +26553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205331593052, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0047546164
+      value: -0.004754621
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206037163589, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_Name
@@ -27715,7 +27715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1991997471504013465, guid: a4d452cd5e2cd1743892a3f54d9af2a7, type: 3}
       propertyPath: m_Name
-      value: Tree (1)
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 1991997471504013465, guid: a4d452cd5e2cd1743892a3f54d9af2a7, type: 3}
       propertyPath: m_IsActive

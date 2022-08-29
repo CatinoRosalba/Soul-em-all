@@ -120,7 +120,7 @@ public class JigglyFeatures : MonoBehaviour
     //Crea Rampino
     private void StartHook()
     {
-        hookPoint = aim.jigglyRaycasthit.point;                                                     //Punto in cui si aggancia il rampino
+        hookPoint = aim.jigglyRaycasthit.collider.transform.position;                               //Punto in cui si aggancia il rampino
         hook.positionCount = 2;                                                                     //Vertici del rampino
         isPulling = true;                                                                           //Il rampino tira il giocatore
         rb.useGravity = false;
