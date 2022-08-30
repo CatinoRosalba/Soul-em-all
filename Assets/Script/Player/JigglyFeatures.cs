@@ -60,7 +60,7 @@ public class JigglyFeatures : MonoBehaviour
 
         if (isPulling)                                                                                                  //Se il rampino tira il giocatore
         {
-            rb.AddForce((hookPoint - gameObject.transform.position).normalized * 0.3f, ForceMode.VelocityChange);       //Tira con al fisica
+            rb.AddForce((hookPoint - gameObject.transform.position).normalized * 0.4f, ForceMode.VelocityChange);       //Tira con al fisica
         }
 
         //Attacco di Jiggly

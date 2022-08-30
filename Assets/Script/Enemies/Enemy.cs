@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         } 
         else if(gameObject.name.Contains("Water"))    //Se il nome del nemico è Water Enemy
         {
-            health = 5;                                                                         //Setti vita
+            health = 3;                                                                         //Setti vita
             weak = "fire";                                                                      //Setti debolezza
             drop = Resources.Load<GameObject>("Gems/WaterGem");                                      //Setti drop
         }

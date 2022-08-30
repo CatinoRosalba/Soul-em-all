@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     //Movimento
     float movSpeed;                                                         //Velocità movimento
+    float movAerialSpeed;
     float ZMovement;                                                        //Input movimento asse Z
     float XMovement;                                                        //Inout movimento asse X
     Vector3 movDirection;                                                   //Direzione di movimento
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         anim = sprite.GetComponent<Animator>();
         mainCamera = Camera.main;
         movSpeed = 75f;
+        movAerialSpeed = 6.5f;
     }
 
     void Update()
@@ -61,6 +63,9 @@ public class PlayerController : MonoBehaviour
         if ((XMovement!=0 || ZMovement!=0) && isGrounded == true)
         {
             rb.AddForce(movDirection.normalized * movSpeed);                                    //Movimento
+        } else if ((XMovement != 0 || ZMovement != 0) && isGrounded == false)
+        {
+            rb.AddForce(movDirection.normalized * movAerialSpeed);                              //Movimento
         }
     }
 
