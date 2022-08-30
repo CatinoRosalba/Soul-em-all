@@ -11,9 +11,9 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] Slider progressbar;
     [SerializeField] TMP_Text progressText;
 
-    [SerializeField] Animator transition;
+    //[SerializeField] Animator transition;
 
-    public string chapter;
+    /*public string chapter;
 
     public void LoadChapter(string nameScene)
     {
@@ -36,7 +36,7 @@ public class MainMenuController : MonoBehaviour
             yield return null;
         }
 
-    }
+    }*/
 
     public void exitButton()
     {

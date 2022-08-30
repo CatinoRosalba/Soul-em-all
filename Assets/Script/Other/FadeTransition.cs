@@ -6,16 +6,13 @@ using UnityEngine.SceneManagement;
 public class LevelChanger : MonoBehaviour
 {
     [SerializeField] Animator transition;
+    [SerializeField] GameObject fadeObject;
 
-    private string levelToChange;  
+    private string levelToChange;
 
-    public void ChangeLevel()
+    public void FadeAndChangeToLevel(string levelName)
     {
-        FadeToLevel("Tutorial");
-    }
-
-    public void FadeToLevel(string levelName)
-    {
+        fadeObject.SetActive(true);
         levelToChange = levelName;
         transition.SetTrigger("FadeOut");
     }

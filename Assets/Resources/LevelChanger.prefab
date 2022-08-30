@@ -244,3 +244,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 1748813030269803282}
+  fadeObject: {fileID: 1748813029227491814}

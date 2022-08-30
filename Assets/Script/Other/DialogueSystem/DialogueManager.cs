@@ -18,13 +18,18 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         sentences = new Queue<string>();
+        start = true;
+        StartCoroutine(StartFirstDialogue());
+    }
 
-        start = true;                                   
-       
+    IEnumerator StartFirstDialogue()
+    {
+        yield return new WaitForSeconds(1);
         if (start)                                              //Se il tutorial è appena iniziato fa partire subito il dialogo
         {
             trigger.TriggerDialogue();                          //Trigger per iniziare il dialogo
             start = false;                                      //indico che non siamo più in fase di start
+            
         }
     }
 
