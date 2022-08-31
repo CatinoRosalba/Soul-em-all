@@ -86,6 +86,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         trigger.dialogueCanva.SetActive(false);
+        DialogueTrigger.isStartedDialogue = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

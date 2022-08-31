@@ -42,7 +42,7 @@ public class PlayerShooting : MonoBehaviour
         aimDir = (aim.amneryRaycasthit.point - bulletSpawnPoint.transform.position).normalized;               
 
         //Fuoco Primario
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false && canShoot == true && PauseController.isGamePaused == false)              //Se ho munzioni e premo sinistro del mouse
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false)              //Se ho munzioni e premo sinistro del mouse
         {
             Fire(primaryFire, ref primaryAmmo, ref slot.TXTAmmo1);              //Sparo
             CheckAmmo(primaryAmmo, ref isEmpty1, ref equippedGem1, ref slot.imgEmptySlot1);       //Controllo Munizioni
@@ -50,7 +50,7 @@ public class PlayerShooting : MonoBehaviour
         }
 
         //Fuoco secondario
-        if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false && canShoot == true && PauseController.isGamePaused == false)              //Se ho munzioni e premo destro del mouse
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == false && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false)              //Se ho munzioni e premo destro del mouse
         {
             Fire(secondaryFire, ref secondaryAmmo, ref slot.TXTAmmo2);          //Sparo
             CheckAmmo(secondaryAmmo, ref isEmpty2, ref equippedGem2, ref slot.imgEmptySlot2);     //Controllo Munizioni
