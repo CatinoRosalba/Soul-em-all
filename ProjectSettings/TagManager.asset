@@ -12,6 +12,8 @@ TagManager:
   - Slime
   - Key
   - Inventory
+  - Category
+  - Cliff
   layers:
   - Default
   - TransparentFX

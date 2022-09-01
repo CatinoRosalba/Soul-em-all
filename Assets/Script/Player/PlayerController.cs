@@ -69,6 +69,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Fixa il bug degli spigoli che si blocca, mettere il tag "Cliff" alle zone con questo problema
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Cliff") && !isGrounded)
+        {
+            rb.AddForce(new Vector3(0, 1, 0) * 40);
+        }
+    }
+
     //Animazione camminata
     void setAnimationState(bool isWalking)
     {

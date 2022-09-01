@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 6399671523031221262}
   m_Layer: 0
   m_Name: Rock Cliff
-  m_TagString: Untagged
+  m_TagString: Cliff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
