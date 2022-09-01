@@ -7,10 +7,12 @@ using TMPro;
 public class PlayerShooting : MonoBehaviour
 {
     //Scripts
+    [Header("Scripts")]
     public UIManager slot;                                                      //Script dell'interfaccia degli slot
     private PlayerAim aim;                                                      //Script della mira
 
     //Sparo e ammo
+    [Header("Sparo e ammo")]
     private GameObject bulletSpawnPoint;                                        //Spawn dei proiettili
     public GameObject equippedGem1;
     public GameObject primaryFire;                                              //Sparo col tasto sinistro del mouse
@@ -20,7 +22,12 @@ public class PlayerShooting : MonoBehaviour
     public int secondaryAmmo;                                                   //Munizioni per lo sparo 
     private Vector3 aimDir;                                                     //Direzione di mira tra il punto da colpire e il punto di spawn
 
+    //Suoni
+    [Header("Suoni")]
+    public AudioSource emptyShot;
+
     //Controlli
+    [Header("Controlli")]
     public bool isEmpty1;                                                       //Controllo se lo sparo primario non ha munizioni
     public bool isEmpty2;                                                       //Controllo se lo sparo secondario non ha munizioni
     private bool canShoot;                                                      //Controllo se posso sparo
@@ -47,6 +54,11 @@ public class PlayerShooting : MonoBehaviour
             Fire(primaryFire, ref primaryAmmo, ref slot.TXTAmmo1);              //Sparo
             CheckAmmo(primaryAmmo, ref isEmpty1, ref equippedGem1, ref slot.imgEmptySlot1);       //Controllo Munizioni
             StartCoroutine(FireCooldown());                                     //Cooldown sparo
+            
+        } 
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == true && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false)
+        {
+            PlayEmptyShotSound();
         }
 
         //Fuoco secondario
@@ -55,6 +67,10 @@ public class PlayerShooting : MonoBehaviour
             Fire(secondaryFire, ref secondaryAmmo, ref slot.TXTAmmo2);          //Sparo
             CheckAmmo(secondaryAmmo, ref isEmpty2, ref equippedGem2, ref slot.imgEmptySlot2);     //Controllo Munizioni
             StartCoroutine(FireCooldown());                                     //Cooldown sparo
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1) && isEmpty2 == true && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false)
+        {
+            PlayEmptyShotSound();
         }
     }
 
@@ -68,12 +84,20 @@ public class PlayerShooting : MonoBehaviour
     
     //Controllo sulle munizioni
     private void CheckAmmo(float ammo, ref bool isEmpty, ref GameObject gem, ref Image slotImage)
-    {
+    {   
         if (ammo == 0)                                                          //Se ho finito le munizioni
         {
             slot.EmptySlot(slotImage);                                          //Tolgo l'immagine della gemma dallo slot dello sparo secondario                                      
             isEmpty = true;                                                     //Setto senza munizioni
             gem = null;
+        }
+    }
+
+    private void PlayEmptyShotSound()
+    {
+        if (primaryAmmo == 0)
+        {
+            emptyShot.Play();
         }
     }
 
@@ -84,4 +108,5 @@ public class PlayerShooting : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         canShoot = true;
     }
+
 }

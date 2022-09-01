@@ -2541,7 +2541,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 48248925bf04a0245a4c9736554a1ca3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c0aa17ee890faec4aa8b21c7b2d2a7e5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2665,7 +2665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 43}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &662864408
@@ -6678,7 +6678,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8e109397823a20e46bb4ebd2206a55f0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.014
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7488,7 +7488,7 @@ GameObject:
   - component: {fileID: 1325070338}
   - component: {fileID: 1325070337}
   m_Layer: 0
-  m_Name: SFX - Background Music
+  m_Name: SFX - Background Menu Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7504,7 +7504,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2968cf5388ea3f2438bf9e26438b079e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6797dce4b3e78a3418008e4ab430b922, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

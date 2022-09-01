@@ -17,17 +17,17 @@ public class UIManager : MonoBehaviour
 
     [Header("Immagini filtro countdown")]
     public Image imgCountDownAttack;                                                //Immagine Countdown
-    //public Image imgCountDownHook;                                                  //Immagine Countdown
+    public Image imgCountDownHook;                                                  //Immagine Countdown
 
     [Header("Coutdown Attacco")]
     public TMP_Text TXTCountDownAttack;                                             //Testo Countdown
-    public float countDownTimeAttack = 0.5f;                                        //Tempo di partenza del countdown
+    public float countDownTimeAttack;                                               //Tempo di partenza del countdown
     public float countDownTimerAttack = 0.0f;                                       //Tempo di fine del countdown
     public bool isAttackCountDown = false;
 
     [Header("Countdown Rampino")]
     public TMP_Text TXTCountDownHook;                                               //Testo Countdown
-    public float countDownTimeHook = 0.5f;                                          //Tempo di partenza del countdown
+    public float countDownTimeHook;                                                 //Tempo di partenza del countdown
     public float countDownTimerHook = 0.0f;                                         //Tempo di fine del countdown
     public bool isHookCountDown = false;
 
@@ -51,6 +51,8 @@ public class UIManager : MonoBehaviour
         imgEmptySlot.sprite = Resources.Load<Sprite>("UI/empty_skill");                //Equipaggia Slot vuoto
     }
 
+    //SKILL ATTACCO
+
     //Disattiva la skill di attacco di Jiggly e setta il countdown
     public void DisableJigglyAttackSlot()
     {
@@ -65,6 +67,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //CountDown Attacco
     public void ApplyAttackCountDown()
     {
         countDownTimerAttack -= Time.deltaTime;                                           //Sottrae al timer il tempo
@@ -79,6 +82,40 @@ public class UIManager : MonoBehaviour
         {
             TXTCountDownAttack.text = Mathf.RoundToInt(countDownTimerAttack).ToString();  //Setta il testo
             imgCountDownAttack.fillAmount = countDownTimerAttack / countDownTimeAttack;   //Setta l'immagine
+        }
+    }
+    
+    //SKILL RAMPINO
+
+    //Disattiva la skill rampino di Jiggly e setta il countdown
+    public void DisableJigglyHookSlot()
+    {
+        //Se il countdown non è attivo resetta
+        if (!isHookCountDown)
+        {
+            imgCountDownHook.gameObject.SetActive(true);
+            TXTCountDownHook.gameObject.SetActive(true);
+            isHookCountDown = true;
+            imgCountDownHook.fillAmount = 0.0f;
+            countDownTimerHook = countDownTimeHook;
+        }
+    }
+
+    //CountDown Rampino
+    public void ApplyHookCountDown()
+    {
+        countDownTimerHook -= Time.deltaTime;                                           //Sottrae al timer il tempo
+
+        if(countDownTimerHook <= 0.0f)                                                  //Se finisce il tempo
+        {
+            isHookCountDown = false;                                                    //Disattiva il countdown
+            TXTCountDownHook.gameObject.SetActive(false);                               //Disattiva il testo
+            imgCountDownHook.gameObject.SetActive(false);                               //Disattiva l'immagine
+        }
+        else
+        {
+            TXTCountDownHook.text = Mathf.RoundToInt(countDownTimerHook).ToString();  //Setta il testo
+            imgCountDownHook.fillAmount = countDownTimerHook / countDownTimeHook;   //Setta l'immagine
         }
     }
 

@@ -50,14 +50,19 @@ public class JigglyFeatures : MonoBehaviour
                 hook.enabled = true;                                                                                    //Attiva rampino
                 isHooked = true;                                                                                        //Sei rampinato
                 StartHook();                                                                                            //Rampina
+                slot.DisableJigglyHookSlot();
             }
-        } else if(isHooked == true && Input.GetKeyDown(KeyCode.LeftShift) && jigglyAttackState == false)                        //Se hai già rampinato e premi E e non è attivo l'attaco di Jiggly
+        } 
+        else if (isHooked == true && Input.GetKeyDown(KeyCode.LeftShift) && jigglyAttackState == false)                        //Se hai già rampinato e premi E e non è attivo l'attaco di Jiggly
         {
             hook.enabled = false;                                                                                       //Disattiva rampino
             StopHook();                                                                                                 //Rompi rampino
             isHooked = false;                                                                                           //Non sei rampinato
         }
-
+        if (slot.isHookCountDown)                                                                                     //Se lo slot è in cooldown
+        {
+            slot.ApplyHookCountDown();                                                                                //aggiorna il countdown
+        }
         if (isPulling)                                                                                                  //Se il rampino tira il giocatore
         {
             rb.AddForce((hookPoint - gameObject.transform.position).normalized * 0.4f, ForceMode.VelocityChange);       //Tira con al fisica
@@ -73,7 +78,7 @@ public class JigglyFeatures : MonoBehaviour
                 enemyName = enemy.name;                                                                                 //Nome nemico agganciato
                 jigglyAttackState = true;                                                                               //Attacco di Jiggly attivo
                 hook.positionCount = 2;                                                                                 //Vertici del rampino
-                slot.DisableJigglyAttackSlot();                                                                         //Countdown skill
+                slot.DisableJigglyAttackSlot();                            
                 StartCoroutine(StartJigglyAttack());                                                                    //Coroutine di esecuzione dell'attacco
                 StartCoroutine(StartCooldownJigglyAttack());                                                            //Cooldown abilità Jiggly                                                                                             //Inizio attacco di Jiggly
             }
