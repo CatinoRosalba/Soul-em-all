@@ -21,9 +21,9 @@ public class EnterPointSound : EventTrigger, IPointerEnterHandler
     public override void OnPointerEnter(PointerEventData eventData)
     {
         if (!button.interactable)
-                return;
+        {
+            return;
+        }
         base.OnPointerEnter(eventData);
-
-        Debug.Log("On Enter");
     }
 }

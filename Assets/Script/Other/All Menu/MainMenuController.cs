@@ -12,6 +12,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] Slider progressbar;
     [SerializeField] Button continueButton;
     [SerializeField] Button[] chapterButton;
+    [SerializeField] Button[] levelButton;
 
     private int unlockLevel;
     private int indexLastLevel;
@@ -56,7 +57,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ContinueGame()
     {
-        unlockLevel = PlayerPrefs.GetInt(LastLevel);                //salvo l'ultimo livello salvato
+        unlockLevel = PlayerPrefs.GetInt(LastLevel);                //recupero l'ultimo livello salvato
 
         if (unlockLevel == 1)                                       //Tutorial
         {
@@ -75,16 +76,17 @@ public class MainMenuController : MonoBehaviour
     /*
      *  PER LA DEMO IL PRIMO CAPITOLO CONTIENE I LIVELLI: 1-2-3 
      */
-    public void ChapterSelectedButton()
+    public void InteractableChapter()
     {
         indexLastLevel = PlayerPrefs.GetInt(LastLevel);
 
-        if(indexLastLevel >= 1)                                      //Se ha fatto almeno il tutorial
+        if (indexLastLevel >= 1)                                   //Se ha fatto almeno il tutorial
         {
-            for (int i = 0; i < indexLastLevel; i++)
+            for (int i = 0; i < chapterButton.Length; i++)
             {
-                 chapterButton[0].interactable = true;              //Può interagire con il primio capitolo e continuare 
-                                                                    //dall'ultimo livello salvato
+                chapterButton[0].interactable = true;              //Può interagire con il primio capitolo e scegliere di rifare un livello a piacere tra quelli già sbloccati
+                chapterButton[1].interactable = false;
+                chapterButton[2].interactable = false;
             }
         }
         else
@@ -96,6 +98,44 @@ public class MainMenuController : MonoBehaviour
             }
         }
         
+    }
+
+    public void InteractableLevel()
+    {
+        indexLastLevel = PlayerPrefs.GetInt(LastLevel);
+
+        if (indexLastLevel == 2)                                      //Se ha completato il lvl 1 sblocco solo lui
+        {
+            for (int i = 0; i < levelButton.Length; i++)
+            {
+                levelButton[0].interactable = true;
+                levelButton[1].interactable = false;
+                levelButton[2].interactable = false;
+            }
+        }
+        else if (indexLastLevel == 3)                               //Se ha completato il lvl 2 sblocco 1 e 2
+        {
+            for (int i = 0; i < levelButton.Length; i++)
+            {
+                levelButton[0].interactable = true;
+                levelButton[1].interactable = true;
+                levelButton[2].interactable = false;
+            }
+        } 
+        else if (indexLastLevel == 4)                               //Se ha completato il lvl 3 li sblocco tutti
+        {
+            for (int i = 0; i < levelButton.Length; i++)
+            {
+                levelButton[i].interactable = true;
+            }
+        } 
+        else
+        {
+            for (int i = 0; i < levelButton.Length; i++)
+            {
+                levelButton[i].interactable = false;
+            }
+        }
     }
 
     //Esco dal gioco
