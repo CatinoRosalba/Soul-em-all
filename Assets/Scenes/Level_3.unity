@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 245948007}
   - component: {fileID: 245948010}
   - component: {fileID: 245948009}
-  - component: {fileID: 245948008}
+  - component: {fileID: 245948011}
   m_Layer: 0
   m_Name: Cave Wall (25)
   m_TagString: Untagged
@@ -624,20 +624,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &245948008
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245948006}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &245948009
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -688,6 +674,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245948006}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &245948011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245948006}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0.0000038146973, z: 0.000000059604645}
 --- !u!1001 &264484079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15531,20 +15530,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &7983701246689307449
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701246689307455}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701246689307450
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15606,7 +15591,7 @@ GameObject:
   - component: {fileID: 7983701246689307448}
   - component: {fileID: 7983701246689307451}
   - component: {fileID: 7983701246689307450}
-  - component: {fileID: 7983701246689307449}
+  - component: {fileID: 7983701246689307456}
   m_Layer: 0
   m_Name: Cave Wall (12)
   m_TagString: Untagged
@@ -15614,6 +15599,19 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &7983701246689307456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701246689307455}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.000000059604645}
 --- !u!4 &7983701246762256272
 Transform:
   m_ObjectHideFlags: 0
@@ -15629,20 +15627,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &7983701246762256273
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701246762256279}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701246762256274
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15704,7 +15688,7 @@ GameObject:
   - component: {fileID: 7983701246762256272}
   - component: {fileID: 7983701246762256275}
   - component: {fileID: 7983701246762256274}
-  - component: {fileID: 7983701246762256273}
+  - component: {fileID: 7983701246762256280}
   m_Layer: 0
   m_Name: Cave Wall (8)
   m_TagString: Untagged
@@ -15712,6 +15696,19 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &7983701246762256280
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701246762256279}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0.000000059604645}
 --- !u!33 &7983701246771362112
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15731,7 +15728,7 @@ GameObject:
   - component: {fileID: 7983701246771362117}
   - component: {fileID: 7983701246771362112}
   - component: {fileID: 7983701246771362119}
-  - component: {fileID: 7983701246771362118}
+  - component: {fileID: 7983701246771362120}
   m_Layer: 0
   m_Name: Cave Wall (14)
   m_TagString: Untagged
@@ -15754,20 +15751,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &7983701246771362118
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701246771362116}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701246771362119
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15810,6 +15793,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7983701246771362120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701246771362116}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: -0.0000076293945, z: 0.000000059604645}
 --- !u!23 &7983701246792648092
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15894,8 +15890,8 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701246792648099
-MeshCollider:
+--- !u!65 &7983701246792648099
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15904,24 +15900,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &7983701246830668868
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701246830668874}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &7983701246830668869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15983,7 +15964,7 @@ GameObject:
   - component: {fileID: 7983701246830668875}
   - component: {fileID: 7983701246830668870}
   - component: {fileID: 7983701246830668869}
-  - component: {fileID: 7983701246830668868}
+  - component: {fileID: 7983701246830668876}
   m_Layer: 0
   m_Name: Cave Wall (11)
   m_TagString: Untagged
@@ -16006,6 +15987,19 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &7983701246830668876
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701246830668874}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.000000059604645}
 --- !u!1 &7983701246937999642
 GameObject:
   m_ObjectHideFlags: 0
@@ -16220,8 +16214,8 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &7983701246959929691
-MeshCollider:
+--- !u!65 &7983701246959929691
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16230,10 +16224,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: -0.000000026077032, y: 0, z: 0.000000059604645}
 --- !u!23 &7983701246991748420
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16318,8 +16311,8 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701246991748427
-MeshCollider:
+--- !u!65 &7983701246991748427
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16328,10 +16321,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.00000047683716, y: 0, z: 0}
 --- !u!4 &7983701247072007348
 Transform:
   m_ObjectHideFlags: 0
@@ -16347,20 +16339,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &7983701247072007349
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701247072007355}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701247072007350
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16422,7 +16400,7 @@ GameObject:
   - component: {fileID: 7983701247072007348}
   - component: {fileID: 7983701247072007351}
   - component: {fileID: 7983701247072007350}
-  - component: {fileID: 7983701247072007349}
+  - component: {fileID: 7983701247072007356}
   m_Layer: 0
   m_Name: Cave Wall (9)
   m_TagString: Untagged
@@ -16430,6 +16408,19 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &7983701247072007356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701247072007355}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0.000000059604645}
 --- !u!33 &7983701247339561892
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16449,7 +16440,7 @@ GameObject:
   - component: {fileID: 7983701247339561897}
   - component: {fileID: 7983701247339561892}
   - component: {fileID: 7983701247339561899}
-  - component: {fileID: 7983701247339561898}
+  - component: {fileID: 7983701247339561900}
   m_Layer: 0
   m_Name: Cave Wall (7)
   m_TagString: Untagged
@@ -16472,20 +16463,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701247339561898
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701247339561896}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701247339561899
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16528,6 +16505,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7983701247339561900
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701247339561896}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.00000023841858, y: 0, z: 0}
 --- !u!23 &7983701247477262192
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16612,8 +16602,8 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701247477262199
-MeshCollider:
+--- !u!65 &7983701247477262199
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16622,10 +16612,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &7983701247509832608
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16710,8 +16699,8 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701247509832615
-MeshCollider:
+--- !u!65 &7983701247509832615
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16720,10 +16709,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.00000023841858, y: 0, z: 0}
 --- !u!23 &7983701247532229780
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16808,8 +16796,8 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &7983701247532229787
-MeshCollider:
+--- !u!65 &7983701247532229787
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16818,24 +16806,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &7983701247644660384
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701247644660390}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0.000000059604645}
 --- !u!23 &7983701247644660385
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16897,7 +16870,7 @@ GameObject:
   - component: {fileID: 7983701247644660391}
   - component: {fileID: 7983701247644660386}
   - component: {fileID: 7983701247644660385}
-  - component: {fileID: 7983701247644660384}
+  - component: {fileID: 7983701247644660392}
   m_Layer: 0
   m_Name: Cave Wall (20)
   m_TagString: Untagged
@@ -16920,6 +16893,19 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &7983701247644660392
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701247644660390}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0.000000059604645}
 --- !u!4 &7983701247664876924
 Transform:
   m_ObjectHideFlags: 0
@@ -16935,20 +16921,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701247664876925
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701247664876931}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701247664876926
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17010,7 +16982,7 @@ GameObject:
   - component: {fileID: 7983701247664876924}
   - component: {fileID: 7983701247664876927}
   - component: {fileID: 7983701247664876926}
-  - component: {fileID: 7983701247664876925}
+  - component: {fileID: 7983701247664876932}
   m_Layer: 0
   m_Name: Cave Wall (23)
   m_TagString: Untagged
@@ -17018,6 +16990,19 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &7983701247664876932
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701247664876931}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.00000047683716, y: 0, z: 0}
 --- !u!23 &7983701247695832896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17135,7 +17120,7 @@ GameObject:
   - component: {fileID: 7983701247788468753}
   - component: {fileID: 7983701247788468748}
   - component: {fileID: 7983701247788468755}
-  - component: {fileID: 7983701247788468754}
+  - component: {fileID: 7983701247788468756}
   m_Layer: 0
   m_Name: Cave Wall (15)
   m_TagString: Untagged
@@ -17158,20 +17143,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701247788468754
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701247788468752}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701247788468755
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17214,6 +17185,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7983701247788468756
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701247788468752}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &7983701247803935008
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17233,7 +17217,7 @@ GameObject:
   - component: {fileID: 7983701247803935013}
   - component: {fileID: 7983701247803935008}
   - component: {fileID: 7983701247803935015}
-  - component: {fileID: 7983701247803935014}
+  - component: {fileID: 7983701247803935016}
   m_Layer: 0
   m_Name: Cave Wall (21)
   m_TagString: Untagged
@@ -17256,20 +17240,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701247803935014
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701247803935012}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701247803935015
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17312,6 +17282,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7983701247803935016
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701247803935012}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.00000047683716, y: 0, z: 0}
 --- !u!33 &7983701247839261140
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17331,7 +17314,7 @@ GameObject:
   - component: {fileID: 7983701247839261145}
   - component: {fileID: 7983701247839261140}
   - component: {fileID: 7983701247839261147}
-  - component: {fileID: 7983701247839261146}
+  - component: {fileID: 7983701247839261148}
   m_Layer: 0
   m_Name: Cave Wall (6)
   m_TagString: Untagged
@@ -17354,20 +17337,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &7983701247839261146
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701247839261144}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701247839261147
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17410,20 +17379,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7983701247913059240
-MeshCollider:
+--- !u!65 &7983701247839261148
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701247913059246}
+  m_GameObject: {fileID: 7983701247839261144}
   m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0.000000059604645}
 --- !u!23 &7983701247913059241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17485,7 +17453,7 @@ GameObject:
   - component: {fileID: 7983701247913059247}
   - component: {fileID: 7983701247913059242}
   - component: {fileID: 7983701247913059241}
-  - component: {fileID: 7983701247913059240}
+  - component: {fileID: 7983701247913059248}
   m_Layer: 0
   m_Name: Cave Wall (17)
   m_TagString: Untagged
@@ -17508,6 +17476,19 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!65 &7983701247913059248
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701247913059246}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &7983701248293465736
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17527,7 +17508,7 @@ GameObject:
   - component: {fileID: 7983701248293465741}
   - component: {fileID: 7983701248293465736}
   - component: {fileID: 7983701248293465743}
-  - component: {fileID: 7983701248293465742}
+  - component: {fileID: 7983701248293465744}
   m_Layer: 0
   m_Name: Cave Wall (19)
   m_TagString: Untagged
@@ -17550,20 +17531,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &7983701248293465742
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701248293465740}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701248293465743
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17606,6 +17573,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7983701248293465744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701248293465740}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0.000000059604645}
 --- !u!23 &7983701248464372588
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17690,8 +17670,8 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 270, y: 90, z: 0}
---- !u!64 &7983701248464372595
-MeshCollider:
+--- !u!65 &7983701248464372595
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17700,10 +17680,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 1, z: 1}
+  m_Center: {x: 0.000000059604645, y: 0, z: 0}
 --- !u!4 &7983701248474280588
 Transform:
   m_ObjectHideFlags: 0
@@ -17719,20 +17698,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701248474280589
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701248474280595}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701248474280590
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17794,7 +17759,7 @@ GameObject:
   - component: {fileID: 7983701248474280588}
   - component: {fileID: 7983701248474280591}
   - component: {fileID: 7983701248474280590}
-  - component: {fileID: 7983701248474280589}
+  - component: {fileID: 7983701248474280596}
   m_Layer: 0
   m_Name: Cave Wall (22)
   m_TagString: Untagged
@@ -17802,6 +17767,19 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &7983701248474280596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701248474280595}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.00000023841858, y: 0, z: 0}
 --- !u!4 &7983701248477954012
 Transform:
   m_ObjectHideFlags: 0
@@ -17817,20 +17795,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
---- !u!64 &7983701248477954013
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701248477954019}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701248477954014
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17892,7 +17856,7 @@ GameObject:
   - component: {fileID: 7983701248477954012}
   - component: {fileID: 7983701248477954015}
   - component: {fileID: 7983701248477954014}
-  - component: {fileID: 7983701248477954013}
+  - component: {fileID: 7983701248477954020}
   m_Layer: 0
   m_Name: Cave Wall (3)
   m_TagString: Untagged
@@ -17900,6 +17864,19 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &7983701248477954020
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701248477954019}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0.00000008940697}
 --- !u!33 &7983701248508844440
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17919,7 +17896,7 @@ GameObject:
   - component: {fileID: 7983701248508844445}
   - component: {fileID: 7983701248508844440}
   - component: {fileID: 7983701248508844447}
-  - component: {fileID: 7983701248508844446}
+  - component: {fileID: 7983701248508844448}
   m_Layer: 0
   m_Name: Cave Wall (13)
   m_TagString: Untagged
@@ -17942,20 +17919,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &7983701248508844446
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701248508844444}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701248508844447
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17998,6 +17961,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7983701248508844448
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701248508844444}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &7983701248676484820
 Transform:
   m_ObjectHideFlags: 0
@@ -18013,20 +17989,6 @@ Transform:
   m_Father: {fileID: 7983701246937999643}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 270, y: 270, z: 0}
---- !u!64 &7983701248676484821
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983701248676484827}
-  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7983701248676484822
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18088,7 +18050,7 @@ GameObject:
   - component: {fileID: 7983701248676484820}
   - component: {fileID: 7983701248676484823}
   - component: {fileID: 7983701248676484822}
-  - component: {fileID: 7983701248676484821}
+  - component: {fileID: 7983701248676484828}
   m_Layer: 0
   m_Name: Cave Wall (2)
   m_TagString: Untagged
@@ -18096,6 +18058,19 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &7983701248676484828
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983701248676484827}
+  m_Material: {fileID: 13400000, guid: cee453b773b23c749b6e37a5a59c9830, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 1, z: 1}
+  m_Center: {x: -0.000000059604645, y: 0, z: 0}
 --- !u!65 &7983701248796291412
 BoxCollider:
   m_ObjectHideFlags: 0

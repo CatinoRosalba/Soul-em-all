@@ -5,9 +5,7 @@ using UnityEngine;
 public class EnemyWaterSpray : MonoBehaviour
 {
     private Rigidbody rbBullet;                                                      //RigidBody
-    float speed;                                                                     //Velocità proiettile
-    public float damage;                                                             //Danno proiettile
-    [SerializeField] GameObject waterZone;                                           //Zona d'acqua rilasciata alla distruzione                                        
+    float speed;                                                                     //Velocità proiettile                                 
 
     private void Awake()
     {
@@ -17,7 +15,6 @@ public class EnemyWaterSpray : MonoBehaviour
     private void Start()
     {
         speed = 80f;
-        damage = 0.8f;
         rbBullet.velocity = transform.forward * speed;                                //Muove il proiettile
         Destroy(gameObject, 2);
     }
@@ -27,6 +24,7 @@ public class EnemyWaterSpray : MonoBehaviour
     {
         if (!other.isTrigger && !other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log(other);
             Destroy(gameObject);                                                         //Distrugge il proiettile
         }
     }
