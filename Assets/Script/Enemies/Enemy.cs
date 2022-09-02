@@ -34,10 +34,25 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);                                                                //Distruggi nemico
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);              //Istanzia Drop
+            DropHealth();
 
             GameObject explosion = (GameObject)Instantiate(explosionRef);                       //Esplosione
             explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             explosion.transform.rotation = gameObject.transform.rotation;
+        }
+    }
+
+    private void DropHealth()
+    {
+        Player player = FindObjectOfType<Player>();
+        float dropRate = 0.4f;
+        for(int i = player.health; i < player.maxHealth; i++)
+        {
+            dropRate += 0.15f;
+        }
+        if (Random.value <= dropRate)
+        {
+            Instantiate(Resources.Load("Vita"), gameObject.transform.position + new Vector3(0,0,-2), Quaternion.identity);
         }
     }
 }

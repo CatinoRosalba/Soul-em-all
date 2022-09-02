@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 {
     public GameObject[] goHealth;                                                                   //Oggetto vita del giocatore
     private SpriteRenderer spriteRenderer;
-    private float health;                                                                           //Vita del giocatore
+    public int maxHealth;
+    public int health;                                                                           //Vita del giocatore
     [SerializeField] GameOverController gameOverController;
     private bool gameOver;                                                                          //Stato di GameOver
     private bool invisibilityFrame;                                                                 //Permette di evitare il danno consecutivo
@@ -20,7 +21,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        health = 5;
+        maxHealth = 5;
+        health = maxHealth;
         spriteRenderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
 
         matWhite = Resources.Load("Particles/FlashWhite", typeof(Material)) as Material;
@@ -44,13 +46,19 @@ public class Player : MonoBehaviour
             StartCoroutine(EFlash());                                                               //Flash del danno
             if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
-                gameOver = true;                                                                    //Gameover
+                GameObject explosion = (GameObject)Instantiate(explosionRef);                       //Esplosione
+                ParticleSystem.MainModule setColor = explosion.GetComponent<ParticleSystem>().main;
+                setColor.startColor = new Color(80 / 255f, 18 / 255f, 88 / 255f);                    //Cambia colore delle particelle
+                explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                explosion.transform.rotation = gameObject.transform.rotation;
+
+                gameOver = true;                                                                    //Gameover                                                                    //Gameover
             }
             StartCoroutine(InvisibiliyyFrame());                                                    //Iniziano gli InvisibilityFrame
         }
     }
 
-    //Gestione del danno sul giocatore da proiettile
+    //Gestione del danno sul giocatore da nemico
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && invisibilityFrame == false)                //Se puoi prendere danno e entri in contatto con un nemico

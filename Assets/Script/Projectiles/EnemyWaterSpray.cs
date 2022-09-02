@@ -24,7 +24,6 @@ public class EnemyWaterSpray : MonoBehaviour
     {
         if (!other.isTrigger && !other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log(other);
             Destroy(gameObject);                                                         //Distrugge il proiettile
         }
     }
