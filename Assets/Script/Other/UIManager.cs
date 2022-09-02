@@ -31,6 +31,15 @@ public class UIManager : MonoBehaviour
     public float countDownTimerHook = 0.0f;                                         //Tempo di fine del countdown
     public bool isHookCountDown = false;
 
+    [Header("Collezionabili")]
+    public Image key;
+    public TMP_Text keyCounter;
+    public Image mate;
+    public TMP_Text mateCounter;
+    public int totalKey;
+    public int totalMates;
+
+
 
     //Equip Slot Sparo
     public void EquipSlot(GameObject gem, Image imgEmptySlot)
@@ -117,6 +126,15 @@ public class UIManager : MonoBehaviour
             TXTCountDownHook.text = Mathf.RoundToInt(countDownTimerHook).ToString();  //Setta il testo
             imgCountDownHook.fillAmount = countDownTimerHook / countDownTimeHook;   //Setta l'immagine
         }
+    }
+
+    //COLLEZIONABILI
+    public void showCollectable(Image type, int typeCounter, TMP_Text typeText, int totalType)
+    {
+        type.gameObject.SetActive(true);
+        typeText.gameObject.SetActive(true);
+        typeText.text = typeCounter.ToString() + "/" + totalType.ToString();
+        Debug.Log(typeCounter);
     }
 
 }
