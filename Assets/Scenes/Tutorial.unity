@@ -34034,9 +34034,57 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
       propertyPath: gameOverController
       value: 
       objectReference: {fileID: 4550678709636016572}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[0]
+      value: 
+      objectReference: {fileID: 4550678709636016513}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[1]
+      value: 
+      objectReference: {fileID: 4550678709636016512}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[2]
+      value: 
+      objectReference: {fileID: 4550678709636016515}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[3]
+      value: 
+      objectReference: {fileID: 4550678709636016514}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[4]
+      value: 
+      objectReference: {fileID: 4550678709636016573}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[5]
+      value: 
+      objectReference: {fileID: 4550678709636016513}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[6]
+      value: 
+      objectReference: {fileID: 4550678709636016512}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[7]
+      value: 
+      objectReference: {fileID: 4550678709636016515}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[8]
+      value: 
+      objectReference: {fileID: 4550678709636016514}
+    - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: goHealth.Array.data[9]
+      value: 
+      objectReference: {fileID: 4550678709636016573}
     - target: {fileID: 7548461686652825165, guid: ee811d7431f93224190302880290e7f6, type: 3}
       propertyPath: slot
       value: 
@@ -55270,6 +55318,12 @@ MonoBehaviour:
   countDownTimeHook: 1
   countDownTimerHook: 0
   isHookCountDown: 0
+  key: {fileID: 0}
+  keyCounter: {fileID: 0}
+  mate: {fileID: 0}
+  mateCounter: {fileID: 0}
+  totalKey: 0
+  totalMates: 0
 --- !u!1 &4550678709665203105
 GameObject:
   m_ObjectHideFlags: 0

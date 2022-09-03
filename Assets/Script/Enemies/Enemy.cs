@@ -18,13 +18,13 @@ public class Enemy : MonoBehaviour
         {
             health = 3;                                                                         //Setti vita
             weak = "water";                                                                     //Setti debolezza
-            drop = Resources.Load<GameObject>("Gems/FireGem");                                       //Setti drop
+            drop = Resources.Load<GameObject>("Gems/FireGem");                                  //Setti drop
         } 
         else if(gameObject.name.Contains("Water"))    //Se il nome del nemico è Water Enemy
         {
             health = 3;                                                                         //Setti vita
             weak = "fire";                                                                      //Setti debolezza
-            drop = Resources.Load<GameObject>("Gems/WaterGem");                                      //Setti drop
+            drop = Resources.Load<GameObject>("Gems/WaterGem");                                 //Setti drop
         }
     }
 

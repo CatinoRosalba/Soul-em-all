@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("EnemyProjectile") && invisibilityFrame == false)           //Se puoi prendere danno e entri in contatto con un proiettile
         {
             health--;                                                                               //Prendi danno
-            Destroy(goHealth[(int)health].gameObject);                                              //Distrugge lo sprite della vita
+            goHealth[health].gameObject.SetActive(false);                                           //Distrugge lo sprite della vita
             StartCoroutine(EFlash());                                                               //Flash del danno
             if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             health--;                                                                               //Prendi danno
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * (-10), ForceMode.Impulse); //Contraccolpo
             StartCoroutine(EFlash());                                                               //Flash del danno
-            Destroy(goHealth[(int)health].gameObject);                                              //Distrugge lo sprite della vita
+            goHealth[health].gameObject.SetActive(false);                                             //Distrugge lo sprite della vita
             if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
                 GameObject explosion = (GameObject) Instantiate(explosionRef);                       //Esplosione
