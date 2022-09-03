@@ -6,10 +6,12 @@ public class TutorialBattleZone : MonoBehaviour
 {
     private float totalEnemies;
     private bool inCombat;
+    private bool clear;
     public GameObject portal;
 
     private void Start()
     {
+        clear = false;
         inCombat = false;
     }
 
@@ -17,7 +19,7 @@ public class TutorialBattleZone : MonoBehaviour
     {
         if (inCombat)
         {
-            totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            CalculateTotalEnemies();
             if (totalEnemies <= 0)
             {
                 portal.SetActive(true);
@@ -29,19 +31,33 @@ public class TutorialBattleZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !inCombat)
         {
-            ActivateSpawners();
+            ActivateEnemies();
             inCombat = true;
         }
     }
 
-    private void ActivateSpawners()
+    private void ActivateEnemies()
     {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject child = gameObject.transform.GetChild(i).gameObject;
             if (child.CompareTag("Spawner"))
             {
-                child.GetComponent<SpawnerScript>().SpawnEnemy();
+                totalEnemies++;
+                child.GetComponent<SpawnerScript>().ActivateEnemy();
+            }
+        }
+    }
+
+    private void CalculateTotalEnemies()
+    {
+        totalEnemies = 0;
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            GameObject child = gameObject.transform.GetChild(i).gameObject;
+            if (child.CompareTag("Enemy"))
+            {
+                totalEnemies++;
             }
         }
     }

@@ -31,18 +31,18 @@ public class Labyrinth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && clear == false)
         {
-            ActivateSpawners();
+            ActivateEnemies();
         }
     }
 
-    private void ActivateSpawners()
+    private void ActivateEnemies()
     {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject child = gameObject.transform.GetChild(i).gameObject;
             if (child.CompareTag("Spawner"))
             {
-                child.GetComponent<SpawnerScript>().SpawnEnemy();
+                child.GetComponent<SpawnerScript>().ActivateEnemy();
             }
         }
     }

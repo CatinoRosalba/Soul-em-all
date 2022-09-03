@@ -1063,7 +1063,11 @@ PrefabInstance:
       objectReference: {fileID: 1715468956}
     - target: {fileID: 7548461686652825160, guid: ee811d7431f93224190302880290e7f6, type: 3}
       propertyPath: amneryLayerMask.m_Bits
-      value: 457
+      value: 329
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548461686652825160, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: jigglyLayerMask.m_Bits
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 7548461686652825162, guid: ee811d7431f93224190302880290e7f6, type: 3}
       propertyPath: gameOverController

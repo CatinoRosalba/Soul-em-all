@@ -13,7 +13,7 @@ public class SpawnerScript : MonoBehaviour
     public void SpawnEnemy()
     {
         clone = Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
-        clone.transform.parent = gameObject.transform;
+        clone.transform.parent = gameObject.transform.parent;
     }
 
     public void ActivateEnemy()

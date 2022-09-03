@@ -20,16 +20,19 @@ public class DungeonStage : MonoBehaviour
 
     private void Update()
     {
-        totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (totalEnemies <= 0 && inCombat)
+        if (inCombat)
         {
-            clear = true;
-        }
-        if (clear && openedGates == false)
-        {
-            openingGate.GetComponent<BoxCollider>().enabled = false;
-            openingGate.GetComponent<MeshRenderer>().enabled = false;
-            openedGates = true;
+            CalculateTotalEnemies();
+            if (totalEnemies <= 0)
+            {
+                clear = true;
+            }
+            if (clear && openedGates == false)
+            {
+                openingGate.GetComponent<BoxCollider>().enabled = false;
+                openingGate.GetComponent<MeshRenderer>().enabled = false;
+                openedGates = true;
+            }
         }
     }
 
@@ -40,18 +43,32 @@ public class DungeonStage : MonoBehaviour
             closingGate.GetComponent<BoxCollider>().enabled = true;
             closingGate.GetComponent<MeshRenderer>().enabled = true;
             inCombat = true;
-            ActivateSpawners();
+            ActivateEnemies();
         }
     }
 
-    private void ActivateSpawners()
+    private void ActivateEnemies()
     {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject child = gameObject.transform.GetChild(i).gameObject;
             if (child.CompareTag("Spawner"))
             {
-                child.GetComponent<SpawnerScript>().SpawnEnemy();
+                totalEnemies++;
+                child.GetComponent<SpawnerScript>().ActivateEnemy();
+            }
+        }
+    }
+
+    private void CalculateTotalEnemies()
+    {
+        totalEnemies = 0;
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            GameObject child = gameObject.transform.GetChild(i).gameObject;
+            if (child.CompareTag("Enemy"))
+            {
+                totalEnemies++;
             }
         }
     }

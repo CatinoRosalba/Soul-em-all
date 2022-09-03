@@ -21,7 +21,6 @@ public class SpawnerTrigger : MonoBehaviour
                 GameObject child = parent.transform.GetChild(i).gameObject;
                 if (child.CompareTag("Spawner"))
                 {
-                    Debug.Log("c");
                     child.GetComponent<SpawnerScript>().SpawnEnemy();
                 }
             }
