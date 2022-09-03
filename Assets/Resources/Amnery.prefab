@@ -186,6 +186,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  maxHealth: 0
+  health: 0
   gameOverController: {fileID: 0}
 --- !u!114 &7548461686652825161
 MonoBehaviour:
@@ -215,7 +217,7 @@ MonoBehaviour:
   amneryBulletRay: {fileID: 0}
   amneryLayerMask:
     serializedVersion: 2
-    m_Bits: 457
+    m_Bits: 329
   jigglyBulletRay: {fileID: 0}
   jigglyLayerMask:
     serializedVersion: 2
@@ -234,13 +236,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
+  equippedGem1: {fileID: 0}
   primaryFire: {fileID: 0}
   primaryAmmo: 0
+  equippedGem2: {fileID: 0}
   secondaryFire: {fileID: 0}
   secondaryAmmo: 0
+  emptyShot: {fileID: 0}
   isEmpty1: 0
   isEmpty2: 0
-  canCollect: 0
 --- !u!114 &7548461686652825166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +274,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
   hook: {fileID: 7548461686652825164}
+  isHooked: 0
+  jigglyAttackState: 0
 --- !u!120 &7548461686652825164
 LineRenderer:
   m_ObjectHideFlags: 0

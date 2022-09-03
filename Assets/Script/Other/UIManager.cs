@@ -134,7 +134,6 @@ public class UIManager : MonoBehaviour
         type.gameObject.SetActive(true);
         typeText.gameObject.SetActive(true);
         typeText.text = typeCounter.ToString() + "/" + totalType.ToString();
-        Debug.Log(typeCounter);
     }
 
 }

@@ -20,7 +20,7 @@ public class LifeScript : MonoBehaviour
     {
         if(player.health < player.maxHealth){
             player.health++;
-            player.goHealth[player.health].SetActive(true);
+            player.goHealth[player.health-1].SetActive(true);
             Destroy(gameObject);
         }
     }

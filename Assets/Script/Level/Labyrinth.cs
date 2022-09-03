@@ -5,7 +5,10 @@ using UnityEngine;
 public class Labyrinth : MonoBehaviour
 {
     private bool clear;
-    public GameObject slime;
+    public GameObject slime1;
+    public GameObject slime2;
+    public GameObject slime3;
+    public GameObject gate;
 
     private void Awake()
     {
@@ -14,9 +17,13 @@ public class Labyrinth : MonoBehaviour
 
     private void Update()
     {
-        if(slime == null)
+        if(slime1 == null &&  slime2 == null &&  slime3 == null)
         {
             clear = true;
+        }
+        if (clear)
+        {
+            gate.SetActive(false);
         }
     }
 

@@ -13,13 +13,21 @@ public class SpawnerScript : MonoBehaviour
     public void SpawnEnemy()
     {
         clone = Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
+        clone.transform.parent = gameObject.transform;
+    }
+
+    public void ActivateEnemy()
+    {
         if (clone.name.Contains("Fire"))
         {
+            clone.GetComponent<EnemyDamageManager>().enabled = true;
             clone.GetComponent<FireEnemyAttack>().enabled = setAttack;
             clone.GetComponent<FireEnemyMovement>().enabled = setMovement;
             clone.GetComponent<FireEnemyVision>().enabled = setVision;
-        } else if (clone.name.Contains("Water"))
+        }
+        else if (clone.name.Contains("Water"))
         {
+            clone.GetComponent<EnemyDamageManager>().enabled = true;
             clone.GetComponent<WaterEnemyAttack>().enabled = setAttack;
             clone.GetComponent<WaterEnemyMovement>().enabled = setMovement;
             clone.GetComponent<WaterEnemyVision>().enabled = setVision;

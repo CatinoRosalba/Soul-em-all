@@ -45,10 +45,10 @@ public class Enemy : MonoBehaviour
     private void DropHealth()
     {
         Player player = FindObjectOfType<Player>();
-        float dropRate = 0.4f;
+        float dropRate = 0.1f;
         for(int i = player.health; i < player.maxHealth; i++)
         {
-            dropRate += 0.15f;
+            dropRate += 0.05f;
         }
         if (Random.value <= dropRate)
         {
