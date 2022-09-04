@@ -721,11 +721,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205331593052, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.007703139
+      value: -0.007703142
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205331593052, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0005920786
+      value: 0.00059207884
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205407339627, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_ScreenX
@@ -777,11 +777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206102667588, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0077031488
+      value: -0.0077031404
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206102667588, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00059207936
+      value: 0.0005920787
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206700387732, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_RootOrder
@@ -877,11 +877,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.007703138
+      value: -0.0077031516
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00059207855
+      value: 0.0005920796
       objectReference: {fileID: 0}
     - target: {fileID: 3292051207132996766, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_BiasX
@@ -1077,6 +1077,10 @@ PrefabInstance:
       propertyPath: slot
       value: 
       objectReference: {fileID: 1715468956}
+    - target: {fileID: 7548461686391244136, guid: ee811d7431f93224190302880290e7f6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7548461686652825160, guid: ee811d7431f93224190302880290e7f6, type: 3}
       propertyPath: amneryLayerMask.m_Bits
       value: 329
@@ -1353,6 +1357,10 @@ PrefabInstance:
       propertyPath: m_BlendUpdateMethod
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6777720757682342019, guid: 30c45b172065491418c033217ec47030, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1379,11 +1387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.007703138
+      value: -0.0077031404
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00059207855
+      value: 0.0005920788
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4301,6 +4309,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7983701246937999643}
     m_Modifications:
+    - target: {fileID: 5029758123872133516, guid: 9ab8bc4156f23b944a90bf843af16257, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029758123872133516, guid: 9ab8bc4156f23b944a90bf843af16257, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 262f75a6d7f40be4eaef926b6d84dcd2, type: 2}
     - target: {fileID: 5165250481742280768, guid: 9ab8bc4156f23b944a90bf843af16257, type: 3}
       propertyPath: m_Name
       value: Rock Cliff

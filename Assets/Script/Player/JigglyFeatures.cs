@@ -46,7 +46,7 @@ public class JigglyFeatures : MonoBehaviour
         if (aim.jigglyRaycasthitLayer == "GrapplingPoint" && Input.GetKeyDown(KeyCode.LeftShift) && isHooked == false && jigglyAttackState == false && canHook == true)    //Se puoi rampinare, viene premuto E, non hai già rampinato e non è attivo l'attacco di Jiggly e è finito il cooldown
         {
             if (isInRange(maxHookRange))                                                                                //Se in range
-            {   
+            {  
                 hook.enabled = true;                                                                                    //Attiva rampino
                 isHooked = true;                                                                                        //Sei rampinato
                 StartHook();                                                                                            //Rampina
