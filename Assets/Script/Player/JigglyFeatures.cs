@@ -15,12 +15,12 @@ public class JigglyFeatures : MonoBehaviour
     private Vector3 hookPoint;                                                                      //Punto d'aggancio finale del rampino (usato pure per l'attacco di Jiggly)
     private Rigidbody rb;                                                                           //Rigidbody usatp per il pull
     private bool isPulling;                                                                         //Se il giocatore sat venendo tirato dal rampino
-    private bool canHook;                                                                           //Variabile usata per il cooldown del rampino
+    public bool canHook;                                                                           //Variabile usata per il cooldown del rampino
     private float maxHookRange;                                                                     //Range massimo del rampino
 
     //Variabili Attacco di Jiggly
     public bool jigglyAttackState;                                                                  //Verifica se si sta usando l'attacco di Jiggly
-    private bool CooldownJigglyAttack;                                                              //Cooldown abilità di Jiggly
+    public bool CanJigglyAttack;                                                              //Cooldown abilità di Jiggly
     private GameObject enemy;                                                                       //Nemico attaccato con Jiggly per il drop della gemma
     private string enemyName;                                                                       //Nome del nemico agganciato
     private float maxJigglyAttackRange;                                                             //Range massimo dell'attacco di Jiggly
@@ -30,7 +30,7 @@ public class JigglyFeatures : MonoBehaviour
         hook.enabled = false;
         isHooked = false;
         jigglyAttackState = false;
-        CooldownJigglyAttack = false;
+        CanJigglyAttack = true;
         canHook = true;
         isPulling = false;
         maxHookRange = 40;
@@ -65,7 +65,7 @@ public class JigglyFeatures : MonoBehaviour
         }
 
         //Attacco di Jiggly
-        if(aim.jigglyRaycasthitLayer == "Enemy" && Input.GetKeyDown(KeyCode.R) && isHooked == false && CooldownJigglyAttack == false)  //Se  puoi attaccare, premi Q, non sei agganciato e non sei in cooldown  
+        if(aim.jigglyRaycasthitLayer == "Enemy" && Input.GetKeyDown(KeyCode.R) && isHooked == false && CanJigglyAttack == true)  //Se  puoi attaccare, premi Q, non sei agganciato e non sei in cooldown  
         {
             if (isInRange(maxJigglyAttackRange))
             {
@@ -76,7 +76,7 @@ public class JigglyFeatures : MonoBehaviour
                 hook.positionCount = 2;                                                                                 //Vertici del rampino
                 slot.DisableJigglyAttackSlot();                            
                 StartCoroutine(StartJigglyAttack());                                                                    //Coroutine di esecuzione dell'attacco
-                StartCoroutine(StartCooldownJigglyAttack());                                                            //Cooldown abilità Jiggly                                                                                             //Inizio attacco di Jiggly
+                StartCoroutine(StartCooldownJigglyAttack());
             }
         }
         if (slot.isAttackCountDown)                                                                                     //Se lo slot è in cooldown
@@ -170,9 +170,9 @@ public class JigglyFeatures : MonoBehaviour
     //Cooldown attacco Jiggly
     IEnumerator StartCooldownJigglyAttack()
     {
-        CooldownJigglyAttack = true;                                                                //Inizio Cooldown
+        CanJigglyAttack = false;                                                                //Inizio Cooldown
         yield return new WaitForSeconds(7);
-        CooldownJigglyAttack = false;                                                               //Disattiva Cooldown
+        CanJigglyAttack = true;                                                               //Disattiva Cooldown
     }
 
     //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato

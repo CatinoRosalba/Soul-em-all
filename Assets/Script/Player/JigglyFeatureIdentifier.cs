@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class JigglyFeatureIdentifier : MonoBehaviour
 {
     public PlayerAim aim;
-    private GameObject enemy;
-    private GameObject grapplingPoint;
-    private Color enemyOldColor;
-    private Color grapplingPointOldColor;
-    private Color jigglyColor;
+    public JigglyFeatures cooldown;
+    public Image jigglyAttack;
+    public Image jigglyHook;
     private float maxHookRange;                                                                     //Range massimo del rampino
     private float maxJigglyAttackRange;                                                             //Range massimo dell'attacco di Jiggly
 
@@ -17,58 +16,29 @@ public class JigglyFeatureIdentifier : MonoBehaviour
     {
         maxHookRange = 40;
         maxJigglyAttackRange = 20;
-        jigglyColor = new Color(13, 255, 0);
     }
 
     private void Update()
     {
-        if(aim.jigglyRaycasthit.collider.CompareTag("Enemy") && isInRange(maxJigglyAttackRange))
+        //Ricarica
+        if(aim.jigglyRaycasthit.collider.CompareTag("Enemy") && isInRange(maxJigglyAttackRange) && cooldown.CanJigglyAttack)
         {
-            enemy = aim.jigglyRaycasthit.collider.gameObject;
-            if(enemy.GetComponentInChildren<SpriteRenderer>().color != jigglyColor)
-            {
-                enemyOldColor = enemy.GetComponentInChildren<SpriteRenderer>().color;
-                Debug.Log(enemyOldColor);
-            }
-            enemy.GetComponentInChildren<SpriteRenderer>().color = jigglyColor;
+            jigglyAttack.enabled = true;
         }
-        else if(enemy != null)
+        else
         {
-            enemy.GetComponentInChildren<SpriteRenderer>().color = enemyOldColor;
+            jigglyAttack.enabled = false;   
         }
 
-        /*if (aim.jigglyRaycasthit.collider.gameObject.layer == LayerMask.NameToLayer("GrapplingPoint") && isInRange(maxHookRange))
+        //Rampino
+        if (aim.jigglyRaycasthit.collider.gameObject.layer == LayerMask.NameToLayer("GrapplingPoint") && isInRange(maxHookRange) && cooldown.canHook)
         {
-            grapplingPoint = aim.jigglyRaycasthit.collider.gameObject.transform.parent.gameObject;
-            if (grapplingPoint.transform.Find("Sprite").TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
-            {
-                if(sprite.color != jigglyColor)
-                {
-                    grapplingPointOldColor = sprite.color;
-                    Debug.Log(grapplingPointOldColor);
-                }
-                sprite.color = jigglyColor;
-            }
-            if(grapplingPoint.TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
-            {
-                if(mesh.material.color != jigglyColor)
-                {
-                    grapplingPointOldColor = mesh.material.color;
-                }
-                mesh.material.color = jigglyColor;
-            }
+            jigglyHook.enabled = true;
         }
-        else if (grapplingPoint != null)
+        else
         {
-            if (grapplingPoint.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite))
-            {
-                sprite.color = grapplingPointOldColor;
-            }
-            if (grapplingPoint.TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
-            {
-                mesh.material.color = grapplingPointOldColor;
-            }
-        }*/
+            jigglyHook.enabled = false;
+        }
     }
 
     private bool isInRange(float maxRange)

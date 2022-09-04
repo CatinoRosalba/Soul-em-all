@@ -275,7 +275,9 @@ MonoBehaviour:
   slot: {fileID: 0}
   hook: {fileID: 7548461686652825164}
   isHooked: 0
+  canHook: 0
   jigglyAttackState: 0
+  CooldownJigglyAttack: 0
 --- !u!114 &8681441062383250723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +291,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aim: {fileID: 7548461686652825160}
+  cooldown: {fileID: 7548461686652825165}
+  jigglyAttack: {fileID: 0}
+  jigglyHook: {fileID: 0}
 --- !u!120 &7548461686652825164
 LineRenderer:
   m_ObjectHideFlags: 0
