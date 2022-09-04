@@ -43,7 +43,7 @@ public class FireEnemyAttack : MonoBehaviour
 
         yield return new WaitForSeconds(0.7f);
         Vector3 direction = mov.player.transform.position - gameObject.transform.position;              //Calcola la direzione tra il giocatore e l'entità
-        rb.AddForce(direction * 7.5f, ForceMode.Impulse);                                               //Scatta
+        rb.AddForce(direction * 375f * Time.fixedDeltaTime, ForceMode.Impulse);                                               //Scatta
         canBrake = true;                                                                                //Abilità il freno
 
         yield return new WaitForSeconds(0.7f);

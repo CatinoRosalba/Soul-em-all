@@ -14,9 +14,9 @@ public class Fireball : MonoBehaviour
         rbBullet = GetComponent<Rigidbody>();
         audioShot = GetComponent<AudioSource>();
         audioShot.PlayOneShot(audioShot.clip);
-        speed = 65f;
+        speed = 3250f;
         damage = 1;
-        rbBullet.AddForce(transform.forward * speed, ForceMode.Impulse);        //Muove il proiettile
+        rbBullet.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);        //Muove il proiettile
         Destroy(gameObject, 2);                                                 //Distrugge il proiettile dopo 2 secondi
     }
 

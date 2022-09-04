@@ -63,10 +63,6 @@ public class JigglyFeatures : MonoBehaviour
         {
             slot.ApplyHookCountDown();                                                                                //aggiorna il countdown
         }
-        if (isPulling)                                                                                                  //Se il rampino tira il giocatore
-        {
-            rb.AddForce((hookPoint - gameObject.transform.position).normalized * 0.3f, ForceMode.VelocityChange);       //Tira con al fisica
-        }
 
         //Attacco di Jiggly
         if(aim.jigglyRaycasthitLayer == "Enemy" && Input.GetKeyDown(KeyCode.R) && isHooked == false && CooldownJigglyAttack == false)  //Se  puoi attaccare, premi Q, non sei agganciato e non sei in cooldown  
@@ -90,6 +86,14 @@ public class JigglyFeatures : MonoBehaviour
         if (jigglyAttackState == true)                                                                                  //Se stai usando l'attacco di Jiggl
         {
             hookPoint = enemy.transform.position;                                                                       //Aggiorna l'aggancio al punto in cui si aggancia il rampino
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isPulling)                                                                                                  //Se il rampino tira il giocatore
+        {
+            rb.AddForce((hookPoint - gameObject.transform.position).normalized * 65f * Time.fixedDeltaTime, ForceMode.VelocityChange);       //Tira con al fisica
         }
     }
 

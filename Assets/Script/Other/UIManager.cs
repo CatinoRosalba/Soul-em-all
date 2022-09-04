@@ -131,6 +131,7 @@ public class UIManager : MonoBehaviour
     //COLLEZIONABILI
     public void showCollectable(Image type, int typeCounter, TMP_Text typeText, int totalType)
     {
+        Debug.Log("b");
         type.gameObject.SetActive(true);
         typeText.gameObject.SetActive(true);
         typeText.text = typeCounter.ToString() + "/" + totalType.ToString();

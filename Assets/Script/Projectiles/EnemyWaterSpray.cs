@@ -14,11 +14,10 @@ public class EnemyWaterSpray : MonoBehaviour
 
     private void Start()
     {
-        speed = 80f;
-        rbBullet.velocity = transform.forward * speed;                                //Muove il proiettile
+        speed = 4000;
+        rbBullet.velocity = transform.forward * speed * Time.fixedDeltaTime;                                //Muove il proiettile
         Destroy(gameObject, 2);
     }
-
 
     private void OnTriggerEnter(Collider other)
     {

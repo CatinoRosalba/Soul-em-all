@@ -82,9 +82,4 @@ public class WaterEnemyMovement : MonoBehaviour
         direction = Random.Range(1, 3);
         StartCoroutine(DirectionChangeCooldown());
     }
-
-    /*private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(gameObject.transform.position, agent.destination);
-    }*/
 }

@@ -9,10 +9,7 @@ public class PlayerCollecting : MonoBehaviour
     private PlayerShooting playerShooting;                          //Script dello sparo
     [SerializeField] UIManager slot;                                //Script dell'interfaccia
 
-    //Particles gems
     [SerializeField] private AudioSource sfxPickup;                 //Suoni quando raccogli
-    [SerializeField] GameObject effect;                             //Effetto caricato 
-    private GameObject effectClone;                                 //Effetto applicato
 
     //Controlli
     private bool pickupRange;                                               //Controllo se posso prendere
@@ -36,7 +33,6 @@ public class PlayerCollecting : MonoBehaviour
         {
             pickupRange = true;                                                                     //Puoi raccogliere
             gem = other.gameObject;
-            effectClone = Instantiate(effect, other.transform.position, Quaternion.identity);       //Particelle
         }
     }
 
@@ -47,7 +43,6 @@ public class PlayerCollecting : MonoBehaviour
         {
             pickupRange = false;                                                                    //Non posso raccogliere
             gem = null;
-            Destroy(effectClone);                                                                   //Stop particelle
         }
     }
 
@@ -63,7 +58,6 @@ public class PlayerCollecting : MonoBehaviour
                 pickupRange = false;
                 sfxPickup.Play();
                 Destroy(gem);
-                Destroy(effectClone);
             }
             else if (HasGem(playerShooting.equippedGem2, gem))
             {
@@ -72,7 +66,6 @@ public class PlayerCollecting : MonoBehaviour
                 pickupRange = false;
                 sfxPickup.Play();
                 Destroy(gem);
-                Destroy(effectClone);
             }
 
             if (Input.GetKeyDown(KeyCode.Q) 
@@ -108,8 +101,8 @@ public class PlayerCollecting : MonoBehaviour
                 playerShooting.isEmpty1 = false;                                                    //Ha munizioni
                 pickup1 = false;                                                                    //Non può raccogliere nello slot1
                 pickupRange = false;                                                                //Non può raccoliere
+                Destroy(other.GetComponent<GemScript>().effectClone);
                 Destroy(other.gameObject);                                                          //Distruggi la gemma
-                Destroy(effectClone);                                                               //Stop particelle
             }
             if (pickup2 == true)                                                                    //Se posso raccogliere nello slot2
             {
@@ -123,8 +116,8 @@ public class PlayerCollecting : MonoBehaviour
                 playerShooting.isEmpty2 = false;                                                    //Ha munizioni
                 pickup2 = false;                                                                    //Non può raccogliere nello slot2
                 pickupRange = false;                                                                //Non può raccoliere
+                Destroy(other.GetComponent<GemScript>().effectClone);
                 Destroy(other.gameObject);                                                          //Distruggi la gemma
-                Destroy(effectClone);                                                               //Stop particelle
             }
         }
     }

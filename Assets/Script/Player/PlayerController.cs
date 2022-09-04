@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         anim = sprite.GetComponent<Animator>();
         mainCamera = Camera.main;
-        movSpeed = 75f;
-        movAerialSpeed = 6.5f;
+        movSpeed = 3750f;
+        movAerialSpeed = 325f;
     }
 
     void Update()
@@ -62,10 +62,10 @@ public class PlayerController : MonoBehaviour
         rb.MoveRotation(Quaternion.Euler(0f, mainCamera.transform.eulerAngles.y, 0f));          //Ruota l'asse del player secondo l'angolo della cam
         if ((XMovement!=0 || ZMovement!=0) && isGrounded == true)
         {
-            rb.AddForce(movDirection.normalized * movSpeed);                                    //Movimento
+            rb.AddForce(movDirection.normalized * movSpeed * Time.fixedDeltaTime);                                    //Movimento
         } else if ((XMovement != 0 || ZMovement != 0) && isGrounded == false)
         {
-            rb.AddForce(movDirection.normalized * movAerialSpeed);                              //Movimento
+            rb.AddForce(movDirection.normalized * movAerialSpeed * Time.fixedDeltaTime);                              //Movimento
         }
     }
 
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Cliff") && !isGrounded)
         {
-            rb.AddForce(new Vector3(0, 1, 0) * 40);
+            rb.AddForce(new Vector3(0, 1, 0) * 2000 * Time.fixedDeltaTime);
         }
     }
 

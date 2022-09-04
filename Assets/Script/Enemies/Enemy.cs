@@ -33,7 +33,8 @@ public class Enemy : MonoBehaviour
         if (health <= 0)                                                                        //Se la vita è uguale o minore di 0
         {
             Destroy(gameObject);                                                                //Distruggi nemico
-            Instantiate(drop, gameObject.transform.position, Quaternion.identity);              //Istanzia Drop
+            GameObject clone = Instantiate(drop, gameObject.transform.position, Quaternion.identity);              //Istanzia Drop
+            clone.GetComponent<GemScript>().canDespawn = true;
             DropHealth();
 
             GameObject explosion = (GameObject)Instantiate(explosionRef);                       //Esplosione

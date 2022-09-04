@@ -125,6 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369cd27a77c17084e876f24551b3b7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 3205335900336288034, guid: bf441a5a1bdd9f44cb658613ef61d865, type: 3}
+  canDespawn: 0
+  ammo: 0
+  min: 0
+  max: 0
 --- !u!82 &1098221348086020087
 AudioSource:
   m_ObjectHideFlags: 0
