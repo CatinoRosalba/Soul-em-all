@@ -20,25 +20,21 @@ public class ManageEventTriggered : MonoBehaviour
 
     public void showGemDialog()
     {
-        Debug.Log("Sono nella zona gemme");
         triggerGem.TriggerDialogue();
     }
     
     public void showEnemyDialog()
     {
-        Debug.Log("Sono nella zona Nemici");
         triggerEnemy.TriggerDialogue();
     }
 
     public void showJigglyDialog()
     {
-        Debug.Log("Sono nella zona Nemici");
         triggerJiggly.TriggerDialogue();
     }
 
     public void showFinalDialog()
     {
-        Debug.Log("Sono nella zona Nemici");
         triggerFinale.TriggerDialogue();
     }
 }
