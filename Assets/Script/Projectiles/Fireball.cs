@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
+    private GameObject sfx;
+    private AudioSource attackSound;
+
     Rigidbody rbBullet;                                                         //RigidBody
     float speed;                                                                //Velocità Proiettile
     public float damage;                                                        //Danno Proiettile
-    //public AudioSource audioShot;                                               //Audio sparo
 
     void Start()
     {
+        sfx = GameObject.Find("SFX");
+        attackSound = sfx.transform.Find("SFX - Player Fire Shot").GetComponent<AudioSource>();
+
         rbBullet = GetComponent<Rigidbody>();
-        //audioShot.Play();
+        attackSound.Play();
         speed = 3250f;
         damage = 1;
         rbBullet.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);        //Muove il proiettile

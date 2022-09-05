@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class FireEnemyAttack : MonoBehaviour
 {
+    private GameObject sfx;
+    private AudioSource chargeSound;
+    private AudioSource attackSound;
+
     private FireEnemyMovement mov;                                                                  //Scirpt che gestisce il movimento del FireEnemy
     private Rigidbody rb;                                                                           //Rigidbody
 
@@ -13,6 +17,10 @@ public class FireEnemyAttack : MonoBehaviour
 
     void Start()
     {
+        sfx = GameObject.Find("SFX");
+        chargeSound = sfx.transform.Find("SFX - Fire Enemy Charge").GetComponent<AudioSource>();
+        attackSound = sfx.transform.Find("SFX - Fire Enemy Attack").GetComponent<AudioSource>();
+
         rb = GetComponent<Rigidbody>();
         mov = GetComponent<FireEnemyMovement>();
         canAttack = false;
@@ -40,10 +48,12 @@ public class FireEnemyAttack : MonoBehaviour
     {
         canAttack = false;                                                                              //Resetta la possibilità di poter attaccare
         mov.agent.enabled = false;                                                                      //Disattiva il NavMeshAgent per evitare che entri in conflitto con la fisica
+        chargeSound.Play();
 
         yield return new WaitForSeconds(0.7f);
         Vector3 direction = mov.player.transform.position - gameObject.transform.position;              //Calcola la direzione tra il giocatore e l'entità
         rb.AddForce(direction * 375f * Time.fixedDeltaTime, ForceMode.Impulse);                                               //Scatta
+        attackSound.Play();
         canBrake = true;                                                                                //Abilità il freno
 
         yield return new WaitForSeconds(0.7f);

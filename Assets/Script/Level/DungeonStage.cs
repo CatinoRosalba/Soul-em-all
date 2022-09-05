@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DungeonStage : MonoBehaviour
 {
+    private GameObject sfx;
+    private AudioSource doorSound;
+
     private float totalEnemies;
     private bool clear;
     private bool inCombat;
@@ -13,6 +16,9 @@ public class DungeonStage : MonoBehaviour
 
     private void Start()
     {
+        sfx = GameObject.Find("SFX");
+        doorSound = sfx.transform.Find("SFX - Door").GetComponent<AudioSource>();
+
         clear = false;
         inCombat = false;
         openedGates = false;
@@ -31,6 +37,7 @@ public class DungeonStage : MonoBehaviour
             {
                 openingGate.GetComponent<BoxCollider>().enabled = false;
                 openingGate.GetComponent<MeshRenderer>().enabled = false;
+                doorSound.Play();
                 openedGates = true;
             }
         }
@@ -42,6 +49,7 @@ public class DungeonStage : MonoBehaviour
         {
             closingGate.GetComponent<BoxCollider>().enabled = true;
             closingGate.GetComponent<MeshRenderer>().enabled = true;
+            doorSound.Play();
             inCombat = true;
             ActivateEnemies();
         }

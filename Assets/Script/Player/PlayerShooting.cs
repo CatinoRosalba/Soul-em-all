@@ -24,7 +24,8 @@ public class PlayerShooting : MonoBehaviour
 
     //Suoni
     [Header("Suoni")]
-    public AudioSource emptyShot;
+    private GameObject sfx;
+    private AudioSource emptySound;
 
     //Controlli
     [Header("Controlli")]
@@ -34,6 +35,9 @@ public class PlayerShooting : MonoBehaviour
    
     private void Start()
     {
+        sfx = GameObject.Find("SFX");
+        emptySound = sfx.transform.Find("SFX - Empty Shot").GetComponent<AudioSource>();
+
         isEmpty1 = true;
         isEmpty2 = true;
         canShoot = true;
@@ -97,7 +101,7 @@ public class PlayerShooting : MonoBehaviour
     {
         if (primaryAmmo == 0)
         {
-            emptyShot.Play();
+            emptySound.Play();
         }
     }
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private GameObject sfx;
+    private AudioSource deathSound;
+
     public float health;                                                                    //Vita nemico
     public string weak;                                                                     //Debolezza nemico
     private GameObject drop;                                                                //Drop nemico
@@ -12,6 +15,9 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        sfx = GameObject.Find("SFX");
+        deathSound = sfx.transform.Find("SFX - Enemy Dies").GetComponent<AudioSource>();
+
         explosionRef = Resources.Load("Particles/Explosion");
 
         if (gameObject.name.Contains("Fire"))          //Se il nome del nemico è Fire Enemy
@@ -37,6 +43,7 @@ public class Enemy : MonoBehaviour
             clone.GetComponent<GemScript>().canDespawn = true;
             DropHealth();
 
+            deathSound.Play();
             GameObject explosion = (GameObject)Instantiate(explosionRef);                       //Esplosione
             explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             explosion.transform.rotation = gameObject.transform.rotation;

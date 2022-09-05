@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
 {
+    private GameObject sfx;
+    private AudioSource victorySound;
+
     private static readonly string LastLevel = "LastLevel";
 
     [SerializeField] LevelChanger transition;
@@ -12,9 +15,16 @@ public class Victory : MonoBehaviour
 
     private int indexLevel;
 
+    private void Start()
+    {
+        sfx = GameObject.Find("SFX");
+        victorySound = sfx.transform.Find("SFX - Victory").GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         SaveProgress();
+        victorySound.Play();
 
         if (other.CompareTag("Player"))
         {

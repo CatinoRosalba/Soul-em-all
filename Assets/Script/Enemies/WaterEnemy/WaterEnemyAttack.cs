@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class WaterEnemyAttack : MonoBehaviour
 {
+    private GameObject sfx;
+    private AudioSource attackSound;
+
     public GameObject bulletSpawnPoint;                                //Punto di spawn proiettili
     private GameObject player;                                         //Giocatore
     private bool canAttack;                                            //Usata per il cooldown dell'attacco
@@ -13,6 +16,9 @@ public class WaterEnemyAttack : MonoBehaviour
 
     void Start()
     {
+        sfx = GameObject.Find("SFX");
+        attackSound = sfx.transform.Find("SFX - Water Enemy Attack").GetComponent<AudioSource>();
+
         player = GameObject.Find("Amnery");
         canChangeDirAim = false;
         canAttack = false;
@@ -28,6 +34,10 @@ public class WaterEnemyAttack : MonoBehaviour
                 AimDirection();                                                                     //Cambia direzione mira
             }
             StartCoroutine(Attack());                                                               //Attacca
+            if (!attackSound.isPlaying)
+            {
+                attackSound.Play();
+            }
         }
     }
 

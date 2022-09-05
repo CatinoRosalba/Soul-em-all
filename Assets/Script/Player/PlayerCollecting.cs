@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class PlayerCollecting : MonoBehaviour
 {
+    //Sound
+    private GameObject sfx;
+    private AudioSource pickupSound;
+
     //Script
     private PlayerShooting playerShooting;                          //Script dello sparo
     [SerializeField] UIManager slot;                                //Script dell'interfaccia
-
-    [SerializeField] private AudioSource sfxPickup;                 //Suoni quando raccogli
 
     //Controlli
     private bool pickupRange;                                               //Controllo se posso prendere
@@ -19,6 +21,9 @@ public class PlayerCollecting : MonoBehaviour
 
     private void Start()
     {
+        sfx = GameObject.Find("SFX");
+        pickupSound = sfx.transform.Find("SFX - Pickup").GetComponent<AudioSource>();
+
         pickupRange = false;
         pickup1 = false;
         pickup2 = false;
@@ -56,7 +61,7 @@ public class PlayerCollecting : MonoBehaviour
                 playerShooting.primaryAmmo += gem.GetComponent<GemScript>().ammo;
                 slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());
                 pickupRange = false;
-                sfxPickup.Play();
+                pickupSound.Play();
                 Destroy(gem);
             }
             else if (HasGem(playerShooting.equippedGem2, gem))
@@ -64,7 +69,7 @@ public class PlayerCollecting : MonoBehaviour
                 playerShooting.secondaryAmmo += gem.GetComponent<GemScript>().ammo;
                 slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());
                 pickupRange = false;
-                sfxPickup.Play();
+                pickupSound.Play();
                 Destroy(gem);
             }
 
@@ -72,14 +77,14 @@ public class PlayerCollecting : MonoBehaviour
                 && PauseController.isGamePaused == false)                                            //Se premo il sinistro e non ho munzioni sullo sparo primario
             {
                 pickup1 = true;                                                                     //Raccolgo nello slot1
-                sfxPickup.Play();
+                pickupSound.Play();
             }
             else if (Input.GetKeyDown(KeyCode.E) 
                 && Input.GetKeyDown(KeyCode.Q) == false 
                 && PauseController.isGamePaused == false)   //Se premo il destro e non ho munizioni sullo sparo secondario e non ho premuto l'altro tasto del mouse
             {
                 pickup2 = true;                                                                     //Raccolgo nello slot2
-                sfxPickup.Play();
+                pickupSound.Play();
             }
         }
     }

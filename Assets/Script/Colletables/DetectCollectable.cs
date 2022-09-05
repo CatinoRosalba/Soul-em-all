@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class DetectCollectable : MonoBehaviour
 {
+    //Sound
+    private GameObject sfx;
+    private AudioSource doorSound;
+
     public string collectable;
     private GameObject gate;
     private Inventory inventory;
 
     private void Start()
     {
+        sfx = GameObject.Find("SFX");
+        doorSound = sfx.transform.Find("SFX - Door").GetComponent<AudioSource>();
         gate = transform.parent.gameObject;
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
     }
@@ -22,6 +28,7 @@ public class DetectCollectable : MonoBehaviour
             {
                 gate.GetComponent<BoxCollider>().enabled = false;
                 gate.GetComponent<MeshRenderer>().enabled = false;
+                doorSound.Play();
             }
         }
     }
@@ -34,6 +41,7 @@ public class DetectCollectable : MonoBehaviour
             {
                 gate.GetComponent<BoxCollider>().enabled = true;
                 gate.GetComponent<MeshRenderer>().enabled = true;
+                doorSound.Play();
             }
         }
     }

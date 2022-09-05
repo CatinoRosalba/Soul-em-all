@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class JigglyFeatures : MonoBehaviour
 {
+    //Sound
+    private GameObject sfx;
+    private AudioSource jigglyAttackSound;
+    private AudioSource hookSound;
+
     //Scripts
     private PlayerAim aim;                                                                          //Usato per la verifica col raycast se possibile rampinare/usare Jiggly
     private GameObject hookSpawnPoint;                                                              //Punto di spawn del rampino
@@ -27,6 +32,10 @@ public class JigglyFeatures : MonoBehaviour
 
     void Start()
     {
+        sfx = GameObject.Find("SFX");
+        jigglyAttackSound = sfx.transform.Find("SFX - Jiggly Attack").GetComponent<AudioSource>();
+        hookSound = sfx.transform.Find("SFX - Hook").GetComponent<AudioSource>();
+
         hook.enabled = false;
         isHooked = false;
         jigglyAttackState = false;
@@ -133,6 +142,7 @@ public class JigglyFeatures : MonoBehaviour
         hook.positionCount = 2;                                                                     //Vertici del rampino
         isPulling = true;                                                                           //Il rampino tira il giocatore
         rb.useGravity = false;
+        hookSound.Play();
     }
 
     //Distruggi Rampino
@@ -158,6 +168,7 @@ public class JigglyFeatures : MonoBehaviour
     //Gestione attacco Jiggly
     IEnumerator StartJigglyAttack()
     {
+        jigglyAttackSound.Play();
         yield return new WaitForSeconds(1.5f);
         GemFromEnemy();                                                                             //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato
         hook.enabled = false;                                                                       //Disattiva rampino

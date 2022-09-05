@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyDamageManager : MonoBehaviour
 {
+    private GameObject sfx;
+    private AudioSource damageSound;
+
     private Enemy enemy;                                                                            //Riferimento allo script Enemy
     private bool canDamage;                                                                         //Permette di creare gli invisibility frame
     private Material matDefault;                                                                    //materiale di default
@@ -12,6 +15,9 @@ public class EnemyDamageManager : MonoBehaviour
 
     private void Start()
     {
+        sfx = GameObject.Find("SFX");
+        damageSound = sfx.transform.Find("SFX - Enemy Takes Damage").GetComponent<AudioSource>();
+
         enemy = gameObject.GetComponent<Enemy>();
         canDamage = true;
         matWhite = Resources.Load("Particles/FlashWhite", typeof(Material)) as Material;
@@ -35,6 +41,7 @@ public class EnemyDamageManager : MonoBehaviour
             {
                 enemy.health -= damage;                                         //Calcola il danno
             }
+            damageSound.Play();
             StartCoroutine(EFlash());                                           //Flash del danno
         }
     }

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class LifeScript : MonoBehaviour
 {
+    private GameObject sfx;
+    private AudioSource healSound;
+
+    private void Start()
+    {
+        sfx = GameObject.Find("SFX");
+        healSound = sfx.transform.Find("SFX - Heal").GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         Destroy(gameObject, 10);
@@ -13,6 +22,7 @@ public class LifeScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")){
             Heal(other.gameObject.GetComponent<Player>());
+            healSound.Play();
         }
     }
 
