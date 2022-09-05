@@ -59,6 +59,10 @@ public class MainMenuController : MonoBehaviour
     {
         unlockLevel = PlayerPrefs.GetInt(LastLevel);                //recupero l'ultimo livello salvato
 
+        if (unlockLevel == 0)                                       //Non ha completato il Tutorial
+        {
+            changeLevel.FadeAndChangeToLevel("Tutorial");           //Riprende all'inizio del tutorial
+        }
         if (unlockLevel == 1)                                       //Tutorial
         {
             changeLevel.FadeAndChangeToLevel("Level_1");            //Continua al Livello 1

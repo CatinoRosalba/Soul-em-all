@@ -18,22 +18,22 @@ public class ManageEventTriggered : MonoBehaviour
     public DialogueTrigger triggerFinale;
 
 
-    public void showGemDialog()
+    public void ShowGemDialog()
     {
         triggerGem.TriggerDialogue();
     }
     
-    public void showEnemyDialog()
+    public void ShowEnemyDialog()
     {
         triggerEnemy.TriggerDialogue();
     }
 
-    public void showJigglyDialog()
+    public void ShowJigglyDialog()
     {
         triggerJiggly.TriggerDialogue();
     }
 
-    public void showFinalDialog()
+    public void ShowFinalDialog()
     {
         triggerFinale.TriggerDialogue();
     }

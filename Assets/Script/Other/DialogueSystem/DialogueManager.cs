@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     //Script
     public DialogueTrigger trigger;
+    GameObject cameraObj;
 
     private Queue<string> sentences;
     public Image avatarImage; 
@@ -25,11 +26,10 @@ public class DialogueManager : MonoBehaviour
     IEnumerator StartFirstDialogue()
     {
         yield return new WaitForSeconds(1);
-        if (start)                                              //Se il tutorial è appena iniziato fa partire subito il dialogo
+        if (start)                                              //Dopo un secondo dall'inizio della scena parte il dialogo
         {
             trigger.TriggerDialogue();                          //Trigger per iniziare il dialogo
             start = false;                                      //indico che non siamo più in fase di start
-            
         }
     }
 
@@ -85,11 +85,16 @@ public class DialogueManager : MonoBehaviour
     //Fine dialogo
     public void EndDialogue()
     {
+        cameraObj = GameObject.Find("Third Person Camera");
+
         trigger.dialogueCanva.SetActive(false);
         DialogueTrigger.isStartedDialogue = false;
-        Time.timeScale = 1;
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        sentences.Clear();
+
+
+        cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
+        Time.timeScale = 1;
     }
 }

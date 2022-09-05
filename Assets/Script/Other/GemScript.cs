@@ -31,20 +31,4 @@ public class GemScript : MonoBehaviour
             Destroy(gameObject, 10);
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            effectClone = Instantiate(effect, gameObject.transform.position, Quaternion.identity);       //Particelle
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Destroy(effectClone);                                                                   //Stop particelle
-        }
-    }
 }
