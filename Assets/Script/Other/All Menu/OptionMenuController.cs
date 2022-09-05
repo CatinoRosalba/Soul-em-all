@@ -29,7 +29,7 @@ public class OptionMenuController : MonoBehaviour
     [Header("Impostazioni - Sensibilità")]
     [SerializeField] private Slider sensitivitySlider;
     [SerializeField] private TMP_Text sensitivityText;
-    private int sensX;
+    private float sensX;
 
     private void Start()
     {
@@ -50,10 +50,10 @@ public class OptionMenuController : MonoBehaviour
             PlayerPrefs.SetFloat(SoundFXPref, effectVolumeValue);                   //Salva il volume
 
             //Sensibilità
-            sensX = 500;                                                            //Setta la sensibilità di defaul
+            sensX = 1;                                                              //Setta la sensibilità di defaul
             sensitivitySlider.value = sensX;                                        //Assegna allo slider
             sensitivityText.text = sensX.ToString();                                //Setta il testo
-            PlayerPrefs.SetInt(SensitivityX, sensX);                                //Salva il volume
+            PlayerPrefs.SetFloat(SensitivityX, sensX);                                //Salva il volume
 
             PlayerPrefs.SetInt(FirstPlay, -1);                                      //Setta la variabile di FirstPlay
         }
@@ -68,7 +68,7 @@ public class OptionMenuController : MonoBehaviour
             effectVolumeSlider.value = effectVolumeValue;                            //Assegna allo slider
 
             //Sensibilità
-            sensX = PlayerPrefs.GetInt(SensitivityX);                                //Setta la sensibilità salvata precedentemente 
+            sensX = PlayerPrefs.GetFloat(SensitivityX);                                //Setta la sensibilità salvata precedentemente 
             sensitivitySlider.value = sensX;                                         //Assegna allo slider
         }
     }
@@ -94,7 +94,7 @@ public class OptionMenuController : MonoBehaviour
     //Aggiorna in real time il testo dello slider della sensibilità
     public void UpdateSensitivityValue(float value)
     {
-        sensitivityText.text = value.ToString("0");
+        sensitivityText.text = value.ToString("0.0").Replace(",", ".");
     }
 
     public void UpdateSound()
@@ -111,6 +111,6 @@ public class OptionMenuController : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundVolumePref, backgroundVolumeSlider.value);                 //Salva il valore backgound
         PlayerPrefs.SetFloat(SoundFXPref, effectVolumeSlider.value);                              //Salva il valore effetti
-        PlayerPrefs.SetInt(SensitivityX, (int) sensitivitySlider.value);                          //Salva la sensibilità
+        PlayerPrefs.SetFloat(SensitivityX, sensitivitySlider.value);                          //Salva la sensibilità
     }
 }

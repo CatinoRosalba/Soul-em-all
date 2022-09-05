@@ -1801,7 +1801,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4614161993202360550}
-  - component: {fileID: 4614161993202361113}
   m_Layer: 2
   m_Name: SFX
   m_TagString: Untagged
@@ -1844,23 +1843,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4614161993202361113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4614161993202361112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01517e65c88b9874c89f57c72244d20c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundAudio: {fileID: 4614161992744074739}
-  effectAudio:
-  - {fileID: 4614161992562542673}
-  - {fileID: 4614161991987252029}
-  - {fileID: 4614161993766800520}
 --- !u!1 &4614161993766800523
 GameObject:
   m_ObjectHideFlags: 0

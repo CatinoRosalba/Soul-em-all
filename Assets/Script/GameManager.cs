@@ -9,23 +9,21 @@ public class GameManager : MonoBehaviour
 {
     //Sensibilità
     private static readonly string SensitivityX = "SensX";
-    [SerializeField] private CinemachineFreeLook cam;
+    [SerializeField] private FreeLookAxisDriver cam;
 
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
-        
     }
 
     private void Update()
     {
-        setSensitivity();
+        SetSensitivity();
     }
 
-    private void setSensitivity()
+    private void SetSensitivity()
     {
-        cam.m_XAxis.m_MaxSpeed = PlayerPrefs.GetInt(SensitivityX);
+        cam.xAxis.multiplier = PlayerPrefs.GetFloat(SensitivityX);
     }
 }

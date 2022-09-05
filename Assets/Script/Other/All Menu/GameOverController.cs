@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-
     public void SetUpGameOver()
     {
         gameObject.SetActive(true);
@@ -16,13 +15,14 @@ public class GameOverController : MonoBehaviour
 
     public void RestartButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FindObjectOfType<LevelChanger>().FadeAndChangeToLevel(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        FindObjectOfType<LevelChanger>().FadeAndChangeToLevel("MainMenu");
+        Time.timeScale = 1;
     }
 
 }
