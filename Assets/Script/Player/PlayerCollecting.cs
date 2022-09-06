@@ -56,6 +56,14 @@ public class PlayerCollecting : MonoBehaviour
         //Sistema di raccolta nello slot apposito
         if (pickupRange == true)                               //Se posso raccogliere e sono nel raggio della gemma
         {
+            if (playerShooting.isEmpty1)
+            {
+                pickup1 = true;
+            } else if (playerShooting.isEmpty2)
+            {
+                pickup2 = true;
+            }
+
             if (HasGem(playerShooting.equippedGem1, gem))
             {
                 playerShooting.primaryAmmo += gem.GetComponent<GemScript>().ammo;
@@ -77,14 +85,12 @@ public class PlayerCollecting : MonoBehaviour
                 && PauseController.isGamePaused == false)                                            //Se premo il sinistro e non ho munzioni sullo sparo primario
             {
                 pickup1 = true;                                                                     //Raccolgo nello slot1
-                pickupSound.Play();
             }
             else if (Input.GetKeyDown(KeyCode.E) 
                 && Input.GetKeyDown(KeyCode.Q) == false 
                 && PauseController.isGamePaused == false)   //Se premo il destro e non ho munizioni sullo sparo secondario e non ho premuto l'altro tasto del mouse
             {
                 pickup2 = true;                                                                     //Raccolgo nello slot2
-                pickupSound.Play();
             }
         }
     }
@@ -101,6 +107,7 @@ public class PlayerCollecting : MonoBehaviour
                     dropEquippedGem(playerShooting.equippedGem1, playerShooting.primaryAmmo);
                 }
                 ConvertGemToProjectile(other.gameObject, ref playerShooting.primaryFire, ref playerShooting.primaryAmmo, ref playerShooting.equippedGem1);         //Converte la gemma nella spell giusta
+                pickupSound.Play();
                 slot.EquipSlot(other.gameObject, slot.imgEmptySlot1);                               //Aggiunge la gemma allo slot1 dell'interfaccia
                 slot.TXTAmmo1.SetText(playerShooting.primaryAmmo.ToString());                       //Aggiunge il numero di munizioni allo slot1 dell'interfaccia
                 playerShooting.isEmpty1 = false;                                                    //Ha munizioni
@@ -116,6 +123,7 @@ public class PlayerCollecting : MonoBehaviour
                     dropEquippedGem(playerShooting.equippedGem2, playerShooting.secondaryAmmo);
                 }
                 ConvertGemToProjectile(other.gameObject, ref playerShooting.secondaryFire, ref playerShooting.secondaryAmmo, ref playerShooting.equippedGem2);     //Converte la gemma nella spell giusta
+                pickupSound.Play();
                 slot.EquipSlot(other.gameObject, slot.imgEmptySlot2);                               //Aggiunge la gemma allo slot2 dell'interfaccia
                 slot.TXTAmmo2.SetText(playerShooting.secondaryAmmo.ToString());                     //Aggiunge il numero di munizioni allo slot2 dell'interfaccia
                 playerShooting.isEmpty2 = false;                                                    //Ha munizioni

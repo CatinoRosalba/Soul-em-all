@@ -22,7 +22,6 @@ public class LifeScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")){
             Heal(other.gameObject.GetComponent<Player>());
-            healSound.Play();
         }
     }
 
@@ -31,6 +30,7 @@ public class LifeScript : MonoBehaviour
         if(player.health < player.maxHealth){
             player.health++;
             player.goHealth[player.health-1].SetActive(true);
+            healSound.Play();
             Destroy(gameObject);
         }
     }

@@ -6,12 +6,10 @@ public class TutorialBattleZone : MonoBehaviour
 {
     private float totalEnemies;
     private bool inCombat;
-    private bool clear;
     public GameObject portal;
 
     private void Start()
     {
-        clear = false;
         inCombat = false;
     }
 

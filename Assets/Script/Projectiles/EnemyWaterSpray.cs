@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyWaterSpray : MonoBehaviour
 {
+    private static readonly string GameDifficulty = "Difficulty";                           //0 Facile - 1 Normale
+
     private Rigidbody rbBullet;                                                      //RigidBody
     float speed;                                                                     //Velocità proiettile                                 
 
@@ -14,7 +16,14 @@ public class EnemyWaterSpray : MonoBehaviour
 
     private void Start()
     {
-        speed = 4000;
+        if (PlayerPrefs.GetInt(GameDifficulty) == 0)
+        {
+            speed = 2500;
+        }
+        else if (PlayerPrefs.GetInt(GameDifficulty) == 1)
+        {
+            speed = 4000;
+        }
         rbBullet.velocity = transform.forward * speed * Time.fixedDeltaTime;                                //Muove il proiettile
         Destroy(gameObject, 2);
     }

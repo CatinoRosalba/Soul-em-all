@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class FireEnemyAttack : MonoBehaviour
 {
+    private static readonly string GameDifficulty = "Difficulty";                           //0 Facile - 1 Normale
+
     private GameObject sfx;
     private AudioSource chargeSound;
     private AudioSource attackSound;
@@ -50,9 +52,18 @@ public class FireEnemyAttack : MonoBehaviour
         mov.agent.enabled = false;                                                                      //Disattiva il NavMeshAgent per evitare che entri in conflitto con la fisica
         chargeSound.Play();
 
-        yield return new WaitForSeconds(0.7f);
-        Vector3 direction = mov.player.transform.position - gameObject.transform.position;              //Calcola la direzione tra il giocatore e l'entità
-        rb.AddForce(direction * 375f * Time.fixedDeltaTime, ForceMode.Impulse);                                               //Scatta
+        if (PlayerPrefs.GetInt(GameDifficulty) == 0)
+        {
+            yield return new WaitForSeconds(2f);
+            Vector3 direction = mov.player.transform.position - gameObject.transform.position;              //Calcola la direzione tra il giocatore e l'entità
+            rb.AddForce(direction * 250f * Time.fixedDeltaTime, ForceMode.Impulse);                                               //Scatta
+        }
+        else if(PlayerPrefs.GetInt(GameDifficulty) == 1)
+        {
+            yield return new WaitForSeconds(0.7f);
+            Vector3 direction = mov.player.transform.position - gameObject.transform.position;              //Calcola la direzione tra il giocatore e l'entità
+            rb.AddForce(direction * 375f * Time.fixedDeltaTime, ForceMode.Impulse);                                               //Scatta
+        }
         attackSound.Play();
         canBrake = true;                                                                                //Abilità il freno
 
@@ -77,7 +88,14 @@ public class FireEnemyAttack : MonoBehaviour
     //Cooldown attacco
     IEnumerator AttackCooldown()
     {
-        yield return new WaitForSeconds(3);
+        if (PlayerPrefs.GetInt(GameDifficulty) == 0)
+        {
+            yield return new WaitForSeconds(6);
+        }
+        else if (PlayerPrefs.GetInt(GameDifficulty) == 1)
+        {
+            yield return new WaitForSeconds(3);
+        }
         canAttack = true;
     }
 }

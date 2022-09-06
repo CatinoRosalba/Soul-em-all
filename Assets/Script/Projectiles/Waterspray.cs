@@ -10,8 +10,7 @@ public class Waterspray : MonoBehaviour
     private Rigidbody rbBullet;                                                         //RigidBody
     float speed;                                                                        //Velocità proiettile
     public float damage;                                                                //Danno proiettile
-    [SerializeField] GameObject waterZone;                                              //Zona d'acqua rilasciata alla distruzione
-    AudioSource audioShot;                                                              //Audio sparo
+    [SerializeField] GameObject waterZone;                                              //Zona d'acqua rilasciata alla distruzione                                                          //Audio sparo
 
     private void Awake()
     {
@@ -23,8 +22,6 @@ public class Waterspray : MonoBehaviour
         sfx = GameObject.Find("SFX");
         attackSound = sfx.transform.Find("SFX - Player Water Shot").GetComponent<AudioSource>();
 
-        audioShot = GetComponent<AudioSource>();
-        audioShot.PlayOneShot(audioShot.clip);
         speed = 875f;
         damage = 0.8f;
         rbBullet.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);                                  //Muove il proiettile

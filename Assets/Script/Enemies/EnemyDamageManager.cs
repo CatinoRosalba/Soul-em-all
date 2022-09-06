@@ -12,6 +12,7 @@ public class EnemyDamageManager : MonoBehaviour
     private Material matDefault;                                                                    //materiale di default
     private Material matWhite;                                                                      //material di colore bianco
     private float flashTime = .10f;                                                                 //tempo del flash
+    public bool canActivate;
 
     private void Start()
     {
@@ -42,6 +43,7 @@ public class EnemyDamageManager : MonoBehaviour
                 enemy.health -= damage;                                         //Calcola il danno
             }
             damageSound.Play();
+            ActivateOnDamage();
             StartCoroutine(EFlash());                                           //Flash del danno
         }
     }
@@ -56,5 +58,29 @@ public class EnemyDamageManager : MonoBehaviour
             r.material = matDefault;
         }
 
+    }
+
+    private void ActivateOnDamage()
+    {
+        if (canActivate)
+        {
+            if (gameObject.TryGetComponent<FireEnemyAttack>(out FireEnemyAttack Fattack) && gameObject.TryGetComponent<FireEnemyMovement>(out FireEnemyMovement Fmov))
+            {
+                if (!Fattack.enabled || !Fmov.enabled)
+                {
+                    Fattack.enabled = true;
+                    Fmov.enabled = true;
+                }
+            }
+
+            if (gameObject.TryGetComponent<WaterEnemyAttack>(out WaterEnemyAttack Wattack) && gameObject.TryGetComponent<WaterEnemyMovement>(out WaterEnemyMovement Wmov))
+            {
+                if (!Wattack.enabled || !Wmov.enabled)
+                {
+                    Wattack.enabled = true;
+                    Wmov.enabled = true;
+                }
+            }
+        }
     }
 }

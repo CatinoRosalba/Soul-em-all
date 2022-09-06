@@ -7821,6 +7821,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7548461687747151806, guid: ee811d7431f93224190302880290e7f6, type: 3}
   m_PrefabInstance: {fileID: 256952512}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &265748020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4317396072794808158, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+  m_PrefabInstance: {fileID: 1380914042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a187ade5ccfdaa645a2b59af54655fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &266326867
 GameObject:
   m_ObjectHideFlags: 0
@@ -22690,7 +22701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7899bbb18c87d2b4e9fb2fdfee655dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 0}
+  transition: {fileID: 265748020}
   nextLevel: Level_3
 --- !u!65 &1323781319
 BoxCollider:
@@ -30846,11 +30857,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7420917
+      value: 0.74209166
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.05703867
+      value: 0.057038672
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y

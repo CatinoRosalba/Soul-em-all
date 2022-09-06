@@ -21,6 +21,7 @@ public class SpawnerScript : MonoBehaviour
         if (clone.name.Contains("Fire"))
         {
             clone.GetComponent<EnemyDamageManager>().enabled = true;
+            clone.GetComponent<EnemyDamageManager>().canActivate = true;
             clone.GetComponent<FireEnemyAttack>().enabled = setAttack;
             clone.GetComponent<FireEnemyMovement>().enabled = setMovement;
             clone.GetComponent<FireEnemyVision>().enabled = setVision;
@@ -28,6 +29,7 @@ public class SpawnerScript : MonoBehaviour
         else if (clone.name.Contains("Water"))
         {
             clone.GetComponent<EnemyDamageManager>().enabled = true;
+            clone.GetComponent<EnemyDamageManager>().canActivate = true;
             clone.GetComponent<WaterEnemyAttack>().enabled = setAttack;
             clone.GetComponent<WaterEnemyMovement>().enabled = setMovement;
             clone.GetComponent<WaterEnemyVision>().enabled = setVision;

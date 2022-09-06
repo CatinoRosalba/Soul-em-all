@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class WaterEnemyAttack : MonoBehaviour
 {
+    private static readonly string GameDifficulty = "Difficulty";                           //0 Facile - 1 Normale
+
     private GameObject sfx;
     private AudioSource attackSound;
 
@@ -74,9 +76,16 @@ public class WaterEnemyAttack : MonoBehaviour
     //Cooldown sparo
     IEnumerator AttackCooldown()
     {
-        canAttack = false;
-        yield return new WaitForSeconds(2f);
-        canAttack = true;
+        if(PlayerPrefs.GetInt(GameDifficulty) == 0)
+        {
+            canAttack = false;
+            yield return new WaitForSeconds(5f);
+            canAttack = true;
+        } else if(PlayerPrefs.GetInt(GameDifficulty) == 1){
+            canAttack = false;
+            yield return new WaitForSeconds(2f);
+            canAttack = true;
+        }
         canChangeDirAim = true;
     }
 }

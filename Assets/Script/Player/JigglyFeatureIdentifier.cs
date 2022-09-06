@@ -21,7 +21,7 @@ public class JigglyFeatureIdentifier : MonoBehaviour
     private void Update()
     {
         //Ricarica
-        if(aim.jigglyRaycasthit.collider.CompareTag("Enemy") && isInRange(maxJigglyAttackRange) && cooldown.CanJigglyAttack)
+        if(aim.jigglyRaycasthit.collider != null && aim.jigglyRaycasthit.collider.CompareTag("Enemy") && isInRange(maxJigglyAttackRange) && cooldown.CanJigglyAttack)
         {
             jigglyAttack.enabled = true;
         }

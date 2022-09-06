@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     private static readonly string GameDifficulty = "Difficulty";                           //0 Facile - 1 Normale
 
+    private NavMeshAgent agent;
     private GameObject sfx;
     private AudioSource deathSound;
 
@@ -17,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        agent = gameObject.GetComponent<NavMeshAgent>();
+
         sfx = GameObject.Find("SFX");
         deathSound = sfx.transform.Find("SFX - Enemy Dies").GetComponent<AudioSource>();
 
@@ -24,22 +28,32 @@ public class Enemy : MonoBehaviour
 
         if (gameObject.name.Contains("Fire"))          //Se il nome del nemico è Fire Enemy
         {
-            if(PlayerPrefs.GetInt(GameDifficulty) == 0)
-            {
-                health = 3;
-            } else
-            {
-                health = 2;
-            }
-                                                                                   //Setti vita
             weak = "water";                                                                     //Setti debolezza
             drop = Resources.Load<GameObject>("Gems/FireGem");                                  //Setti drop
+            if (PlayerPrefs.GetInt(GameDifficulty) == 0)
+            {
+                health = 1.6f;
+                agent.speed = 12;
+            } else if(PlayerPrefs.GetInt(GameDifficulty) == 1)
+            {
+                health = 3;
+                agent.speed = 20;
+            }
         } 
         else if(gameObject.name.Contains("Water"))    //Se il nome del nemico è Water Enemy
         {
-            health = 3;                                                                         //Setti vita
             weak = "fire";                                                                      //Setti debolezza
             drop = Resources.Load<GameObject>("Gems/WaterGem");                                 //Setti drop
+            if (PlayerPrefs.GetInt(GameDifficulty) == 0)
+            {
+                health = 2;
+                agent.speed = 6;
+            }
+            else if (PlayerPrefs.GetInt(GameDifficulty) == 1)
+            {
+                health = 3;
+                agent.speed = 10;   
+            }
         }
     }
 
@@ -62,10 +76,10 @@ public class Enemy : MonoBehaviour
     private void DropHealth()
     {
         Player player = FindObjectOfType<Player>();
-        float dropRate = 0.1f;
+        float dropRate = 0.2f;
         for(int i = player.health; i < player.maxHealth; i++)
         {
-            dropRate += 0.05f;
+            dropRate += 0.1f;
         }
         if (Random.value <= dropRate)
         {

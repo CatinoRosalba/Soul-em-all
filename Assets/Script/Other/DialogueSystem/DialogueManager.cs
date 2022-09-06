@@ -6,6 +6,10 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    //Sound
+    private GameObject sfx;
+    private AudioSource dialogueSound;
+
     //Script
     public DialogueTrigger trigger;
     GameObject cameraObj;
@@ -18,6 +22,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        sfx = GameObject.Find("SFX");
+        dialogueSound = sfx.transform.Find("SFX - Dialogue").GetComponent<AudioSource>();
         sentences = new Queue<string>();
         start = true;
         StartCoroutine(StartFirstDialogue());
@@ -49,7 +55,7 @@ public class DialogueManager : MonoBehaviour
 
         sentences.Clear();
 
-        foreach(string sentence in dialogue.sentences)
+        foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -77,6 +83,10 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
         {
+            if (!dialogueSound.isPlaying)
+            {
+                dialogueSound.Play();
+            }
             dialogueText.text += letter;
             yield return null;
         }

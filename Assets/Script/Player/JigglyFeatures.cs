@@ -169,7 +169,7 @@ public class JigglyFeatures : MonoBehaviour
     IEnumerator StartJigglyAttack()
     {
         jigglyAttackSound.Play();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.9f);
         GemFromEnemy();                                                                             //Istanzia nel punto del giocatore la gemma relativa al nemico agganciato
         hook.enabled = false;                                                                       //Disattiva rampino
         enemyName = "";                                                                             //Resetta il nome del nemico

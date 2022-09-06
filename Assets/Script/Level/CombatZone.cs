@@ -6,12 +6,10 @@ public class CombatZone : MonoBehaviour
 {
     private float totalEnemies;
     private bool inCombat;
-    private bool clear;
     public GameObject cage;
 
     private void Start()
     {
-        clear = false;
         inCombat = false;
     }
 
