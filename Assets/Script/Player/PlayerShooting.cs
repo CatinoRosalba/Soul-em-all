@@ -50,7 +50,7 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         //Direzione del proiettile
-        aimDir = (aim.amneryRaycasthit.point - bulletSpawnPoint.transform.position).normalized;               
+        aimDir = (aim.amneryRaycasthit.point - bulletSpawnPoint.transform.position).normalized;
 
         //Fuoco Primario
         if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false)              //Se ho munzioni e premo sinistro del mouse

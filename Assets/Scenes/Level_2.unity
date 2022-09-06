@@ -23555,7 +23555,7 @@ PrefabInstance:
       objectReference: {fileID: 661360034}
     - target: {fileID: 4858837789235168471, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: effectAudio.Array.size
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4858837789235168471, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: effectAudio.Array.data[0]
@@ -23633,6 +23633,10 @@ PrefabInstance:
       propertyPath: effectAudio.Array.data[18]
       value: 
       objectReference: {fileID: 661360035}
+    - target: {fileID: 4858837789235168471, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: effectAudio.Array.data[19]
+      value: 
+      objectReference: {fileID: 1517875501}
     - target: {fileID: 4858837789383370081, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -23689,6 +23693,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 8337608988206377375, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_text
+      value: 0/1
+      objectReference: {fileID: 0}
     - target: {fileID: 8955774085201053373, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -23696,6 +23704,18 @@ PrefabInstance:
     - target: {fileID: 8955774085201053373, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisplayNextSentence
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955774085763741789, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5979a68dc3fea7b489e001a46e1337c1, type: 2}
+    - target: {fileID: 8955774085763741789, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955774085763741789, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
@@ -24239,6 +24259,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6918448473669306721, guid: 482646cb6f533b94e9602e335fd2a643, type: 3}
   m_PrefabInstance: {fileID: 1506655105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1517875501 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7447019969240410412, guid: c5e587b0c20a982469fb2d694432ff99, type: 3}
+  m_PrefabInstance: {fileID: 661360030}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1531212103
 GameObject:
@@ -30705,11 +30730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205331593052, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.74209166
+      value: 0.7420917
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205331593052, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.057038672
+      value: 0.05703867
       objectReference: {fileID: 0}
     - target: {fileID: 3292051205331593052, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y

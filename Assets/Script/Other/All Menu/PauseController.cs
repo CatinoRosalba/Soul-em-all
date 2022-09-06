@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseController : MonoBehaviour
 {
     [SerializeField] GameObject pausa;
+    GameObject cameraObj;
 
     public static bool isGamePaused = false;
 
@@ -13,7 +14,7 @@ public class PauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (!isGamePaused)
+            if (!isGamePaused && !DialogueTrigger.isStartedDialogue)
             {
                 PauseGame();
             }
@@ -26,7 +27,11 @@ public class PauseController : MonoBehaviour
 
     void PauseGame()
     {
+        cameraObj = GameObject.Find("Third Person Camera");
+        
         pausa.SetActive(true);
+
+        cameraObj.GetComponent<FreeLookAxisDriver>().enabled = false;
         Time.timeScale = 0;
 
         isGamePaused = true;
@@ -37,7 +42,10 @@ public class PauseController : MonoBehaviour
 
     public void ResumeGame()
     {
+        cameraObj = GameObject.Find("Third Person Camera");
         pausa.SetActive(false);
+
+        cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
         Time.timeScale = 1f;
 
         isGamePaused = false;
@@ -48,12 +56,18 @@ public class PauseController : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        isGamePaused = false;
+        cameraObj = GameObject.Find("Third Person Camera");
+        cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
         FindObjectOfType<LevelChanger>().FadeAndChangeToLevel("MainMenu");
         Time.timeScale = 1;
     }
 
     public void Regame()
     {
+        isGamePaused = false;
+        cameraObj = GameObject.Find("Third Person Camera");
+        cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
         FindObjectOfType<LevelChanger>().FadeAndChangeToLevel(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
