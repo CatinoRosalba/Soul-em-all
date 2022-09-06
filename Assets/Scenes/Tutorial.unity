@@ -4396,11 +4396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048616
+      value: 0.014048622
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798045
+      value: -0.0010798048
       objectReference: {fileID: 0}
     - target: {fileID: 3292051207132996766, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_BiasX
@@ -13315,10 +13315,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
   dialogue:
-    avatarName: Amnery eJiggly
+    avatarName: Amnery e Jiggly
     avatarImage: {fileID: 21300000, guid: 07d3972b260fa22448cb0bbebf3cb4e3, type: 3}
     sentences:
-    - Perfetto! Ora sei pronto per mettere in pratica tutto in un'unica piccola sfida
+    - 'Perfetto! Ora puoi mettere in pratica tutti i nostri insegnamenti in un''unica
+      sfida! '
+    - Quando avrai sconfitto tutti i nemici, entra nel portale dai cerchi concentrici.
+      Vediamo cosa sai fare...
 --- !u!114 &915747989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15278,9 +15281,10 @@ MonoBehaviour:
     avatarName: Jiggly
     avatarImage: {fileID: 21300000, guid: 757c79fdf0226d248baef5419d779944, type: 3}
     sentences:
-    - Oltre agli incantesimi di Amnery potrai usufruire anche di me
-    - Premi SHIFT per rampinarti sulla chiona degli alberi o le altre strutture
-    - Oppure premi R per rubare le gemme dai nemi e poterti ricaricare
+    - "Oltre agli incantesimi di Amnery puoi utilizzare anche le mie abilit\xE0!"
+    - Premi SHIFT per rampinarti su alberi e strutture.
+    - Premi R per rubare le gemme dai nemici che ti serviranno per ricaricare lo
+      scettro.
 --- !u!114 &1045446982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17255,10 +17259,12 @@ MonoBehaviour:
     avatarName: Amnery
     avatarImage: {fileID: 21300000, guid: 6b9f6a54cf773e34c863f02e6bb03e97, type: 3}
     sentences:
-    - Ora che abbiamo potenziato il mio scettro, proviamolo sul campo
-    - I nemici che affronteremo rappresentano gli elementi della natura
-    - "utilizza l'incantesimo in oppsizione all'elemento della natura rappresentato
-      dal demico per fargli pi\xF9 danno"
+    - Ora che abbiamo potenziato lo scettro, proviamolo sul campo.
+    - I nemici che affronteremo rappresentano gli elementi della natura... ghiaccio,
+      aria, terra e fuoco.
+    - "Utilizza un incantesimo in opposizione a quello del nemico per infliggere
+      pi\xF9 danno. Per esempio: un incantesimo di ghiaccio \xE8 molto efficace contro
+      un nemico di fuoco."
 --- !u!65 &1128871675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20077,76 +20083,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4d452cd5e2cd1743892a3f54d9af2a7, type: 3}
---- !u!1 &1308832327
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1308832329}
-  - component: {fileID: 1308832331}
-  - component: {fileID: 1308832332}
-  m_Layer: 2
-  m_Name: DialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1308832329
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308832327}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 948.34326, y: 325.50952, z: 12.222961}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1308832331
+--- !u!114 &1308832331 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2134041585589066951, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+  m_PrefabInstance: {fileID: 2134041584615927436}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308832327}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c826a1bd01dc334bb3d462d7d5bde00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 1308832332}
-  avatarImage: {fileID: 2083371204}
-  avatarNameText: {fileID: 1702862364}
-  dialogueText: {fileID: 1713776622}
---- !u!114 &1308832332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308832327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2cc4faa5ed20c40bb1fe530993de96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueCanva: {fileID: 591876502}
-  dialogue:
-    avatarName: Amnery e Jiggly
-    avatarImage: {fileID: 21300000, guid: 07d3972b260fa22448cb0bbebf3cb4e3, type: 3}
-    sentences:
-    - "Ciao, il mio nome \xE8 Amnery e lo slime che vedi intorno al mio collo \xE8
-      Jiggly!"
-    - Prima di intraprendere questa avventura insieme ti spieghieremo alcune basi
-    - Bene, iniziamo!
 --- !u!1001 &1309368723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25170,11 +25117,9 @@ MonoBehaviour:
     avatarName: Amnery
     avatarImage: {fileID: 21300000, guid: 6b9f6a54cf773e34c863f02e6bb03e97, type: 3}
     sentences:
-    - Bene, le gemme che vedi davanti a te rappresentano gli incantesimi che puoi
-      evocare.
-    - "La gemma blu \xE8 per l'incantesimo d'acqua, la rossa per quello di fuoco"
-    - Col tasto destro o sinistro del mouse potrai raccoglierle e posizionarle negli
-      slot che preferisci
+    - Hai visto le gemme in lontananza?  Rappresentano gli incantesimi che puoi evocare.
+    - La gemma blu evoca un incantesimo d'acqua, la rossa uno di fuoco.
+    - Col tasto Q ed E potrai raccoglierle e posizionarle in uno degli slot in basso.
 --- !u!1 &1612986330
 GameObject:
   m_ObjectHideFlags: 0
@@ -25884,11 +25829,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048617
+      value: 0.014048623
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798045
+      value: -0.0010798048
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -34334,6 +34279,79 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 1, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &2134041584615927436
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2134041585589066944, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: dialogueCanva
+      value: 
+      objectReference: {fileID: 591876502}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 948.34326
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 325.50952
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.222961
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134041585589066951, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: avatarImage
+      value: 
+      objectReference: {fileID: 2083371204}
+    - target: {fileID: 2134041585589066951, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1713776622}
+    - target: {fileID: 2134041585589066951, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: avatarNameText
+      value: 
+      objectReference: {fileID: 1702862364}
+    - target: {fileID: 2134041585589066955, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: m_Name
+      value: DialogueManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
 --- !u!1 &2436595418387291684
 GameObject:
   m_ObjectHideFlags: 0
@@ -54321,5 +54339,25 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1308832331}
+    - target: {fileID: 8955774085749604783, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7cb89c01901cb174ebc851187c753e4e, type: 2}
+    - target: {fileID: 8955774085749604783, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955774085763741789, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5979a68dc3fea7b489e001a46e1337c1, type: 2}
+    - target: {fileID: 8955774085763741789, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955774085763741789, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}

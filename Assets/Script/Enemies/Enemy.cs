@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private static readonly string GameDifficulty = "Difficulty";                           //0 Facile - 1 Normale
+
     private GameObject sfx;
     private AudioSource deathSound;
 
@@ -22,7 +24,14 @@ public class Enemy : MonoBehaviour
 
         if (gameObject.name.Contains("Fire"))          //Se il nome del nemico è Fire Enemy
         {
-            health = 3;                                                                         //Setti vita
+            if(PlayerPrefs.GetInt(GameDifficulty) == 0)
+            {
+                health = 3;
+            } else
+            {
+                health = 2;
+            }
+                                                                                   //Setti vita
             weak = "water";                                                                     //Setti debolezza
             drop = Resources.Load<GameObject>("Gems/FireGem");                                  //Setti drop
         } 
