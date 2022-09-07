@@ -54,9 +54,9 @@ public class FireEnemyAttack : MonoBehaviour
 
         if (PlayerPrefs.GetInt(GameDifficulty) == 0)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
             Vector3 direction = mov.player.transform.position - gameObject.transform.position;              //Calcola la direzione tra il giocatore e l'entità
-            rb.AddForce(direction * 250f * Time.fixedDeltaTime, ForceMode.Impulse);                                               //Scatta
+            rb.AddForce(direction * 275f * Time.fixedDeltaTime, ForceMode.Impulse);                                               //Scatta
         }
         else if(PlayerPrefs.GetInt(GameDifficulty) == 1)
         {
@@ -90,7 +90,7 @@ public class FireEnemyAttack : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(GameDifficulty) == 0)
         {
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(4.5f);
         }
         else if (PlayerPrefs.GetInt(GameDifficulty) == 1)
         {

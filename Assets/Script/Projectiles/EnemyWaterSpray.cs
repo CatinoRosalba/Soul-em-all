@@ -18,7 +18,7 @@ public class EnemyWaterSpray : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(GameDifficulty) == 0)
         {
-            speed = 2500;
+            speed = 2750;
         }
         else if (PlayerPrefs.GetInt(GameDifficulty) == 1)
         {

@@ -79,7 +79,7 @@ public class WaterEnemyAttack : MonoBehaviour
         if(PlayerPrefs.GetInt(GameDifficulty) == 0)
         {
             canAttack = false;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3.5f);
             canAttack = true;
         } else if(PlayerPrefs.GetInt(GameDifficulty) == 1){
             canAttack = false;

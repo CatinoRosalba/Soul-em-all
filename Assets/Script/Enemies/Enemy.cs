@@ -30,13 +30,12 @@ public class Enemy : MonoBehaviour
         {
             weak = "water";                                                                     //Setti debolezza
             drop = Resources.Load<GameObject>("Gems/FireGem");                                  //Setti drop
+            health = 3;
             if (PlayerPrefs.GetInt(GameDifficulty) == 0)
             {
-                health = 1.6f;
-                agent.speed = 12;
+                agent.speed = 15;
             } else if(PlayerPrefs.GetInt(GameDifficulty) == 1)
             {
-                health = 3;
                 agent.speed = 20;
             }
         } 
@@ -44,14 +43,13 @@ public class Enemy : MonoBehaviour
         {
             weak = "fire";                                                                      //Setti debolezza
             drop = Resources.Load<GameObject>("Gems/WaterGem");                                 //Setti drop
+            health = 3;
             if (PlayerPrefs.GetInt(GameDifficulty) == 0)
             {
-                health = 2;
-                agent.speed = 6;
+                agent.speed = 7.5f;
             }
             else if (PlayerPrefs.GetInt(GameDifficulty) == 1)
             {
-                health = 3;
                 agent.speed = 10;   
             }
         }
@@ -76,14 +74,28 @@ public class Enemy : MonoBehaviour
     private void DropHealth()
     {
         Player player = FindObjectOfType<Player>();
-        float dropRate = 0.2f;
-        for(int i = player.health; i < player.maxHealth; i++)
+        if(PlayerPrefs.GetInt(GameDifficulty) == 0)
         {
-            dropRate += 0.1f;
-        }
-        if (Random.value <= dropRate)
+            float dropRate = 0.2f;
+            for (int i = player.health; i < player.maxHealth; i++)
+            {
+                dropRate += 0.1f;
+            }
+            if (Random.value <= dropRate)
+            {
+                Instantiate(Resources.Load("Vita"), gameObject.transform.position + new Vector3(0, 0, -2), Quaternion.identity);
+            }
+        } else if (PlayerPrefs.GetInt(GameDifficulty) == 1)
         {
-            Instantiate(Resources.Load("Vita"), gameObject.transform.position + new Vector3(0,0,-2), Quaternion.identity);
+            float dropRate = 0.1f;
+            for (int i = player.health; i < player.maxHealth; i++)
+            {
+                dropRate += 0.05f;
+            }
+            if (Random.value <= dropRate)
+            {
+                Instantiate(Resources.Load("Vita"), gameObject.transform.position + new Vector3(0, 0, -2), Quaternion.identity);
+            }
         }
     }
 }
