@@ -4288,11 +4288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206102667588, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048616
+      value: 0.014048622
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206102667588, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798045
+      value: -0.0010798048
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206700387732, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_RootOrder
@@ -4396,11 +4396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048616
+      value: 0.014048622
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798045
+      value: -0.0010798048
       objectReference: {fileID: 0}
     - target: {fileID: 3292051207132996766, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_BiasX
@@ -13314,7 +13314,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
-  mission: {fileID: 0}
   dialogue:
     avatarName: Amnery e Jiggly
     avatarImage: {fileID: 21300000, guid: 07d3972b260fa22448cb0bbebf3cb4e3, type: 3}
@@ -15278,7 +15277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
-  mission: {fileID: 0}
   dialogue:
     avatarName: Jiggly
     avatarImage: {fileID: 21300000, guid: 757c79fdf0226d248baef5419d779944, type: 3}
@@ -17257,7 +17255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
-  mission: {fileID: 1763736791}
   dialogue:
     avatarName: Amnery
     avatarImage: {fileID: 21300000, guid: 6b9f6a54cf773e34c863f02e6bb03e97, type: 3}
@@ -19148,7 +19145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5fa4b5c3bd80d4880356c6196a2b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionJiggly: {fileID: 2003703139}
   jiggly: {fileID: 2088515137}
   fireEnemy: {fileID: 638109119}
 --- !u!1001 &1245300997
@@ -19539,7 +19535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fb62735678aa644929e8e9e1f6b8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionEnemy: {fileID: 1763736791}
   fireEnemy: {fileID: 393847127}
   waterEnemy: {fileID: 452096374}
 --- !u!65 &1259309410
@@ -25030,6 +25025,18 @@ MonoBehaviour:
   onTrigger:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8955774085128691637}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 366805476}
         m_TargetAssemblyTypeName: ManageEventTriggered, Assembly-CSharp
         m_MethodName: ShowGemDialog
@@ -25118,7 +25125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
-  mission: {fileID: 1784495832}
   dialogue:
     avatarName: Amnery
     avatarImage: {fileID: 21300000, guid: 6b9f6a54cf773e34c863f02e6bb03e97, type: 3}
@@ -25835,11 +25841,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048617
+      value: 0.014048623
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798045
+      value: -0.0010798048
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -26759,11 +26765,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1763736791 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2658179779866821069, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
-  m_PrefabInstance: {fileID: 8955774085128691635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764717604
 GameObject:
   m_ObjectHideFlags: 0
@@ -27420,11 +27421,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4d452cd5e2cd1743892a3f54d9af2a7, type: 3}
---- !u!1 &1784495832 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1655974994388085143, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
-  m_PrefabInstance: {fileID: 8955774085128691635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797534076
 GameObject:
   m_ObjectHideFlags: 0
@@ -30218,7 +30214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9412cf2d9082cf4487aa2264d3c349f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionGems: {fileID: 1784495832}
   slot: {fileID: 2088515142}
 --- !u!1 &1949528282
 GameObject:
@@ -31648,11 +31643,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003376678}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2003703139 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2473443482252564590, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
-  m_PrefabInstance: {fileID: 8955774085128691635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011944873
 GameObject:
   m_ObjectHideFlags: 0
