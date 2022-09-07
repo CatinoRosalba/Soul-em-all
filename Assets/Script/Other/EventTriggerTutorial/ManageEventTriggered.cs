@@ -17,12 +17,12 @@ public class ManageEventTriggered : MonoBehaviour
     [Header("Trigger Zona Finale")]
     public DialogueTrigger triggerFinale;
 
-
+    
     public void ShowGemDialog()
     {
         triggerGem.TriggerDialogue();
     }
-    
+
     public void ShowEnemyDialog()
     {
         triggerEnemy.TriggerDialogue();
@@ -37,4 +37,6 @@ public class ManageEventTriggered : MonoBehaviour
     {
         triggerFinale.TriggerDialogue();
     }
+
+
 }

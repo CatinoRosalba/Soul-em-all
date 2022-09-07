@@ -98,13 +98,15 @@ public class DialogueManager : MonoBehaviour
         cameraObj = GameObject.Find("Third Person Camera");
 
         trigger.dialogueCanva.SetActive(false);
-        DialogueTrigger.isStartedDialogue = false;
-        
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
 
         cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
         Time.timeScale = 1;
+
+        DialogueTrigger.isStartedDialogue = false;
+
     }
 }

@@ -7,6 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     GameObject cameraObj; 
     public GameObject dialogueCanva;
     public Dialogue dialogue;
+
     public static bool isStartedDialogue;
 
     public void TriggerDialogue()

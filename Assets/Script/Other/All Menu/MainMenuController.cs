@@ -46,6 +46,11 @@ public class MainMenuController : MonoBehaviour
         {
             PlayerPrefs.SetInt(LastLevel, 0);
         }
+
+        if (PlayerPrefs.GetInt(LastLevel) == 4)                                          //Completato Livello 3
+        {
+            continueButton.interactable = false;                                        //Disattivo bottone continua
+        }
     }
 
     //Quando inizia una nuova partita, salvo il dato
@@ -63,15 +68,15 @@ public class MainMenuController : MonoBehaviour
         {
             changeLevel.FadeAndChangeToLevel("Tutorial");           //Riprende all'inizio del tutorial
         }
-        if (unlockLevel == 1)                                       //Tutorial
+        if (unlockLevel == 1)                                       //Completato Tutorial
         {
             changeLevel.FadeAndChangeToLevel("Level_1");            //Continua al Livello 1
         }
-        if (unlockLevel == 2)                                       //Livello 1
+        if (unlockLevel == 2)                                       //Completato Livello 1
         {
             changeLevel.FadeAndChangeToLevel("Level_2");            //Continua al Livello 2
         }
-        if (unlockLevel == 3)                                       //Livello 2
+        if (unlockLevel == 3)                                       //Completato Livello 2
         {
             changeLevel.FadeAndChangeToLevel("Level_3");            //Continua al Livello 3
         }

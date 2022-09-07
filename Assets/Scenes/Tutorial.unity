@@ -4288,11 +4288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206102667588, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048622
+      value: 0.014048616
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206102667588, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798048
+      value: -0.0010798045
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206700387732, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_RootOrder
@@ -4396,11 +4396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048622
+      value: 0.014048616
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798048
+      value: -0.0010798045
       objectReference: {fileID: 0}
     - target: {fileID: 3292051207132996766, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_BiasX
@@ -13314,6 +13314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
+  mission: {fileID: 0}
   dialogue:
     avatarName: Amnery e Jiggly
     avatarImage: {fileID: 21300000, guid: 07d3972b260fa22448cb0bbebf3cb4e3, type: 3}
@@ -15277,6 +15278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
+  mission: {fileID: 0}
   dialogue:
     avatarName: Jiggly
     avatarImage: {fileID: 21300000, guid: 757c79fdf0226d248baef5419d779944, type: 3}
@@ -17255,6 +17257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
+  mission: {fileID: 1763736791}
   dialogue:
     avatarName: Amnery
     avatarImage: {fileID: 21300000, guid: 6b9f6a54cf773e34c863f02e6bb03e97, type: 3}
@@ -19145,6 +19148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5fa4b5c3bd80d4880356c6196a2b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionJiggly: {fileID: 2003703139}
   jiggly: {fileID: 2088515137}
   fireEnemy: {fileID: 638109119}
 --- !u!1001 &1245300997
@@ -19535,6 +19539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fb62735678aa644929e8e9e1f6b8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionEnemy: {fileID: 1763736791}
   fireEnemy: {fileID: 393847127}
   waterEnemy: {fileID: 452096374}
 --- !u!65 &1259309410
@@ -25113,6 +25118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCanva: {fileID: 591876502}
+  mission: {fileID: 1784495832}
   dialogue:
     avatarName: Amnery
     avatarImage: {fileID: 21300000, guid: 6b9f6a54cf773e34c863f02e6bb03e97, type: 3}
@@ -25829,11 +25835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048623
+      value: 0.014048617
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798048
+      value: -0.0010798045
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -26753,6 +26759,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1763736791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2658179779866821069, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+  m_PrefabInstance: {fileID: 8955774085128691635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764717604
 GameObject:
   m_ObjectHideFlags: 0
@@ -27409,6 +27420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4d452cd5e2cd1743892a3f54d9af2a7, type: 3}
+--- !u!1 &1784495832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1655974994388085143, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+  m_PrefabInstance: {fileID: 8955774085128691635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797534076
 GameObject:
   m_ObjectHideFlags: 0
@@ -30202,6 +30218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9412cf2d9082cf4487aa2264d3c349f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionGems: {fileID: 1784495832}
   slot: {fileID: 2088515142}
 --- !u!1 &1949528282
 GameObject:
@@ -31631,6 +31648,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003376678}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2003703139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2473443482252564590, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+  m_PrefabInstance: {fileID: 8955774085128691635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011944873
 GameObject:
   m_ObjectHideFlags: 0
@@ -34307,6 +34329,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2134041585589066944, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: mission
+      value: 
+      objectReference: {fileID: 8955774085128691637}
+    - target: {fileID: 2134041585589066944, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
       propertyPath: dialogueCanva
       value: 
       objectReference: {fileID: 591876502}
@@ -34366,6 +34392,10 @@ PrefabInstance:
       propertyPath: avatarNameText
       value: 
       objectReference: {fileID: 1702862364}
+    - target: {fileID: 2134041585589066951, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: triggerManager
+      value: 
+      objectReference: {fileID: 366805476}
     - target: {fileID: 2134041585589066955, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
       propertyPath: m_Name
       value: DialogueManager
@@ -53795,6 +53825,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 205410209942332788, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655974994388085143, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937375872155519041, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473443482252564590, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658179779866821069, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3241422069976210521, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4858837787643547584, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -54351,7 +54405,23 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1003594692}
+    - target: {fileID: 5307510065609078763, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696223915006496010, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6473445831697764727, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933370245402583888, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044008232333879984, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -54392,3 +54462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a187ade5ccfdaa645a2b59af54655fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8955774085128691637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9056784147682570187, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+  m_PrefabInstance: {fileID: 8955774085128691635}
+  m_PrefabAsset: {fileID: 0}

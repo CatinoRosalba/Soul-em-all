@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyTutorial : MonoBehaviour
 {
-    private float totalEnemies;
     private GameObject block;
     public GameObject fireEnemy;
     public GameObject waterEnemy;
