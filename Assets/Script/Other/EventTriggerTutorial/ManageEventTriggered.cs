@@ -46,6 +46,4 @@ public class ManageEventTriggered : MonoBehaviour
         triggerFinale.TriggerDialogue();
         tasks.transform.Find("Final Zone").gameObject.SetActive(true);
     }
-
-
 }

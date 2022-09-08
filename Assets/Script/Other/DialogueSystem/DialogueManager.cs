@@ -103,10 +103,9 @@ public class DialogueManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-
         cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
         Time.timeScale = 1;
-
+        
         DialogueTrigger.isStartedDialogue = false;
     }
 }
