@@ -49,7 +49,7 @@ public class OptionMenuController : MonoBehaviour
             PlayerPrefs.SetFloat(SoundFXPref, effectVolumeValue);                   //Salva il volume
 
             //Sensibilità
-            sensX = 1;                                                              //Setta la sensibilità di defaul
+            sensX = 1;                                                              //Setta la sensibilità di default
             sensitivitySlider.value = sensX;                                        //Assegna allo slider
             sensitivityText.text = sensX.ToString();                                //Setta il testo
             PlayerPrefs.SetFloat(SensitivityX, sensX);                                //Salva il volume

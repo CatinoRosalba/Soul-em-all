@@ -12,7 +12,7 @@ public class WaterEnemyAttack : MonoBehaviour
 
     public GameObject bulletSpawnPoint;                                //Punto di spawn proiettili
     private GameObject player;                                         //Giocatore
-    private bool canAttack;                                            //Usata per il cooldown dell'attacco
+    public bool canAttack;                                            //Usata per il cooldown dell'attacco
     private bool canChangeDirAim;                                      //Usata per il cooldown di cambio direzione sparo
     private Vector3 aimDir;                                            //Direzione di mira
 

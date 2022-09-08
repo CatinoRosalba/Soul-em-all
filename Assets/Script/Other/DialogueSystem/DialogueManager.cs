@@ -95,6 +95,7 @@ public class DialogueManager : MonoBehaviour
     //Fine dialogo
     public void EndDialogue()
     {
+        dialogueSound.Stop();
         cameraObj = GameObject.Find("Third Person Camera");
 
         trigger.dialogueCanva.SetActive(false);
@@ -107,6 +108,5 @@ public class DialogueManager : MonoBehaviour
         Time.timeScale = 1;
 
         DialogueTrigger.isStartedDialogue = false;
-
     }
 }

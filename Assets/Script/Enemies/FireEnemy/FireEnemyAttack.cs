@@ -14,7 +14,7 @@ public class FireEnemyAttack : MonoBehaviour
     private FireEnemyMovement mov;                                                                  //Scirpt che gestisce il movimento del FireEnemy
     private Rigidbody rb;                                                                           //Rigidbody
 
-    private bool canAttack;                                                                         //Usato per controllare se può attaccare
+    public bool canAttack;                                                                         //Usato per controllare se può attaccare
     private bool canBrake;                                                                          //Usato per controllare se può frenare lo scatto
 
     void Start()
