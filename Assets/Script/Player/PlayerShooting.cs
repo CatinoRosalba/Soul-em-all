@@ -53,14 +53,14 @@ public class PlayerShooting : MonoBehaviour
         aimDir = (aim.amneryRaycasthit.point - bulletSpawnPoint.transform.position).normalized;
 
         //Fuoco Primario
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false)              //Se ho munzioni e premo sinistro del mouse
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == false && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false && Victory.isVictory == false)              //Se ho munzioni e premo sinistro del mouse
         {
             Fire(primaryFire, ref primaryAmmo, ref slot.TXTAmmo1);              //Sparo
             CheckAmmo(primaryAmmo, ref isEmpty1, ref equippedGem1, ref slot.imgEmptySlot1);       //Controllo Munizioni
             StartCoroutine(FireCooldown());                                     //Cooldown sparo
             
         } 
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == true && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false)
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && isEmpty1 == true && canShoot == true && PauseController.isGamePaused == false && DialogueTrigger.isStartedDialogue == false && Victory.isVictory == false)
         {
             PlayEmptyShotSound();
         }

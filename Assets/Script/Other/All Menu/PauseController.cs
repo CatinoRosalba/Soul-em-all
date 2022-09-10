@@ -57,6 +57,10 @@ public class PauseController : MonoBehaviour
     public void BackToMainMenu()
     {
         isGamePaused = false;
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         cameraObj = GameObject.Find("Third Person Camera");
         cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
         FindObjectOfType<LevelChanger>().FadeAndChangeToLevel("MainMenu");

@@ -36,6 +36,9 @@ public class GameOverController : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         cameraObj = GameObject.Find("Third Person Camera");
         cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
 

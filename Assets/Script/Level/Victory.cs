@@ -21,6 +21,7 @@ public class Victory : MonoBehaviour
 
     private void Start()
     {
+        isVictory = false;
         sfx = GameObject.Find("SFX");
         victorySound = sfx.transform.Find("SFX - Victory").GetComponent<AudioSource>();
     }
@@ -34,17 +35,36 @@ public class Victory : MonoBehaviour
         if (other.CompareTag("Player") && !Equals(SceneManager.GetActiveScene(), SceneManager.GetSceneByName("Level_3")))
         {
             transition.FadeAndChangeToLevel(nextLevel);                     //Passa al prossimo livello
-            isVictory = true;
+            isVictory = false;
         } 
         else
         {                                                                   //Visualizza schermata di fine demo
             cameraObj = GameObject.Find("Third Person Camera");
+            cameraObj.GetComponent<FreeLookAxisDriver>().enabled = false;
+
             uiFinishDemo.SetActive(true);
+
             Time.timeScale = 0;
+
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+
             isVictory = true;
         }
+    }
+
+    public void BackToMainMenu()
+    {
+        isVictory = false;
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
+        cameraObj = GameObject.Find("Third Person Camera");
+        cameraObj.GetComponent<FreeLookAxisDriver>().enabled = true;
+        FindObjectOfType<LevelChanger>().FadeAndChangeToLevel("MainMenu");
+        
+        Time.timeScale = 1;
     }
 
     private void SaveProgress()
