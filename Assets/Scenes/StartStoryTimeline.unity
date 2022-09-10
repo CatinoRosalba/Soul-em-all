@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Si, un aiuto non sarebbe male. Grazie!
+  m_text: Si, un aiuto darebbe molto utile. Grazie!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8600509cd9eb959428281fccc17e241c, type: 2}
   m_sharedMaterial: {fileID: -4461026511657992970, guid: 8600509cd9eb959428281fccc17e241c, type: 2}
