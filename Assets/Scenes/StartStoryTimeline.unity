@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Si, un aiuto darebbe molto utile. Grazie!
+  m_text: Si, un aiuto sarebbe molto utile. Grazie!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8600509cd9eb959428281fccc17e241c, type: 2}
   m_sharedMaterial: {fileID: -4461026511657992970, guid: 8600509cd9eb959428281fccc17e241c, type: 2}
@@ -1642,8 +1642,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281348144
+  m_fontColor: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1660,8 +1660,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1727,7 +1727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 429, y: -203}
+  m_AnchoredPosition: {x: -485, y: -321}
   m_SizeDelta: {x: 913.4785, y: 130.691}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1544201083
@@ -2492,8 +2492,6 @@ PlayableDirector:
     value: {fileID: 127184164}
   - key: {fileID: -7962953540873511447, guid: 880bbcd3e88ed874b97fdc27fea54a8d, type: 2}
     value: {fileID: 1822293173}
-  - key: {fileID: 7600106163003271574, guid: 880bbcd3e88ed874b97fdc27fea54a8d, type: 2}
-    value: {fileID: 1062270736}
   - key: {fileID: -5957756538055349618, guid: 880bbcd3e88ed874b97fdc27fea54a8d, type: 2}
     value: {fileID: 919112649}
   - key: {fileID: 7344181779026224669, guid: 880bbcd3e88ed874b97fdc27fea54a8d, type: 2}
@@ -2516,6 +2514,8 @@ PlayableDirector:
     value: {fileID: 818459645}
   - key: {fileID: -232091451800486260, guid: 880bbcd3e88ed874b97fdc27fea54a8d, type: 2}
     value: {fileID: 587479474680245039}
+  - key: {fileID: 808385752466235710, guid: 880bbcd3e88ed874b97fdc27fea54a8d, type: 2}
+    value: {fileID: 1062270736}
   m_ExposedReferences:
     m_References:
     - b71f52c9d6d28a94e9cc1199eca3afb4: {fileID: 0}

@@ -10,6 +10,8 @@ public class Victory : MonoBehaviour
     public GameObject cameraObj;
     private AudioSource victorySound;
 
+    public static bool isVictory = false;
+
     private static readonly string LastLevel = "LastLevel";
 
     [SerializeField] LevelChanger transition;
@@ -32,6 +34,7 @@ public class Victory : MonoBehaviour
         if (other.CompareTag("Player") && !Equals(SceneManager.GetActiveScene(), SceneManager.GetSceneByName("Level_3")))
         {
             transition.FadeAndChangeToLevel(nextLevel);                     //Passa al prossimo livello
+            isVictory = true;
         } 
         else
         {                                                                   //Visualizza schermata di fine demo
@@ -40,6 +43,7 @@ public class Victory : MonoBehaviour
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            isVictory = true;
         }
     }
 

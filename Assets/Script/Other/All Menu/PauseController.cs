@@ -14,7 +14,7 @@ public class PauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isGamePaused && !DialogueTrigger.isStartedDialogue && !GameOverController.isGameOver)
+            if (!isGamePaused && !DialogueTrigger.isStartedDialogue && !GameOverController.isGameOver && !Victory.isVictory)
             {
                 PauseGame();
             }
