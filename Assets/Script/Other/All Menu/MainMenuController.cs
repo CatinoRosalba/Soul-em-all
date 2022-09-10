@@ -13,6 +13,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] Button continueButton;
     [SerializeField] Button[] chapterButton;
     [SerializeField] Button[] levelButton;
+    [SerializeField] Toggle[] difficultButton;
 
     private int unlockLevel;
     private int indexLastLevel;
@@ -21,6 +22,7 @@ public class MainMenuController : MonoBehaviour
     private static readonly string NewGame = "NewGame";             //1 - iniziata nuova partita | 0 - nessuna nuova partita
     private static readonly string FirstPlay = "FirstPlay";         //0 - prima volta | -1: già aperto altre volte
     private static readonly string LastLevel = "LastLevel";         //
+    private static readonly string GameDifficulty = "Difficulty";   //0 Facile - 1 Normale
 
     private void Start()
     {
@@ -35,8 +37,8 @@ public class MainMenuController : MonoBehaviour
         {
             PlayerPrefs.SetInt(NewGame, 0);                                             //creo e setto
             continueButton.interactable = false;                                        //disattivo bottone
-        } 
-        else if(PlayerPrefs.HasKey(NewGame) && PlayerPrefs.GetInt(NewGame) == 0)        //se esiste ed è 0
+        }
+        else if (PlayerPrefs.HasKey(NewGame) && PlayerPrefs.GetInt(NewGame) == 0)        //se esiste ed è 0
         {
             continueButton.interactable = false;                                        //disattivo bottone
         }
@@ -51,7 +53,47 @@ public class MainMenuController : MonoBehaviour
         {
             continueButton.interactable = false;                                        //Disattivo bottone continua
         }
+
+        if (PlayerPrefs.GetInt(GameDifficulty) == 0)
+        {
+            for (int i = 0; i < difficultButton.Length; i++)
+            {
+                difficultButton[0].isOn = true;
+                difficultButton[1].isOn = false;
+            }
+
+        }
+        else
+        {
+            for (int i = 0; i < difficultButton.Length; i++)
+            {
+                difficultButton[0].isOn = false;
+                difficultButton[1].isOn = true;
+            }
+        }
     }
+
+
+
+    //Imposta la difficoltà facile
+    #region Difficulty
+    public void SetEasyDifficulty(bool isOn)
+    {
+        if (isOn)
+        {
+            PlayerPrefs.SetInt(GameDifficulty, 0);
+        }
+    }
+
+    //Imposta la difficoltà normale
+    public void SetNormalDifficulty(bool isOn)
+    {
+        if (isOn)
+        {
+            PlayerPrefs.SetInt(GameDifficulty, 1);
+        }
+    }
+    #endregion
 
     //Quando inizia una nuova partita, salvo il dato
     public void InitNewGame()
@@ -93,7 +135,7 @@ public class MainMenuController : MonoBehaviour
         {
             for (int i = 0; i < chapterButton.Length; i++)
             {
-                chapterButton[0].interactable = true;              //Può interagire con il primio capitolo e scegliere di rifare un livello a piacere tra quelli già sbloccati
+                chapterButton[0].interactable = true;              //Può interagire con il primio capitolo e visualizzare i livelli
                 chapterButton[1].interactable = false;
                 chapterButton[2].interactable = false;
             }
@@ -137,9 +179,9 @@ public class MainMenuController : MonoBehaviour
             {
                 levelButton[i].interactable = true;
             }
-        } 
+        }
         else
-        {
+        {                                                           //Se non ha superato nessun livello li lascio bloccati
             for (int i = 0; i < levelButton.Length; i++)
             {
                 levelButton[i].interactable = false;
@@ -148,7 +190,7 @@ public class MainMenuController : MonoBehaviour
     }
 
     //Esco dal gioco
-    public void exitButton()
+    public void ExitButton()
     {
         Application.Quit();
         Debug.Log("Uscito");

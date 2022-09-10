@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Victory : MonoBehaviour
 {
     private GameObject sfx;
+    public GameObject uiFinishDemo;
+    public GameObject cameraObj;
     private AudioSource victorySound;
 
     private static readonly string LastLevel = "LastLevel";
@@ -26,9 +28,18 @@ public class Victory : MonoBehaviour
         SaveProgress();
         victorySound.Play();
 
-        if (other.CompareTag("Player"))
+        //Se collide con il giocatore e non siamo all'ultimo livello
+        if (other.CompareTag("Player") && !Equals(SceneManager.GetActiveScene(), SceneManager.GetSceneByName("Level_3")))
         {
             transition.FadeAndChangeToLevel(nextLevel);                     //Passa al prossimo livello
+        } 
+        else
+        {                                                                   //Visualizza schermata di fine demo
+            cameraObj = GameObject.Find("Third Person Camera");
+            uiFinishDemo.SetActive(true);
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
     }
 

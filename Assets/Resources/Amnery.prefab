@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7548461687747151805}
-  - component: {fileID: 7548461686652825156}
   - component: {fileID: 7548461686652825163}
   - component: {fileID: 7548461686652825157}
   - component: {fileID: 7548461686652825162}
@@ -132,14 +131,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &7548461686652825156
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7548461686652826033}
-  m_Enabled: 1
 --- !u!54 &7548461686652825163
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -243,7 +234,6 @@ MonoBehaviour:
   equippedGem2: {fileID: 0}
   secondaryFire: {fileID: 0}
   secondaryAmmo: 0
-  emptyShot: {fileID: 0}
   isEmpty1: 0
   isEmpty2: 0
 --- !u!114 &7548461686652825166
@@ -259,7 +249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
-  sfxPickup: {fileID: 0}
 --- !u!114 &7548461686652825165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +266,7 @@ MonoBehaviour:
   isHooked: 0
   canHook: 0
   jigglyAttackState: 0
-  CooldownJigglyAttack: 0
+  CanJigglyAttack: 0
 --- !u!114 &8681441062383250723
 MonoBehaviour:
   m_ObjectHideFlags: 0

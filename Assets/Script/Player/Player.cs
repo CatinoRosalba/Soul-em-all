@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public GameObject[] goHealth;                                                                   //Oggetto vita del giocatore
     private SpriteRenderer spriteRenderer;
     public int maxHealth;
-    public int health;                                                                           //Vita del giocatore
+    public int health;                                                                              //Vita del giocatore
     [SerializeField] GameOverController gameOverController;
     private bool gameOver;                                                                          //Stato di GameOver
     private bool invisibilityFrame;                                                                 //Permette di evitare il danno consecutivo
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         {
             health--;                                                                               //Prendi danno
             damageSound.Play();
-            goHealth[health].gameObject.SetActive(false);                                           //Distrugge lo sprite della vita
+            goHealth[health].gameObject.SetActive(false);                                           //Disattivo lo sprite della vita
             StartCoroutine(EFlash());                                                               //Flash del danno
             if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
             damageSound.Play();
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * (-500) * Time.fixedDeltaTime, ForceMode.Impulse); //Contraccolpo
             StartCoroutine(EFlash());                                                               //Flash del danno
-            goHealth[health].gameObject.SetActive(false);                                             //Distrugge lo sprite della vita
+            goHealth[health].gameObject.SetActive(false);                                             //Disattivo lo sprite della vita
             if (health <= 0)                                                                        //Se la vita è 0 o meno
             {
                 GameObject explosion = (GameObject) Instantiate(explosionRef);                       //Esplosione

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Difficulty : MonoBehaviour
@@ -10,8 +9,6 @@ public class Difficulty : MonoBehaviour
 
     [SerializeField] private TMP_Text easy;
     [SerializeField] private TMP_Text normal;
-
-    private int difficultInt;
 
     // Start is called before the first frame update
     void Start()

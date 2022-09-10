@@ -52,7 +52,7 @@ public class OptionMenuController : MonoBehaviour
             sensX = 1;                                                              //Setta la sensibilità di default
             sensitivitySlider.value = sensX;                                        //Assegna allo slider
             sensitivityText.text = sensX.ToString();                                //Setta il testo
-            PlayerPrefs.SetFloat(SensitivityX, sensX);                                //Salva il volume
+            PlayerPrefs.SetFloat(SensitivityX, sensX);                              //Salva il volume
 
             PlayerPrefs.SetInt(FirstPlay, -1);                                      //Setta la variabile di FirstPlay
         }
@@ -67,7 +67,7 @@ public class OptionMenuController : MonoBehaviour
             effectVolumeSlider.value = effectVolumeValue;                            //Assegna allo slider
 
             //Sensibilità
-            sensX = PlayerPrefs.GetFloat(SensitivityX);                                //Setta la sensibilità salvata precedentemente 
+            sensX = PlayerPrefs.GetFloat(SensitivityX);                              //Setta la sensibilità salvata precedentemente 
             sensitivitySlider.value = sensX;                                         //Assegna allo slider
         }
     }
@@ -110,6 +110,6 @@ public class OptionMenuController : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundVolumePref, backgroundVolumeSlider.value);                 //Salva il valore backgound
         PlayerPrefs.SetFloat(SoundFXPref, effectVolumeSlider.value);                              //Salva il valore effetti
-        PlayerPrefs.SetFloat(SensitivityX, sensitivitySlider.value);                          //Salva la sensibilità
+        PlayerPrefs.SetFloat(SensitivityX, sensitivitySlider.value);                              //Salva la sensibilità
     }
 }

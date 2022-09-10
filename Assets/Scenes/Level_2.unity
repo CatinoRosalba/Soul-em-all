@@ -7814,7 +7814,8 @@ PrefabInstance:
       propertyPath: jigglyAttack
       value: 
       objectReference: {fileID: 1380914049}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7548461686652825156, guid: ee811d7431f93224190302880290e7f6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ee811d7431f93224190302880290e7f6, type: 3}
 --- !u!4 &256952513 stripped
 Transform:
@@ -20222,6 +20223,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1099617486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 815060850224024136, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+  m_PrefabInstance: {fileID: 1380914042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1109827868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22701,8 +22707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7899bbb18c87d2b4e9fb2fdfee655dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiFinishDemo: {fileID: 1099617486}
+  cameraObj: {fileID: 1710508310}
   transition: {fileID: 265748020}
-  nextLevel: Level_3
+  nextLevel: DialogAfterLvl2
 --- !u!65 &1323781319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23246,9 +23254,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4858837788383176826, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1380914051}
+    - target: {fileID: 4858837788383176826, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 661360033}
+    - target: {fileID: 4858837788383176826, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 4858837788383176826, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Play
@@ -23358,9 +23374,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4858837788589395777, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1922169989}
+    - target: {fileID: 4858837788589395777, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 661360033}
+    - target: {fileID: 4858837788589395777, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 4858837788589395777, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Play
@@ -23638,9 +23662,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1517875501}
     - target: {fileID: 4858837789383370081, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1380914051}
+    - target: {fileID: 4858837789383370081, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 661360033}
+    - target: {fileID: 4858837789383370081, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4858837789383370081, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Play
@@ -30882,11 +30914,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.74209166
+      value: 0.7420917
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.057038672
+      value: 0.05703867
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -30923,12 +30955,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7825732547302201643, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
   m_PrefabInstance: {fileID: 1710508308}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1710508310}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec4e0cf40d3c35746b351f73893cd7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1710508310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3292051206037163589, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
+  m_PrefabInstance: {fileID: 1710508308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1724504524
 GameObject:
   m_ObjectHideFlags: 0
@@ -37837,6 +37874,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1922169989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4858837789235168430, guid: 980dbaa946df43d44b90cfa71ab38bd9, type: 3}
+  m_PrefabInstance: {fileID: 1380914042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67485f2f18353df47aa30c33a5ed071a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1927629221
 GameObject:
   m_ObjectHideFlags: 0
