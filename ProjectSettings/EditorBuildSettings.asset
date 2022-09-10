@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_3.unity
     guid: 17af11286af7eb94abf1d9800f422df2
+  - enabled: 1
+    path: Assets/Scenes/StartStoryTimeline.unity
+    guid: 1939d856ae25c7045be77ff625864f03
+  - enabled: 1
+    path: Assets/Scenes/DialogAfterLv1.unity
+    guid: 8c8d0d15dc073be41b382d5a5d24f01f
+  - enabled: 1
+    path: Assets/Scenes/DialogAfterLvl2.unity
+    guid: 1940f8991fc43cd4b848df607b09c8ee
   m_configObjects: {}

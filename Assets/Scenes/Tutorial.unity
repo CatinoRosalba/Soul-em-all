@@ -4401,11 +4401,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048616
+      value: 0.014048622
       objectReference: {fileID: 0}
     - target: {fileID: 3292051206943973651, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798045
+      value: -0.0010798048
       objectReference: {fileID: 0}
     - target: {fileID: 3292051207132996766, guid: c540f6039c56cf64dbe960a52ab8b04f, type: 3}
       propertyPath: m_BiasX
@@ -25142,7 +25142,8 @@ MonoBehaviour:
     sentences:
     - Hai visto le gemme in lontananza?  Rappresentano gli incantesimi che puoi evocare.
     - La gemma blu evoca un incantesimo d'acqua, la rossa uno di fuoco.
-    - Col tasto Q ed E potrai raccoglierle e posizionarle in uno degli slot in basso.
+    - Avvicinandoti potrai raccoglierle. In caso di slot pieni usa Q o E per posizionarle
+      in uno degli slot in basso.
 --- !u!1 &1612986330
 GameObject:
   m_ObjectHideFlags: 0
@@ -25852,11 +25853,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014048617
+      value: 0.014048623
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0010798045
+      value: -0.0010798048
       objectReference: {fileID: 0}
     - target: {fileID: 6777720757682342020, guid: 30c45b172065491418c033217ec47030, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -34337,6 +34338,10 @@ PrefabInstance:
       propertyPath: dialogueCanva
       value: 
       objectReference: {fileID: 591876502}
+    - target: {fileID: 2134041585589066944, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Bene, per iniziare premi WASD per muoverti in tutte le direzioni!
+      objectReference: {fileID: 0}
     - target: {fileID: 2134041585589066949, guid: 89ef9c6c52d95304fbe34923cf89a45b, type: 3}
       propertyPath: m_RootOrder
       value: 7
