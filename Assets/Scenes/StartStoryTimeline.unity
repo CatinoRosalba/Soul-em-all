@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Se vuoi posso aiutarti a carcare i tuoi compagni e nel mentre riacquisire
+  m_text: 'Se vuoi posso aiutarti a cercare i tuoi compagni e nel mentre riacquisire
     la mia memoria... '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8600509cd9eb959428281fccc17e241c, type: 2}
