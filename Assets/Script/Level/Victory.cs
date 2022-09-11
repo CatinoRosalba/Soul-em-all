@@ -37,7 +37,7 @@ public class Victory : MonoBehaviour
             transition.FadeAndChangeToLevel(nextLevel);                     //Passa al prossimo livello
             isVictory = false;
         } 
-        else
+        else if(other.CompareTag("Player"))
         {                                                                   //Visualizza schermata di fine demo
             cameraObj = GameObject.Find("Third Person Camera");
             cameraObj.GetComponent<FreeLookAxisDriver>().enabled = false;
