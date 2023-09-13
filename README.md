@@ -8,5 +8,5 @@ Il nome del gioco è “Soul ‘em All” poiché ha l’obiettivo di sconfigger
 
 <h3> Tecnologie utilizzate </h3>
 - Ambiente di sviluppo: <b>Unity</b> <br>
-- Linguaggio di programmazione <b>C++</b> <br>
+- Linguaggio di programmazione <b>C#</b> <br>
 - Grafiche: <b>Photoshop</b> <br>
