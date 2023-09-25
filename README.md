@@ -10,3 +10,5 @@ Il nome del gioco è “Soul ‘em All” poiché ha l’obiettivo di sconfigger
 - Ambiente di sviluppo: <b>Unity</b> <br>
 - Linguaggio di programmazione <b>C#</b> <br>
 - Grafiche: <b>Photoshop</b> <br>
+
+<h4>Disponibile su: Itch.io: https://rosalbacatino.itch.io/soul-em-all</h4>
